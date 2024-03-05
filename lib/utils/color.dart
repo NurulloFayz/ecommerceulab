@@ -18,8 +18,6 @@ Color buttonColor = const Color(0xff0074EB);
 Color discountColor = const Color(0xffEB2A00);
 Color orderDoneBtnColor = const Color(0xff0074EB).withOpacity(.35);
 
-
-
 List<Color> appBarGradientColor = [
   const Color(0xff82d9e3),
   const Color(0xffa7e7cd)
