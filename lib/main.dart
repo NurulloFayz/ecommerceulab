@@ -1,4 +1,3 @@
-import 'package:ecommerce_ulab/pages/onBoarding_page.dart';
 import 'package:ecommerce_ulab/pages/splash_page.dart';
 import 'package:flutter/material.dart';
 
@@ -13,17 +12,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const OnBoardingPage(),
-      // routes: {
-      //   '/': (context)=>const OnBoardingPage(),
-      // },
+      home: const SplashPage(),
+      routes: {
+
+      },
     );
   }
 }
+
+
