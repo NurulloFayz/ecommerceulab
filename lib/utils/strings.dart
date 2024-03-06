@@ -13,6 +13,9 @@ class Strings {
   static String authText4 = 'Введите код';
   static String authText5 = 'Отправили код на номер ';// here registered number should come
   static String authText6 = 'Изменить номер';
+  static String authText7 = 'Регистрируйтесь';
+  static String authText8 = 'пароль';
+  static String authText9 = 'Отправили код на ';
   /// auth error texts
   static String errorText1 = 'Неверный код';
   static String errorText2 = 'Отправить еще раз';

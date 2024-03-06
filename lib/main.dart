@@ -1,5 +1,5 @@
-import 'package:ecommerce_ulab/pages/auth_pages/enter_code_page.dart';
-import 'package:ecommerce_ulab/pages/auth_pages/enter_number_page.dart';
+import 'package:ecommerce_ulab/pages/auth_pages/email_page.dart';
+import 'package:ecommerce_ulab/pages/auth_pages/enter_email_code_page.dart';
 import 'package:ecommerce_ulab/pages/onBoarding_page.dart';
 import 'package:flutter/material.dart';
 
@@ -23,8 +23,8 @@ class MyApp extends StatelessWidget {
       ),
       home: const OnBoardingPage(),
       routes: {
-        EnterCodePage.id:(context) => const EnterCodePage(''),
-        EnterNumberPage.id:(context) => EnterNumberPage(),
+        EmailPage.id:(context) => EmailPage(),
+        EnterEmailCodePage.id:(context) => EnterEmailCodePage(''),
       },
     );
   }

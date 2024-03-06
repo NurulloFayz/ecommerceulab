@@ -1,3 +1,4 @@
+import 'package:ecommerce_ulab/pages/auth_pages/email_page.dart';
 import 'package:ecommerce_ulab/pages/auth_pages/enter_number_page.dart';
 import 'package:ecommerce_ulab/utils/strings.dart';
 import 'package:flutter/material.dart';
@@ -101,7 +102,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const EnterNumberPage(),
+                  builder: (context) => const EmailPage(),
                 ),
               );
             },

@@ -46,8 +46,9 @@ class _EnterNumberPageState extends State<EnterNumberPage> {
                           Text(Strings.authText1,style: TextStyle(fontWeight: FontWeight.w600,
                               fontSize: MediaQuery.of(context).size.height/27
                           ),),
+                          SizedBox(height: MediaQuery.of(context).size.height/50,),
                           Text(Strings.authText2,style: TextStyle(fontWeight: FontWeight.w500,
-                              fontSize: MediaQuery.of(context).size.height/50,color: Colors.grey
+                              fontSize: MediaQuery.of(context).size.height/50,color: black38
                           ),)
                         ],
                       ),

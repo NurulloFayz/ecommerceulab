@@ -51,8 +51,13 @@ class _EnterCodePageState extends State<EnterCodePage> {
                           Text(Strings.authText4,style: TextStyle(fontWeight: FontWeight.w600,
                               fontSize: MediaQuery.of(context).size.height/27
                           ),),
+                          SizedBox(height: MediaQuery.of(context).size.height/50,),
                           Text(Strings.authText5+'+998 ${code_number}',style: TextStyle(fontWeight: FontWeight.w500,
                               fontSize: MediaQuery.of(context).size.height/50,color: Colors.grey
+                          ),),
+                          SizedBox(height: MediaQuery.of(context).size.height/50,),
+                          Text(Strings.authText6,style: TextStyle(fontSize: MediaQuery.of(context).size.height/40,
+                          color: blue,fontWeight: FontWeight.w500
                           ),)
                         ],
                       ),
