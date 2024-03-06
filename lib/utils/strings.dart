@@ -9,7 +9,7 @@ class Strings {
   /// auth page texts
   static String authText1 = 'Введите номер телефона';
   static String authText2 = 'Отправим смс с кодом подтверждения';
-  static String authText3 = 'При регистрации вы соглашаетесь с условиями использования и политикой конфиденциальности';
+  static String authText3 = 'При регистрации вы соглашаетесь с условиями\nиспользования и политикой конфиденциальности';
   static String authText4 = 'Введите код';
   static String authText5 = 'Отправили код на номер ';// here registered number should come
   static String authText6 = 'Изменить номер';

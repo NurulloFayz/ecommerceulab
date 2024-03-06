@@ -1,4 +1,6 @@
-import 'package:ecommerce_ulab/pages/splash_page.dart';
+import 'package:ecommerce_ulab/pages/auth_pages/enter_code_page.dart';
+import 'package:ecommerce_ulab/pages/auth_pages/enter_number_page.dart';
+import 'package:ecommerce_ulab/pages/onBoarding_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,15 +14,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const SplashPage(),
+      home: const OnBoardingPage(),
       routes: {
-
+        EnterCodePage.id:(context) => const EnterCodePage(''),
+        EnterNumberPage.id:(context) => EnterNumberPage(),
       },
     );
   }
