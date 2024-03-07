@@ -26,7 +26,7 @@ class Strings {
   static String registerText3 = 'Дата рождения';
   static String hintText2 = 'Введите  дату рождения';
   /// main page text
-  static String textfieldHintText = 'Поиск товаров и категорий';
+  static String homePageHintText = 'Поиск товаров и категорий';
   /// ListView horizontal texts
   static String category = 'Категории';
   static String text1 = 'Распродажа';
@@ -91,4 +91,9 @@ class Strings {
   static String cartPageHintTex5 = 'Промокод';
   static String cartPageHintTex6 = 'Найти город';
   static String cartPageButtonText = 'Оформить заказ';
+  /// bottomnavigation texts
+  static String bottomText1 = 'Главная';
+  static String bottomText2 = 'Каталог';
+  static String bottomText3 = 'Корзина';
+  static String bottomText4 = 'Кабинет';
 }
