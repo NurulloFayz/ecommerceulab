@@ -1,6 +1,8 @@
 import 'package:ecommerce_ulab/pages/auth_pages/email_page.dart';
 import 'package:ecommerce_ulab/pages/auth_pages/enter_email_code_page.dart';
+import 'package:ecommerce_ulab/pages/home_page.dart';
 import 'package:ecommerce_ulab/pages/onBoarding_page.dart';
+import 'package:ecommerce_ulab/pages/pages.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -21,10 +23,11 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const OnBoardingPage(),
+      home: const MyPages(),
       routes: {
         EmailPage.id:(context) => EmailPage(),
         EnterEmailCodePage.id:(context) => EnterEmailCodePage(''),
+        HomePage.id:(context) => HomePage(),
       },
     );
   }

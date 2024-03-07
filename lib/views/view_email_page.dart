@@ -13,10 +13,7 @@ class ViewEmailPage extends ChangeNotifier{
     typedText = value;
     notifyListeners();
   }
-  void navigateToEnterEmailCodePage(BuildContext context) {
-    Navigator.pushNamed(context, EnterEmailCodePage.id);
-  }
   void showEmail(BuildContext context,String email) {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => EnterEmailCodePage(email)));
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => EnterEmailCodePage(email)));
   }
 }

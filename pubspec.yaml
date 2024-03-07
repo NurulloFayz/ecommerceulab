@@ -65,6 +65,7 @@ flutter:
   assets:
       - assets/images/auth_icon/
       - assets/images/intro_page/
+      - assets/images/u_home_icon/
 
 
 
