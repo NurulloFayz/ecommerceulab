@@ -1,3 +1,4 @@
+import 'package:ecommerce_ulab/views/back_button.dart';
 import 'package:ecommerce_ulab/views/view_enter_email_code_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -28,7 +29,7 @@ class _EnterEmailCodePageState extends State<EnterEmailCodePage> {
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
-
+            view.backToEmailPage(context);
           },
           icon: Icon(Icons.navigate_before),
         ),
@@ -54,7 +55,8 @@ class _EnterEmailCodePageState extends State<EnterEmailCodePage> {
                               fontSize: MediaQuery.of(context).size.height/40,color: black38
                           ),),
                           Text(view.sent_email.toString(),style: TextStyle(fontWeight: FontWeight.w600,
-                              fontSize: MediaQuery.of(context).size.height/40,color: black38
+                              fontSize: MediaQuery.of(context).size.height/45,color: black38,
+
                           ),),
                         ],
                       ),
@@ -83,8 +85,11 @@ class _EnterEmailCodePageState extends State<EnterEmailCodePage> {
                   Spacer(),
                   GestureDetector(
                     onTap: () {
-
-
+                      if(view.typedText.isEmpty) {
+                        return;
+                      } else {
+                        view.navigateToHomePage(context);
+                      }
                     },
                     child: Container(
                       height: MediaQuery.of(context).size.height/12,

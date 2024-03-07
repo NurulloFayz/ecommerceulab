@@ -20,14 +20,7 @@ class _EmailPageState extends State<EmailPage> {
   Widget build(BuildContext context) {
     //FocusScope.of(context).requestFocus(view.textFieldFocusNode);
     return Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-            onPressed: () {
-             backButton(context);
-            },
-            icon: Icon(Icons.navigate_before),
-          ),
-        ),
+        appBar: AppBar(),
       body:ChangeNotifierProvider(
         create: (context) => view,
         child: Consumer<ViewEmailPage> (
@@ -45,9 +38,12 @@ class _EmailPageState extends State<EmailPage> {
                               fontSize: MediaQuery.of(context).size.height/27
                           ),),
                           SizedBox(height: MediaQuery.of(context).size.height/50,),
-                          Text(Strings.authText2,style: TextStyle(fontWeight: FontWeight.w500,
-                              fontSize: MediaQuery.of(context).size.height/50,color: Colors.grey
-                          ),),
+                          Container(
+                            margin: EdgeInsets.only(right: MediaQuery.of(context).size.width/50),
+                            child: Text(Strings.authText2,style: TextStyle(fontWeight: FontWeight.w500,
+                                fontSize: MediaQuery.of(context).size.height/50,color: Colors.grey
+                            ),),
+                          ),
                         ],
                       ),
                     ],
@@ -59,6 +55,7 @@ class _EmailPageState extends State<EmailPage> {
                     ),
                     child: TextField(
                       controller: view.email,
+                      style: TextStyle(fontSize: MediaQuery.of(context).size.height/40),
                       onChanged: (value) {
                         view.changeValue(value);
                       },
@@ -77,9 +74,12 @@ class _EmailPageState extends State<EmailPage> {
                   Spacer(),
                   GestureDetector(
                     onTap: () {
-                      view.navigateToEnterEmailCodePage(context);
-                      view.showEmail(context, view.typedText);
-
+                      if(view.typedText.isEmpty) {
+                        return;
+                      } else {
+                        //view.navigateToEnterEmailCodePage(context);
+                        view.showEmail(context, view.typedText);
+                      }
                     },
                     child: Container(
                       height: MediaQuery.of(context).size.height/12,
