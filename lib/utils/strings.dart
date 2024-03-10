@@ -39,7 +39,23 @@ class Strings {
   /// favourite page text
   static String favouritePageText = 'Мои желания';
   /// profile page text
-  static String profilePageText = 'Мои желания';
+  static String profilePageText1 = 'Личный кабинет';
+  static String profilePageText2 = 'Мои желания';
+  static String profilePageText3 = 'Мои заказы';
+  static String profilePageText4 = 'Мои отзывы';
+  static String profilePageText5 = 'Рассрочка Ummerce Nasiya';
+  static String profilePageText6 = 'Мои промокоды';
+  static String profilePageText7 = 'Мои чаты';
+  static String profilePageText8 = 'Уведомления';
+  static String profilePageText9 = 'Мой профиль';
+  static String profilePageText10 = 'Настройки';
+  static String profilePageText11 = 'Мои промокоды';
+  static String profilePageText12 = 'Город';
+  static String profilePageText13 = 'Пункт выдачи на карте';
+  static String profilePageText14 = 'Справка';
+  static String profilePageText15 = 'Связаться с нами';
+  static String profilePageText16 = 'Русский';
+  static String profilePageText17 = 'Ташкент';
 
   /// catalog page texts
   static String catalogText1 = 'Вы недавно искали';
