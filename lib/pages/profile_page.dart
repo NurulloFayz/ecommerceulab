@@ -16,7 +16,7 @@ class _ProfilePageState extends State<ProfilePage> {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: greyShade1,
+      backgroundColor: greyShade2,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -61,6 +61,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             SizedBox(height: screenHeight / 30,),
             Container(
+              margin: EdgeInsets.only(right: screenWidth / 50,left: screenWidth / 50),
               height: screenHeight / 3.8,
               width: screenHeight / 2.0,
               decoration: BoxDecoration(
@@ -91,6 +92,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             SizedBox(height: screenHeight / 50,),
             Container(
+              margin: EdgeInsets.only(right: screenWidth / 50,left: screenWidth / 50),
               height: screenHeight / 2.2,
               width: screenHeight / 2.0,
               decoration: BoxDecoration(
@@ -133,6 +135,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             SizedBox(height: screenHeight / 50,),
             Container(
+                margin: EdgeInsets.only(right: screenWidth / 50,left: screenWidth / 50),
               height: screenHeight / 11,
               width: screenHeight / 2.0,
               decoration: BoxDecoration(
@@ -160,6 +163,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             SizedBox(height: screenHeight / 50,),
             Container(
+              margin: EdgeInsets.only(right: screenWidth / 50,left: screenWidth / 50),
               height: screenHeight / 5.6,
               width: screenHeight / 2.0,
               decoration: BoxDecoration(
@@ -192,6 +196,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             SizedBox(height: screenHeight / 50,),
             Container(
+              margin: EdgeInsets.only(right: screenWidth / 50,left: screenWidth / 50),
               height: screenHeight / 5.6,
               width: screenHeight / 2.0,
               decoration: BoxDecoration(
