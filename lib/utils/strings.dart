@@ -13,9 +13,13 @@ class Strings {
   static String authText4 = 'Введите код';
   static String authText5 = 'Отправили код на номер ';// here registered number should come
   static String authText6 = 'Изменить номер';
-  static String authText7 = 'Регистрируйтесь';
+  static String authText7 = 'Регистрация';
   static String authText8 = 'пароль';
   static String authText9 = 'Отправили код на ';
+  static String authText10 = 'ФИО';
+  static String authText11 = 'Дата рождения';
+  static String authTextBDateHintText = 'Введите  дату рождения ';
+  static String authTextBDateHintText2 = 'Введите  имя';
   /// auth error texts
   static String errorText1 = 'Неверный код';
   static String errorText2 = 'Отправить еще раз';
