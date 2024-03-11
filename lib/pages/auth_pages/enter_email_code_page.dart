@@ -24,6 +24,8 @@ class _EnterEmailCodePageState extends State<EnterEmailCodePage> {
   }
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
         appBar: AppBar(
           leading: IconButton(
@@ -42,29 +44,29 @@ class _EnterEmailCodePageState extends State<EnterEmailCodePage> {
                   children: [
                     Row(
                       children: [
-                        SizedBox(width: MediaQuery.of(context).size.width/40,),
+                        SizedBox(width: screenWidth / 40,),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(Strings.authText4,style: TextStyle(fontWeight: FontWeight.w600,
-                                fontSize: MediaQuery.of(context).size.height/27
+                                fontSize: screenHeight / 27
                             ),),
-                            SizedBox(height: MediaQuery.of(context).size.height/50,),
+                            SizedBox(height:screenHeight / 50,),
                             Text(Strings.authText9,style: TextStyle(fontWeight: FontWeight.w600,
-                                fontSize: MediaQuery.of(context).size.height/40,color: black38
+                                fontSize: screenHeight / 40,color: black38
                             ),),
                             Text(view.sent_email.toString(),style: TextStyle(fontWeight: FontWeight.w600,
-                              fontSize: MediaQuery.of(context).size.height/45,color: black38,
+                              fontSize: screenHeight / 45,color: black38,
 
                             ),),
                           ],
                         ),
                       ],
                     ),
-                    SizedBox(height: MediaQuery.of(context).size.height/30,),
+                    SizedBox(height: screenHeight / 30,),
                     Container(
-                      margin: EdgeInsets.only(right: MediaQuery.of(context).size.width/30,
-                        left:  MediaQuery.of(context).size.width/30,
+                      margin: EdgeInsets.only(right: screenWidth / 30,
+                        left:  screenWidth / 30,
                       ),
                       child: TextField(
                         onChanged: (value) {
@@ -91,8 +93,8 @@ class _EnterEmailCodePageState extends State<EnterEmailCodePage> {
                         }
                       },
                       child: Container(
-                        height: MediaQuery.of(context).size.height/12,
-                        width: MediaQuery.of(context).size.width/1.1,
+                        height: screenHeight / 12,
+                        width: screenWidth / 1.1,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(8),
                           color: view.typedText.isEmpty ? Colors.grey.withOpacity(0.4) : buttonColor,
@@ -104,7 +106,7 @@ class _EnterEmailCodePageState extends State<EnterEmailCodePage> {
                         ),
                       ),
                     ),
-                    SizedBox(height: MediaQuery.of(context).size.height/40,)
+                    SizedBox(height: screenHeight / 40,)
                   ],
                 ),
               );

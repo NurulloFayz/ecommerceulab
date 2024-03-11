@@ -18,7 +18,8 @@ class _EmailPageState extends State<EmailPage> {
   ViewEmailPage view = ViewEmailPage();
   @override
   Widget build(BuildContext context) {
-    //FocusScope.of(context).requestFocus(view.textFieldFocusNode);
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
         appBar: AppBar(),
       body:ChangeNotifierProvider(
@@ -30,18 +31,18 @@ class _EmailPageState extends State<EmailPage> {
                 children: [
                   Row(
                     children: [
-                      SizedBox(width: MediaQuery.of(context).size.width/40,),
+                      SizedBox(width: screenWidth /40,),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(Strings.authText7,style: TextStyle(fontWeight: FontWeight.w600,
-                              fontSize: MediaQuery.of(context).size.height/27
+                              fontSize:screenHeight / 27
                           ),),
-                          SizedBox(height: MediaQuery.of(context).size.height/50,),
+                          SizedBox(height: screenHeight / 50,),
                           Container(
-                            margin: EdgeInsets.only(right: MediaQuery.of(context).size.width/50),
+                            margin: EdgeInsets.only(right:screenWidth / 50),
                             child: Text(Strings.authText2,style: TextStyle(fontWeight: FontWeight.w500,
-                                fontSize: MediaQuery.of(context).size.height/50,color: Colors.grey
+                                fontSize: screenHeight / 50,color: Colors.grey
                             ),),
                           ),
                         ],
@@ -50,12 +51,12 @@ class _EmailPageState extends State<EmailPage> {
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height/30,),
                   Container(
-                    margin: EdgeInsets.only(right: MediaQuery.of(context).size.width/30,
-                      left:  MediaQuery.of(context).size.width/30,
+                    margin: EdgeInsets.only(right: screenWidth / 30,
+                      left:  screenWidth / 30,
                     ),
                     child: TextField(
                       controller: view.email,
-                      style: TextStyle(fontSize: MediaQuery.of(context).size.height/40),
+                      style: TextStyle(fontSize: screenHeight / 40),
                       onChanged: (value) {
                         view.changeValue(value);
                       },
@@ -82,20 +83,20 @@ class _EmailPageState extends State<EmailPage> {
                       }
                     },
                     child: Container(
-                      height: MediaQuery.of(context).size.height/12,
-                      width: MediaQuery.of(context).size.width/1.1,
+                      height: screenHeight / 12,
+                      width:screenWidth / 1.1,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
                         color: view.typedText.isEmpty ? Colors.grey.withOpacity(0.4) : buttonColor,
                       ),
                       child: Center(
-                        child: Text(Strings.buttonText,style: TextStyle(fontSize: MediaQuery.of(context).size.height/40,
+                        child: Text(Strings.buttonText,style: TextStyle(fontSize:screenHeight / 40,
                             color: Colors.white
                         ),),
                       ),
                     ),
                   ),
-                  SizedBox(height: MediaQuery.of(context).size.height/40,)
+                  SizedBox(height: screenHeight / 40,)
                 ],
               ),
             );

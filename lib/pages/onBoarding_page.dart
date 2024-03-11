@@ -14,14 +14,16 @@ class OnBoardingPage extends StatefulWidget {
 class _OnBoardingPageState extends State<OnBoardingPage> {
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     List<PageViewModel> getPages() {
       return [
         PageViewModel(
           decoration: const PageDecoration(
               imageAlignment: Alignment.center, imageFlex: 4),
           image: SizedBox(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height * .5,
+            width: screenWidth,
+            height: screenHeight * .5,
             child: Image.asset(
               'assets/images/intro_page/intro1.png',
               fit: BoxFit.fill,
@@ -44,8 +46,8 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
           decoration: const PageDecoration(
               imageAlignment: Alignment.center, imageFlex: 4),
           image: SizedBox(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height * .5,
+            width: screenWidth,
+            height: screenHeight * .5,
             child: Image.asset(
               'assets/images/intro_page/intro2.png',
               fit: BoxFit.fill,
@@ -68,8 +70,8 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
           decoration: const PageDecoration(
               imageAlignment: Alignment.center, imageFlex: 4),
           image: SizedBox(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height * .5,
+            width: screenWidth,
+            height: screenHeight * .5,
             child: Image.asset(
               'assets/images/intro_page/intro3.png',
               fit: BoxFit.fill,
