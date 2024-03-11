@@ -23,6 +23,8 @@ class _MyPagesState extends State<MyPages> {
   }
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: PageView(
         controller: controller,
@@ -37,8 +39,8 @@ class _MyPagesState extends State<MyPages> {
         showSelectedLabels: true,
         selectedItemColor: blue,
         currentIndex: selected,
-        selectedLabelStyle: TextStyle(fontSize: MediaQuery.of(context).size.height/50),
-        unselectedLabelStyle: TextStyle(fontSize: MediaQuery.of(context).size.height/50),
+        selectedLabelStyle: TextStyle(fontSize: screenHeight / 50),
+        unselectedLabelStyle: TextStyle(fontSize: screenHeight / 50),
         unselectedItemColor: Colors.grey,
         onTap: (index) {
           setState(() {
@@ -49,7 +51,7 @@ class _MyPagesState extends State<MyPages> {
         items: [
           BottomNavigationBarItem(
             activeIcon: Image.asset('assets/images/u_home_icon/U.png'),
-              icon:Image.asset('assets/images/u_home_icon/U_unactive.png',height: MediaQuery.of(context).size.height/30,),label: Strings.bottomText1 ),
+              icon:Image.asset('assets/images/u_home_icon/U_unactive.png',height: screenHeight / 30,),label: Strings.bottomText1 ),
           BottomNavigationBarItem(icon: Icon(Icons.search),label: Strings.bottomText2),
           BottomNavigationBarItem(icon: Icon(Icons.shopping_cart_outlined),label: Strings.bottomText3),
           BottomNavigationBarItem(icon: Icon(Icons.person_outline_outlined),label: Strings.bottomText4),

@@ -42,6 +42,9 @@ class Strings {
   static String recommend = 'Рекоммендуемое';
   /// favourite page text
   static String favouritePageText = 'Мои желания';
+  static String emptyWarningText1 = 'Ваш список пуст';
+  static String emptyWarningText2 = 'В вашем списке желаний нет элементов';
+  static String emptyWarningText3 = 'перейдите на главную и выберите ';
   /// profile page text
   static String profilePageText1 = 'Личный кабинет';
   static String profilePageText2 = 'Мои желания';
