@@ -4,6 +4,7 @@ import 'package:ecommerce_ulab/utils/color.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/strings.dart';
+import 'buy_product_page.dart';
 
 class MyPages extends StatefulWidget {
   const MyPages({super.key});
@@ -29,6 +30,7 @@ class _MyPagesState extends State<MyPages> {
         children: [
           HomePage(),
           ProfilePage(),
+          BuyProductPage(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
