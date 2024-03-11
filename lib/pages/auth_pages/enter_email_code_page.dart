@@ -87,7 +87,7 @@ class _EnterEmailCodePageState extends State<EnterEmailCodePage> {
                         if(view.typedText.isEmpty) {
                           return;
                         } else {
-                          view.navigateToHomePage(context);
+                          view.navigateToEnterNameBDatePage(context);
                         }
                       },
                       child: Container(
