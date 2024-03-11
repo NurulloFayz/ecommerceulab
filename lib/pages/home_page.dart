@@ -1,3 +1,4 @@
+import 'package:ecommerce_ulab/constants/common_functions.dart';
 import 'package:ecommerce_ulab/utils/color.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -169,7 +170,7 @@ class _HomePageState extends State<HomePage> {
                 GridView.builder(
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    childAspectRatio: .8,
+                    childAspectRatio: .5,
                     crossAxisSpacing: width * .05,
                     mainAxisSpacing: width * .05,
                   ),
@@ -178,9 +179,78 @@ class _HomePageState extends State<HomePage> {
                   itemCount: 4,
                   itemBuilder: (context, index) {
                     return Container(
-                      width: 162,
-                      height: 304,
-                      color: blue,
+                      width: width,
+                      height: height * .6,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            width: width * .42,
+                            height: width * .47,
+                            clipBehavior: Clip.antiAlias,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            child: Image.asset(
+                              'assets/images/home_page/recommend.png',
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          CommonFunctions.blankSpace(height * .01, 0),
+                          SizedBox(
+                            width: width * .4,
+                            child: Text(
+                              overflow: TextOverflow.fade,
+                                maxLines: 2,
+                                "SmartPhone Techno Pop 5 LTE'' HD+, 2/32 GB",style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: height*.022,
+                            ),),
+                          ),
+                          Container(
+                            width: width*.4,
+                            child: Row(
+                              children: [
+                                Icon(Icons.star, color: amber),
+                                Text('5.0 (80 заказов)',style: TextStyle(
+                                  color: grey,
+                                  fontSize: height*.018,
+                                ),)
+                              ],
+                            ),
+                          ),
+                          Container(
+                            height: height*.04,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+
+                                color: Colors.yellow,
+                                borderRadius: BorderRadius.circular(5)),
+                            width: width * .34,
+                            child: Text('109 378 sum/month',style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: height*.016,
+                            ),),
+                          ),
+                          Text('1 400 000 sum',style: TextStyle(
+                            color: grey,
+                            fontSize: height*.015,
+                          ),),
+                          SizedBox(
+                            width: width*.4,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text('899 000 sum',style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: height*.02,
+                                ),),
+                                Icon(Icons.shopping_bag_outlined)
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     );
                   },
                 ),
