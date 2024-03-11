@@ -3,7 +3,6 @@
 
 import 'package:ecommerce_ulab/pages/auth_pages/email_page.dart';
 import 'package:ecommerce_ulab/pages/auth_pages/enter_name_bdate.dart';
-import 'package:ecommerce_ulab/pages/home_page.dart';
 import 'package:ecommerce_ulab/pages/pages.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

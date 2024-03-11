@@ -1,4 +1,3 @@
-import 'package:ecommerce_ulab/pages/home_page.dart';
 import 'package:ecommerce_ulab/pages/profile_page.dart';
 import 'package:ecommerce_ulab/utils/color.dart';
 import 'package:flutter/material.dart';
@@ -29,8 +28,7 @@ class _MyPagesState extends State<MyPages> {
       body: PageView(
         controller: controller,
         children: [
-          HomePage(),
-          ProfilePage(),
+         ProfilePage(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
