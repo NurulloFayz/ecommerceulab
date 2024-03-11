@@ -1,6 +1,6 @@
 import 'package:ecommerce_ulab/pages/home_page.dart';
+import 'package:ecommerce_ulab/pages/profile_page.dart';
 import 'package:ecommerce_ulab/utils/color.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/strings.dart';
@@ -28,6 +28,7 @@ class _MyPagesState extends State<MyPages> {
         controller: controller,
         children: [
           HomePage(),
+          ProfilePage(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -42,6 +43,7 @@ class _MyPagesState extends State<MyPages> {
         onTap: (index) {
           setState(() {
             selected = index;
+            controller.animateToPage(index, duration: Duration(milliseconds: 200), curve: Curves.easeIn);
           });
         },
         items: [
@@ -49,8 +51,8 @@ class _MyPagesState extends State<MyPages> {
             activeIcon: Image.asset('assets/images/u_home_icon/U.png'),
               icon:Image.asset('assets/images/u_home_icon/U_unactive.png',height: MediaQuery.of(context).size.height/30,),label: Strings.bottomText1 ),
           BottomNavigationBarItem(icon: Icon(Icons.search),label: Strings.bottomText2),
-          BottomNavigationBarItem(icon: Icon(Icons.shopping_cart),label: Strings.bottomText3),
-          BottomNavigationBarItem(icon: Icon(Icons.person),label: Strings.bottomText4),
+          BottomNavigationBarItem(icon: Icon(Icons.shopping_cart_outlined),label: Strings.bottomText3),
+          BottomNavigationBarItem(icon: Icon(Icons.person_outline_outlined),label: Strings.bottomText4),
               //BottomNavigationBarItem(icon: Icon(Icons.person),label: ''),
         ],
       ),
