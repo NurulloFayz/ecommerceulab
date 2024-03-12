@@ -31,8 +31,8 @@ class _MyPagesState extends State<MyPages> {
         controller: controller,
         children: [
           HomePage(),
-          ProfilePage(),
           BuyProductPage(),
+          ProfilePage(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -60,17 +60,6 @@ class _MyPagesState extends State<MyPages> {
               //BottomNavigationBarItem(icon: Icon(Icons.person),label: ''),
         ],
       ),
-      // bottomNavigationBar:CupertinoTabBar(
-      //   height: MediaQuery.of(context).size.height/10,
-      //   backgroundColor: Colors.white,
-      //   items: [
-      //     BottomNavigationBarItem(icon:Image.asset('assets/images/u_home_icon/U.png',height: MediaQuery.of(context).size.height/30,),label: Strings.bottomText1 ),
-      //     BottomNavigationBarItem(icon: Icon(Icons.search),label: Strings.bottomText2),
-      //     BottomNavigationBarItem(icon: Icon(Icons.shopping_cart),label: Strings.bottomText3),
-      //     BottomNavigationBarItem(icon: Icon(Icons.person),label: Strings.bottomText4),
-      //     //BottomNavigationBarItem(icon: Icon(Icons.person),label: ''),
-      //   ],
-      // )
     );
   }
 }

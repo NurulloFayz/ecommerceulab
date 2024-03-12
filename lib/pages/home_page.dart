@@ -1,5 +1,6 @@
 import 'package:ecommerce_ulab/constants/common_functions.dart';
 import 'package:ecommerce_ulab/utils/color.dart';
+import 'package:ecommerce_ulab/views/view_home_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -15,19 +16,37 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  ViewHomePage view = ViewHomePage();
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    view.checkInternetConnection();
+  }
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
-        body: SingleChildScrollView(
+        body: view.connectedInternet ?
+            Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.wifi_off,color: blue,size: height / 12,),
+                  Text('check internet connection',style: TextStyle(fontSize: height / 40,color: grey,fontWeight: FontWeight.w500),)
+                ],
+              ),
+            ) :
+        SingleChildScrollView(
           child: Container(
             padding: EdgeInsets.only(right: width / 40, left: width / 40),
             width: width,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                SizedBox(height: height / 20,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
@@ -54,13 +73,19 @@ class _HomePageState extends State<HomePage> {
                                 borderRadius: BorderRadius.circular(8))),
                       ),
                     ),
-                    Icon(
-                      Icons.favorite_border,
-                      color: grey,
-                      size: height * .05,
-                    ),
+                   IconButton(
+                     onPressed: () {
+                       view.navigateToFavouritePage(context);
+                     },
+                     icon:  Icon(
+                       Icons.favorite_border,
+                       color: grey,
+                       size: height / 23,
+                     ),
+                   )
                   ],
                 ),
+                SizedBox(height: height / 40,),
                 Text(
                   Strings.category,
                   style: TextStyle(
