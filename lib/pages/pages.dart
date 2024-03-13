@@ -1,3 +1,4 @@
+import 'package:ecommerce_ulab/pages/catalog_page.dart';
 import 'package:ecommerce_ulab/pages/home_page.dart';
 import 'package:ecommerce_ulab/pages/profile_page.dart';
 import 'package:ecommerce_ulab/utils/color.dart';
@@ -31,6 +32,7 @@ class _MyPagesState extends State<MyPages> {
         controller: controller,
         children: const [
           HomePage(),
+          CatalogPage(),
           BuyProductPage(),
           ProfilePage(),
         ],
