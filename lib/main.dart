@@ -26,10 +26,10 @@ class MyApp extends StatelessWidget {
       ),
       home: const MyPages(),
       routes: {
-        EmailPage.id:(context) => EmailPage(),
-        EnterEmailCodePage.id:(context) => EnterEmailCodePage(''),
-        HomePage.id:(context) => HomePage(),
-        FavouritePage.id:(context) => FavouritePage(),
+        EmailPage.id:(context) => const EmailPage(),
+        EnterEmailCodePage.id:(context) => const EnterEmailCodePage(''),
+        HomePage.id:(context) => const HomePage(),
+        FavouritePage.id:(context) => const FavouritePage(),
       },
     );
   }

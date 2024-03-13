@@ -29,7 +29,7 @@ class _MyPagesState extends State<MyPages> {
     return Scaffold(
       body: PageView(
         controller: controller,
-        children: [
+        children: const [
           HomePage(),
           BuyProductPage(),
           ProfilePage(),
@@ -47,16 +47,16 @@ class _MyPagesState extends State<MyPages> {
         onTap: (index) {
           setState(() {
             selected = index;
-            controller.animateToPage(index, duration: Duration(milliseconds: 200), curve: Curves.easeIn);
+            controller.animateToPage(index, duration: const Duration(milliseconds: 200), curve: Curves.easeIn);
           });
         },
         items: [
           BottomNavigationBarItem(
             activeIcon: Image.asset('assets/images/u_home_icon/U.png'),
               icon:Image.asset('assets/images/u_home_icon/U_unactive.png',height: screenHeight / 30,),label: Strings.bottomText1 ),
-          BottomNavigationBarItem(icon: Icon(Icons.search),label: Strings.bottomText2),
-          BottomNavigationBarItem(icon: Icon(Icons.shopping_cart_outlined),label: Strings.bottomText3),
-          BottomNavigationBarItem(icon: Icon(Icons.person_outline_outlined),label: Strings.bottomText4),
+          BottomNavigationBarItem(icon: const Icon(Icons.search),label: Strings.bottomText2),
+          BottomNavigationBarItem(icon: const Icon(Icons.shopping_cart_outlined),label: Strings.bottomText3),
+          BottomNavigationBarItem(icon: const Icon(Icons.person_outline_outlined),label: Strings.bottomText4),
               //BottomNavigationBarItem(icon: Icon(Icons.person),label: ''),
         ],
       ),

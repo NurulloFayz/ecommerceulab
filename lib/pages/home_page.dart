@@ -42,6 +42,9 @@ class _HomePageState extends State<HomePage> {
                           Container(
                             width: width * .82,
                             child: TextField(
+                              onChanged: (value) {
+
+                              },
                               style: TextStyle(fontSize: height / 40),
                               decoration: InputDecoration(
                                   prefixIcon: Icon(
