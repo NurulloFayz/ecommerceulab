@@ -69,7 +69,7 @@ class _HomePageState extends State<HomePage> {
                             icon:  Icon(
                               Icons.favorite_border,
                               color: grey,
-                              size: height / 23,
+                              size: height / 24,
                             ),
                           )
                         ],
