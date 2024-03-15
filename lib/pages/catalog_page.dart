@@ -16,11 +16,13 @@ class CatalogPage extends StatefulWidget {
 
 class _CatalogPageState extends State<CatalogPage> {
   TextEditingController searchController = TextEditingController();
+  bool isTyping = false;
 
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
+
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -44,6 +46,11 @@ class _CatalogPageState extends State<CatalogPage> {
                       width: width * .82,
                       child: TextField(
                         style: TextStyle(fontSize: height / 40),
+                        onChanged: (value) {
+                          setState(() {
+                            isTyping = value.isNotEmpty;
+                          });
+                        },
                         controller: searchController,
                         decoration: InputDecoration(
                             prefixIcon: Icon(
@@ -74,105 +81,178 @@ class _CatalogPageState extends State<CatalogPage> {
                   height: height * .01,
                   thickness: height * .005,
                 ),
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: width * .04),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        Strings.catalogText1,
-                        style: TextStyle(
-                          fontSize: height * .02,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          Strings.catalogText2,
-                          style: TextStyle(color: grey, fontSize: height * .02),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
                 SizedBox(
-                  height: height * .015,
+                  height: height * .03,
                 ),
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: width * .04),
-                  child: ListView.builder(
-                    itemCount: 3,
-                    shrinkWrap: true,
-                    itemBuilder: (context, index) {
-                      return Container(
-                        decoration: BoxDecoration(
-                          border: Border(
-                            bottom: BorderSide(color: greyShade3),
+                isTyping
+                    ? ListView.builder(
+                        shrinkWrap: true,
+                        scrollDirection: Axis.vertical,
+                        itemCount: 2,
+                        itemBuilder: (context, index) {
+                          return Column(
+                            children: [
+                              Container(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: width * .04),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Container(
+                                      width: width * .15,
+                                      height: width * .15,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        color: greyShade3,
+                                      ),
+                                      child: Image.asset(
+                                          'assets/images/buy_products_page/korzinka.png'),
+                                    ),
+                                    Text(
+                                      "Крупная кухонная техника",
+                                      style: TextStyle(
+                                        fontSize: height * .022,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    IconButton(
+                                      onPressed: () {},
+                                      icon: Icon(
+                                        Icons.chevron_right,
+                                        color: grey,
+                                        size: height*.05,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: width * .04),
+                                child: Divider(
+                                  color: greyShade3,
+                                  height: height * .01,
+                                  thickness: height * .0025,
+                                ),
+                              ),
+                              SizedBox(
+                                height: height * .015,
+                              ),
+                            ],
+                          );
+                        },
+                      )
+                    : Column(
+                        children: [
+                          Container(
+                            padding:
+                                EdgeInsets.symmetric(horizontal: width * .04),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  Strings.catalogText1,
+                                  style: TextStyle(
+                                    fontSize: height * .02,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                TextButton(
+                                  onPressed: () {},
+                                  child: Text(
+                                    Strings.catalogText2,
+                                    style: TextStyle(
+                                        color: grey, fontSize: height * .02),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text('Мужская футболка'),
-                            IconButton(
-                                onPressed: () {},
-                                icon: Icon(
-                                  Icons.delete,
-                                  color: grey,
-                                ))
-                          ],
-                        ),
-                      );
-                    },
-                  ),
-                ),
-                SizedBox(
-                  height: height * .04,
-                ),
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: width * .04),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        Strings.catalogText3,
-                        style: TextStyle(
-                          fontSize: height * .02,
-                          fontWeight: FontWeight.bold,
-                        ),
+                          SizedBox(
+                            height: height * .015,
+                          ),
+                          Container(
+                            padding:
+                                EdgeInsets.symmetric(horizontal: width * .04),
+                            child: ListView.builder(
+                              itemCount: 3,
+                              shrinkWrap: true,
+                              itemBuilder: (context, index) {
+                                return Container(
+                                  decoration: BoxDecoration(
+                                    border: Border(
+                                      bottom: BorderSide(color: greyShade3),
+                                    ),
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text('Мужская футболка'),
+                                      IconButton(
+                                          onPressed: () {},
+                                          icon: Icon(
+                                            Icons.delete,
+                                            color: grey,
+                                          ))
+                                    ],
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                          SizedBox(
+                            height: height * .04,
+                          ),
+                          Container(
+                            padding:
+                                EdgeInsets.symmetric(horizontal: width * .04),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  Strings.catalogText3,
+                                  style: TextStyle(
+                                    fontSize: height * .02,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            padding:
+                                EdgeInsets.symmetric(horizontal: width * .04),
+                            child: ListView.builder(
+                              itemCount: 3,
+                              shrinkWrap: true,
+                              itemBuilder: (context, index) {
+                                return Container(
+                                  decoration: BoxDecoration(
+                                    border: Border(
+                                      bottom: BorderSide(color: greyShade3),
+                                    ),
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text('Кондиционеры'),
+                                      IconButton(
+                                          onPressed: () {},
+                                          icon: Icon(
+                                            Icons.delete,
+                                            color: grey,
+                                          ))
+                                    ],
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: width * .04),
-                  child: ListView.builder(
-                    itemCount: 3,
-                    shrinkWrap: true,
-                    itemBuilder: (context, index) {
-                      return Container(
-                        decoration: BoxDecoration(
-                          border: Border(
-                            bottom: BorderSide(color: greyShade3),
-                          ),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text('Кондиционеры'),
-                            IconButton(
-                                onPressed: () {},
-                                icon: Icon(
-                                  Icons.delete,
-                                  color: grey,
-                                ))
-                          ],
-                        ),
-                      );
-                    },
-                  ),
-                ),
               ],
             ),
           ),
