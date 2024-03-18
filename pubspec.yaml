@@ -41,6 +41,7 @@ dependencies:
   country_code_picker:
   internet_connection_checker:
   connectivity_plus:
+  http:
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -184,6 +184,7 @@ class _HomePageState extends State<HomePage> {
                         style: TextStyle(
                             fontSize: height * .03, fontWeight: FontWeight.bold),
                       ),
+                      SizedBox(height: height / 40,),
                       GridView.builder(
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2,

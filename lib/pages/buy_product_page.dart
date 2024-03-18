@@ -37,11 +37,11 @@ class _BuyProductPageState extends State<BuyProductPage> {
               children: [
                 Image.asset('assets/images/buy_products_page/korzinka.png'),
                 Text(
-                  "В вашей корзине нет товаров подберите на товары главной странице",
+                  Strings.cartPageEmptyText2,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: grey,
-                    fontSize: height * .02,
+                    fontSize: height / 40,
                   ),
                 ),
                 Align(
@@ -58,6 +58,7 @@ class _BuyProductPageState extends State<BuyProductPage> {
                       Strings.cartPageButtonText2,
                       style: TextStyle(
                         color: white,
+                        fontSize: height / 40
                       ),
                     ),
                   ),

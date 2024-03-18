@@ -7,8 +7,8 @@ import '../../views/view_enter_email_code_page.dart';
 
 class EnterEmailCodePage extends StatefulWidget {
   static const String id = 'enter_email_code_page';
-  const EnterEmailCodePage(this.emailCode,{super.key});
-  final String emailCode;
+  const EnterEmailCodePage(this.widgetEmailCode,{super.key});
+  final String widgetEmailCode;
 
   @override
   State<EnterEmailCodePage> createState() => _EnterEmailCodePageState();
@@ -20,7 +20,7 @@ class _EnterEmailCodePageState extends State<EnterEmailCodePage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    view.sent_email = widget.emailCode;
+    view.sent_email = widget.widgetEmailCode;
   }
   @override
   Widget build(BuildContext context) {
@@ -69,6 +69,7 @@ class _EnterEmailCodePageState extends State<EnterEmailCodePage> {
                         left:  screenWidth / 30,
                       ),
                       child: TextField(
+                        controller: view.emailCode,
                         onChanged: (value) {
                           view.changeValue(value);
                         },
@@ -89,7 +90,8 @@ class _EnterEmailCodePageState extends State<EnterEmailCodePage> {
                         if(view.typedText.isEmpty) {
                           return;
                         } else {
-                          view.navigateToEnterNameBDatePage(context);
+                          view.enterPassword(view.emailCode.text,widget.widgetEmailCode,context);
+                          //view.navigateToMyPages(context);
                         }
                       },
                       child: Container(

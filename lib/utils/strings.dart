@@ -115,6 +115,7 @@ class Strings {
   static String cartPageHintTex6 = 'Найти город';
   static String cartPageButtonText = 'Оформить заказ';
   static String cartPageButtonText2 = 'Вернуться в главную';
+  static String cartPageEmptyText2 = 'В вашей корзине нет товаров подберите на товары главной странице';
   /// bottomnavigation texts
   static String bottomText1 = 'Главная';
   static String bottomText2 = 'Каталог';

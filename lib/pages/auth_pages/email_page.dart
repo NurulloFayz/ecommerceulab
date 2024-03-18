@@ -1,4 +1,3 @@
-import 'package:ecommerce_ulab/views/back_button.dart';
 import 'package:ecommerce_ulab/views/view_email_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -60,7 +59,7 @@ class _EmailPageState extends State<EmailPage> {
                       onChanged: (value) {
                         view.changeValue(value);
                       },
-                      focusNode: view.textFieldFocusNode,
+                      //focusNode: view.textFieldFocusNode,
                       decoration: InputDecoration(
                           hintText: 'E-mail',
                           filled: true,
@@ -72,6 +71,87 @@ class _EmailPageState extends State<EmailPage> {
                       ),
                     ),
                   ),
+                  ListTile(
+                    title: Text(Strings.authTextBDateHintText2,style: TextStyle(fontWeight: FontWeight.w600,
+                        fontSize:screenHeight / 38
+                    ),),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(right: screenWidth / 30,
+                      left:  screenWidth / 30,
+                    ),
+                    child: TextField(
+                      controller: view.name,
+                      style: TextStyle(fontSize: screenHeight / 40),
+                      onChanged: (value) {
+                        view.changeValue(value);
+                      },
+                     // focusNode: view.textFieldFocusNode,
+                      decoration: InputDecoration(
+                          hintText: Strings.authTextBDateHintText2,
+                          filled: true,
+                          fillColor: Colors.grey.withOpacity(0.2),
+                          border: OutlineInputBorder(
+                              borderSide: BorderSide.none,
+                              borderRadius: BorderRadius.circular(8)
+                          )
+                      ),
+                    ),
+                  ),
+                  ListTile(
+                    title: Text(Strings.authTextBDateHintText,style: TextStyle(fontWeight: FontWeight.w600,
+                        fontSize:screenHeight / 38
+                    ),),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(right: screenWidth / 30,
+                      left:  screenWidth / 30,
+                    ),
+                    child: TextField(
+                      controller: view.phoneNumber,
+                      style: TextStyle(fontSize: screenHeight / 40),
+                      onChanged: (value) {
+                        view.changeValue(value);
+                      },
+                     // focusNode: view.textFieldFocusNode,
+                      decoration: InputDecoration(
+                          hintText: Strings.authTextBDateHintText,
+                          filled: true,
+                          fillColor: Colors.grey.withOpacity(0.2),
+                          border: OutlineInputBorder(
+                              borderSide: BorderSide.none,
+                              borderRadius: BorderRadius.circular(8)
+                          )
+                      ),
+                    ),
+                  ),
+                  // ListTile(
+                  //   title: Text(Strings.authText1,style: TextStyle(fontWeight: FontWeight.w600,
+                  //       fontSize:screenHeight / 38
+                  //   ),),
+                  // ),
+                  // Container(
+                  //   margin: EdgeInsets.only(right: screenWidth / 30,
+                  //     left:  screenWidth / 30,
+                  //   ),
+                  //   child: TextField(
+                  //     controller: view.email,
+                  //     style: TextStyle(fontSize: screenHeight / 40),
+                  //     onChanged: (value) {
+                  //       view.changeValue(value);
+                  //     },
+                  //     focusNode: view.textFieldFocusNode,
+                  //     decoration: InputDecoration(
+                  //         hintText: Strings.authText1,
+                  //         filled: true,
+                  //         fillColor: Colors.grey.withOpacity(0.2),
+                  //         border: OutlineInputBorder(
+                  //             borderSide: BorderSide.none,
+                  //             borderRadius: BorderRadius.circular(8)
+                  //         )
+                  //     ),
+                  //   ),
+                  // ),
                   Spacer(),
                   GestureDetector(
                     onTap: () {
@@ -79,7 +159,12 @@ class _EmailPageState extends State<EmailPage> {
                         return;
                       } else {
                         //view.navigateToEnterEmailCodePage(context);
-                        view.showEmail(context, view.typedText);
+                        view.loginUser(view.email.text,view.name.text,view.phoneNumber.text);
+                        view.showEmail(context, view.email.text);
+                        print(view.email.text);
+                        print(view.phoneNumber.text);
+                        print(view.name.text);
+                        //view.showEmail(context, view.email.text);
                       }
                     },
                     child: Container(
