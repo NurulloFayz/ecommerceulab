@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:pinput/pinput.dart';
 import 'package:provider/provider.dart';
 
 import '../../utils/color.dart';
@@ -16,6 +18,15 @@ class EnterEmailCodePage extends StatefulWidget {
 
 class _EnterEmailCodePageState extends State<EnterEmailCodePage> {
   ViewEnterEmailCodePage view = ViewEnterEmailCodePage();
+  TextEditingController controller = TextEditingController();
+  FocusNode focusNode = FocusNode();
+
+  @override
+  void dispose() {
+    controller.dispose();
+    focusNode.dispose();
+    super.dispose();
+  }
   @override
   void initState() {
     // TODO: implement initState
@@ -64,29 +75,62 @@ class _EnterEmailCodePageState extends State<EnterEmailCodePage> {
                       ],
                     ),
                     SizedBox(height: screenHeight / 30,),
-                    Container(
-                      margin: EdgeInsets.only(right: screenWidth / 30,
-                        left:  screenWidth / 30,
-                      ),
-                      child: TextField(
-                        onChanged: (value) {
-                          view.changeValue(value);
-                        },
-                        decoration: InputDecoration(
-                            hintText: Strings.authText8,
-                            fillColor: Colors.grey.withOpacity(0.2),
-                            filled: true,
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8),
-                                borderSide: BorderSide.none
-                            )
+                    SizedBox(
+                      height: 68,
+                      child: Pinput(
+                        controller: controller,
+                        length: 6,
+                        focusNode: focusNode,
+                        defaultPinTheme: PinTheme(
+                          width: 56,
+                          height: 60,
+                          textStyle: GoogleFonts.openSans().copyWith(
+                            fontSize: 22,
+                            fontWeight: FontWeight.w600,
+                          ),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.grey.shade200,
+                            border: Border.all(color: Colors.transparent),
+                          ),
                         ),
+                        focusedPinTheme: PinTheme(
+                          width: 56,
+                          height: 60,
+                          textStyle: GoogleFonts.openSans().copyWith(
+                            fontSize: 22,
+                            fontWeight: FontWeight.w600,
+                          ),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.grey.shade200,
+                            border: Border.all(color: Colors.blue),
+                          ),
+                        ),
+                        errorPinTheme: PinTheme(
+                          width: 56,
+                          height: 60,
+                          textStyle: GoogleFonts.openSans().copyWith(
+                            fontSize: 22,
+                            fontWeight: FontWeight.w600,
+                          ),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.grey.shade200,
+                            border: Border.all(color: Colors.red),
+                          ),
+                        ),
+                        onCompleted: (pin) {
+                          setState(() {
+                            view.otpCode = pin;
+                          });
+                        },
                       ),
                     ),
                     Spacer(),
                     GestureDetector(
                       onTap: () {
-                        if(view.typedText.isEmpty) {
+                        if(view.otpCode.isEmpty) {
                           return;
                         } else {
                           view.navigateToEnterNameBDatePage(context);
@@ -97,7 +141,7 @@ class _EnterEmailCodePageState extends State<EnterEmailCodePage> {
                         width: screenWidth / 1.1,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(8),
-                          color: view.typedText.isEmpty ? Colors.grey.withOpacity(0.4) : buttonColor,
+                          color: view.otpCode.isEmpty ? Colors.grey.withOpacity(0.4) : buttonColor,
                         ),
                         child: Center(
                           child: Text(Strings.buttonText,style: TextStyle(fontSize: MediaQuery.of(context).size.height/40,

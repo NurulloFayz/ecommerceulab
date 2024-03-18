@@ -16,9 +16,9 @@ class ViewEnterEmailCodePage extends ChangeNotifier{
   }
   var code = TextEditingController();
   final FocusNode textFieldFocusNode = FocusNode();
-  String typedText = '';
+  String otpCode = '';
   changeValue(value) {
-    typedText = value;
+    otpCode = value;
     notifyListeners();
   }
   backToEmailPage(BuildContext context) {
