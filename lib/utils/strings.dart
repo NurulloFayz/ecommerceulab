@@ -18,7 +18,7 @@ class Strings {
   static String authText9 = 'Отправили код на ';
   static String authText10 = 'ФИО';
   static String authText11 = 'Дата рождения';
-  static String authTextBDateHintText = 'Введите  дату рождения ';
+  static String authTextBPhoneNumber = 'Введите телефон номер ';
   static String authTextBDateHintText2 = 'Введите  имя';
   /// auth error texts
   static String errorText1 = 'Неверный код';

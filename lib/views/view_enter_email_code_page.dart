@@ -8,18 +8,20 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ViewEnterEmailCodePage extends ChangeNotifier{
   String? sent_email;
+  late String checkEmail;
   void focusScope(BuildContext context) {
     FocusScope.of(context).nextFocus();
     notifyListeners();
   }
   var emailCode = TextEditingController();
   final FocusNode textFieldFocusNode = FocusNode();
-  String typedText = '';
+  String otpCode = '';
   changeValue(value) {
-    typedText = value;
+    otpCode = value;
     notifyListeners();
   }
   backToEmailPage(BuildContext context) {
@@ -33,6 +35,7 @@ class ViewEnterEmailCodePage extends ChangeNotifier{
   }
   Future<void> enterPassword (String password,String email,BuildContext context) async {
     var url = Uri.parse('https://ulab-market-backend.onrender.com/auth/verifyCode');
+    checkEmail = email;
 
     var response = await http.post(
       url,
@@ -47,6 +50,10 @@ class ViewEnterEmailCodePage extends ChangeNotifier{
       }),
     );
     if (response.statusCode == 200) {
+      SharedPreferences preferences = await SharedPreferences.getInstance();
+      preferences.setString('email', checkEmail);
+      //view.navigateToMyPages(context);
+
       // Successful login, handle response data
       var responseData = jsonDecode(response.body);
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MyPages()));
