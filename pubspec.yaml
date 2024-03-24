@@ -42,6 +42,10 @@ dependencies:
   internet_connection_checker:
   connectivity_plus:
   http:
+  shared_preferences:
+  pinput: ^4.0.0
+  google_fonts: ^6.2.1
+  fan_carousel_image_slider: ^0.1.2
 dev_dependencies:
   flutter_test:
     sdk: flutter

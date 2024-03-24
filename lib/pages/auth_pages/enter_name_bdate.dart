@@ -77,7 +77,7 @@ class _EnterNameBDatePageState extends State<EnterNameBDatePage> {
                     },
 
                     decoration: InputDecoration(
-                        hintText: Strings.authTextBDateHintText,
+                        hintText: Strings.authTextBPhoneNumber,
                         filled: true,
                         fillColor: Colors.grey.withOpacity(0.2),
                         border: OutlineInputBorder(
