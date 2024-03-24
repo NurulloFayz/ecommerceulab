@@ -39,77 +39,82 @@ class _EnterEmailCodePageState extends State<EnterEmailCodePage> {
           create: (context) => view,
           child: Consumer<ViewEnterEmailCodePage>(
             builder: (context,view,index) {
-              return Center(
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        SizedBox(width: screenWidth / 40,),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(Strings.authText4,style: TextStyle(fontWeight: FontWeight.w600,
-                                fontSize: screenHeight / 27
-                            ),),
-                            SizedBox(height:screenHeight / 50,),
-                            Text(Strings.authText9,style: TextStyle(fontWeight: FontWeight.w600,
-                                fontSize: screenHeight / 40,color: black38
-                            ),),
-                            Text(view.sent_email.toString(),style: TextStyle(fontWeight: FontWeight.w600,
-                              fontSize: screenHeight / 45,color: black38,
+              return SingleChildScrollView(
+                physics: ClampingScrollPhysics(),
+                child: Container(
+                  height: screenHeight,
+                  width: screenWidth,
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          SizedBox(width: screenWidth / 40,),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(Strings.authText4,style: TextStyle(fontWeight: FontWeight.w600,
+                                  fontSize: screenHeight / 27
+                              ),),
+                              SizedBox(height:screenHeight / 50,),
+                              Text(Strings.authText9,style: TextStyle(fontWeight: FontWeight.w600,
+                                  fontSize: screenHeight / 40,color: black38
+                              ),),
+                              Text(view.sent_email.toString(),style: TextStyle(fontWeight: FontWeight.w600,
+                                fontSize: screenHeight / 45,color: black38,
 
-                            ),),
-                          ],
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: screenHeight / 30,),
-                    Container(
-                      margin: EdgeInsets.only(right: screenWidth / 30,
-                        left:  screenWidth / 30,
+                              ),),
+                            ],
+                          ),
+                        ],
                       ),
-                      child: TextField(
-                        controller: view.emailCode,
-                        onChanged: (value) {
-                          view.changeValue(value);
+                      SizedBox(height: screenHeight / 30,),
+                      Container(
+                        margin: EdgeInsets.only(right: screenWidth / 30,
+                          left:  screenWidth / 30,
+                        ),
+                        child: TextField(
+                          controller: view.emailCode,
+                          onChanged: (value) {
+                            view.changeValue(value);
+                          },
+                          decoration: InputDecoration(
+                              hintText: Strings.authText8,
+                              fillColor: Colors.grey.withOpacity(0.2),
+                              filled: true,
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                  borderSide: BorderSide.none
+                              )
+                          ),
+                        ),
+                      ),
+                      Spacer(),
+                      GestureDetector(
+                        onTap: () {
+                          if(view.typedText.isEmpty) {
+                            return;
+                          } else {
+                            view.enterPassword(view.emailCode.text,widget.widgetEmailCode,context);
+                            //view.navigateToMyPages(context);
+                          }
                         },
-                        decoration: InputDecoration(
-                            hintText: Strings.authText8,
-                            fillColor: Colors.grey.withOpacity(0.2),
-                            filled: true,
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8),
-                                borderSide: BorderSide.none
-                            )
+                        child: Container(
+                          height: screenHeight / 12,
+                          width: screenWidth / 1.1,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            color: view.typedText.isEmpty ? Colors.grey.withOpacity(0.4) : buttonColor,
+                          ),
+                          child: Center(
+                            child: Text(Strings.buttonText,style: TextStyle(fontSize: MediaQuery.of(context).size.height/40,
+                                color: Colors.white
+                            ),),
+                          ),
                         ),
                       ),
-                    ),
-                    Spacer(),
-                    GestureDetector(
-                      onTap: () {
-                        if(view.typedText.isEmpty) {
-                          return;
-                        } else {
-                          view.enterPassword(view.emailCode.text,widget.widgetEmailCode,context);
-                          //view.navigateToMyPages(context);
-                        }
-                      },
-                      child: Container(
-                        height: screenHeight / 12,
-                        width: screenWidth / 1.1,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          color: view.typedText.isEmpty ? Colors.grey.withOpacity(0.4) : buttonColor,
-                        ),
-                        child: Center(
-                          child: Text(Strings.buttonText,style: TextStyle(fontSize: MediaQuery.of(context).size.height/40,
-                              color: Colors.white
-                          ),),
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: screenHeight / 40,)
-                  ],
+                      SizedBox(height: screenHeight / 40,)
+                    ],
+                  ),
                 ),
               );
             },
