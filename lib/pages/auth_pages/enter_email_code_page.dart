@@ -1,5 +1,9 @@
+import 'package:ecommerce_ulab/views/view_email_page.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:pinput/pinput.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../utils/color.dart';
 import '../../utils/strings.dart';
@@ -16,6 +20,17 @@ class EnterEmailCodePage extends StatefulWidget {
 
 class _EnterEmailCodePageState extends State<EnterEmailCodePage> {
   ViewEnterEmailCodePage view = ViewEnterEmailCodePage();
+  ViewEmailPage viewEmailPage = ViewEmailPage();
+
+  FocusNode focusNode = FocusNode();
+
+  @override
+  void dispose() {
+
+    focusNode.dispose();
+    super.dispose();
+  }
+
   @override
   void initState() {
     // TODO: implement initState
@@ -39,82 +54,112 @@ class _EnterEmailCodePageState extends State<EnterEmailCodePage> {
           create: (context) => view,
           child: Consumer<ViewEnterEmailCodePage>(
             builder: (context,view,index) {
-              return SingleChildScrollView(
-                physics: ClampingScrollPhysics(),
-                child: Container(
-                  height: screenHeight,
-                  width: screenWidth,
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          SizedBox(width: screenWidth / 40,),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(Strings.authText4,style: TextStyle(fontWeight: FontWeight.w600,
-                                  fontSize: screenHeight / 27
-                              ),),
-                              SizedBox(height:screenHeight / 50,),
-                              Text(Strings.authText9,style: TextStyle(fontWeight: FontWeight.w600,
-                                  fontSize: screenHeight / 40,color: black38
-                              ),),
-                              Text(view.sent_email.toString(),style: TextStyle(fontWeight: FontWeight.w600,
-                                fontSize: screenHeight / 45,color: black38,
-
-                              ),),
-                            ],
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: screenHeight / 30,),
-                      Container(
-                        margin: EdgeInsets.only(right: screenWidth / 30,
-                          left:  screenWidth / 30,
-                        ),
-                        child: TextField(
-                          controller: view.emailCode,
-                          onChanged: (value) {
-                            view.changeValue(value);
-                          },
-                          decoration: InputDecoration(
-                              hintText: Strings.authText8,
-                              fillColor: Colors.grey.withOpacity(0.2),
-                              filled: true,
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(8),
-                                  borderSide: BorderSide.none
-                              )
-                          ),
-                        ),
-                      ),
-                      Spacer(),
-                      GestureDetector(
-                        onTap: () {
-                          if(view.otpCode.isEmpty) {
-                            return;
-                          } else {
-                            view.enterPassword(view.emailCode.text,widget.widgetEmailCode,context);
-                            //view.navigateToMyPages(context);
-                          }
-                        },
-                        child: Container(
-                          height: screenHeight / 12,
-                          width: screenWidth / 1.1,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8),
-                            color: view.otpCode.isEmpty ? Colors.grey.withOpacity(0.4) : buttonColor,
-                          ),
-                          child: Center(
-                            child: Text(Strings.buttonText,style: TextStyle(fontSize: MediaQuery.of(context).size.height/40,
-                                color: Colors.white
+              return Center(
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        SizedBox(width: screenWidth / 40,),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(Strings.authText4,style: TextStyle(fontWeight: FontWeight.w600,
+                                fontSize: screenHeight / 27
                             ),),
+                            SizedBox(height:screenHeight / 50,),
+                            Text(Strings.authText9,style: TextStyle(fontWeight: FontWeight.w600,
+                                fontSize: screenHeight / 40,color: black38
+                            ),),
+                            Text(view.sent_email.toString(),style: TextStyle(fontWeight: FontWeight.w600,
+                              fontSize: screenHeight / 45,color: black38,
+
+                            ),),
+                          ],
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: screenHeight / 30,),
+                    SizedBox(
+                      height: 68,
+                      child: Pinput(
+                        onChanged: (value){
+                          view.changeValue(value);
+                        },
+                        controller: view.emailCode,
+                        length: 6,
+                        focusNode: focusNode,
+                        defaultPinTheme: PinTheme(
+                          width: 56,
+                          height: 60,
+                          textStyle: GoogleFonts.openSans().copyWith(
+                            fontSize: 22,
+                            fontWeight: FontWeight.w600,
+                          ),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.grey.shade200,
+                            border: Border.all(color: Colors.transparent),
                           ),
                         ),
+                        focusedPinTheme: PinTheme(
+                          width: 56,
+                          height: 60,
+                          textStyle: GoogleFonts.openSans().copyWith(
+                            fontSize: 22,
+                            fontWeight: FontWeight.w600,
+                          ),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.grey.shade200,
+                            border: Border.all(color: Colors.deepPurple),
+                          ),
+                        ),
+                        errorPinTheme: PinTheme(
+                          width: 56,
+                          height: 60,
+                          textStyle: GoogleFonts.openSans().copyWith(
+                            fontSize: 22,
+                            fontWeight: FontWeight.w600,
+                          ),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.grey.shade200,
+                            border: Border.all(color: Colors.red),
+                          ),
+                        ),
+                        onCompleted: (pin) {
+                          setState(() {
+                            view.otpCode = pin;
+                          });
+                        },
                       ),
-                      SizedBox(height: screenHeight / 40,)
-                    ],
-                  ),
+                    ),
+                    Spacer(),
+                    GestureDetector(
+                      onTap: () async{
+                        if(view.otpCode.isEmpty) {
+                          return;
+                        } else {
+                          view.enterPassword(view.emailCode.text,widget.widgetEmailCode,context);
+
+                        }
+                      },
+                      child: Container(
+                        height: screenHeight / 12,
+                        width: screenWidth / 1.1,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          color: view.otpCode.isEmpty ? Colors.grey.withOpacity(0.4) : buttonColor,
+                        ),
+                        child: Center(
+                          child: Text(Strings.buttonText,style: TextStyle(fontSize: MediaQuery.of(context).size.height/40,
+                              color: Colors.white
+                          ),),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: screenHeight / 40,)
+                  ],
                 ),
               );
             },
