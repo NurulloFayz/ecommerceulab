@@ -91,7 +91,7 @@ class _EnterEmailCodePageState extends State<EnterEmailCodePage> {
                       Spacer(),
                       GestureDetector(
                         onTap: () {
-                          if(view.typedText.isEmpty) {
+                          if(view.otpCode.isEmpty) {
                             return;
                           } else {
                             view.enterPassword(view.emailCode.text,widget.widgetEmailCode,context);
@@ -103,7 +103,7 @@ class _EnterEmailCodePageState extends State<EnterEmailCodePage> {
                           width: screenWidth / 1.1,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(8),
-                            color: view.typedText.isEmpty ? Colors.grey.withOpacity(0.4) : buttonColor,
+                            color: view.otpCode.isEmpty ? Colors.grey.withOpacity(0.4) : buttonColor,
                           ),
                           child: Center(
                             child: Text(Strings.buttonText,style: TextStyle(fontSize: MediaQuery.of(context).size.height/40,
