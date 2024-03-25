@@ -43,6 +43,7 @@ dependencies:
   connectivity_plus:
   http:
   shared_preferences:
+  flutter_secure_storage: ^9.0.0
   pinput: ^4.0.0
   google_fonts: ^6.2.1
   fan_carousel_image_slider: ^0.1.2
