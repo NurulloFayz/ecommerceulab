@@ -50,13 +50,7 @@ class ViewEmailPage extends ChangeNotifier{
     if (response.statusCode == 200) {
       // Successful login, handle response data
       Map<String,dynamic> responseData =  jsonDecode(response.body);
-      // try{
-      //   final token = responseData['token']; // Extract the token
-      //   await storage.write(key: 'token', value: token);
-      // }catch(e){
-      //   print('error occured register, cant take token');
-      // }
-      // print(responseData['token']);
+
 
       print('Login successful: $responseData');
     } else {
