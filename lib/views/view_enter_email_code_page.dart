@@ -1,5 +1,8 @@
 
-
+// "{
+//     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTE0NjA4NzYsInVpZCI6IjUifQ.lZeqec6k0o68f9ZX1XMSfnJagBf6fusYmIsrKipK1w0",
+//     "success": true
+// }
 
 import 'package:ecommerce_ulab/pages/auth_pages/email_page.dart';
 import 'package:ecommerce_ulab/pages/auth_pages/enter_name_bdate.dart';
@@ -56,6 +59,7 @@ class ViewEnterEmailCodePage extends ChangeNotifier{
 
       // Successful login, handle response data
       var responseData = jsonDecode(response.body);
+      print(responseData['token']);
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MyPages()));
       print('Login successful: $responseData');
     } else {

@@ -1,3 +1,4 @@
+import 'package:ecommerce_ulab/model/user_model.dart';
 import 'package:ecommerce_ulab/views/view_email_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -15,12 +16,15 @@ class EmailPage extends StatefulWidget {
 }
 
 class _EmailPageState extends State<EmailPage> {
-  ViewEmailPage view = ViewEmailPage();
+
+
 
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
+    ViewEmailPage view = ViewEmailPage();
+
     return Scaffold(
         appBar: AppBar(),
         body: ChangeNotifierProvider(
@@ -155,8 +159,7 @@ class _EmailPageState extends State<EmailPage> {
                             return;
                           } else {
                             //view.navigateToEnterEmailCodePage(context);
-                            view.loginUser(view.email.text, view.name.text,
-                                view.phoneNumber.text);
+                            view.loginUser();
                             view.showEmail(context, view.email.text);
                             print(view.email.text);
                             print(view.phoneNumber.text);

@@ -20,7 +20,7 @@ class EnterEmailCodePage extends StatefulWidget {
 
 class _EnterEmailCodePageState extends State<EnterEmailCodePage> {
   ViewEnterEmailCodePage view = ViewEnterEmailCodePage();
-  ViewEmailPage viewEmailPage = ViewEmailPage();
+  // ViewEmailPage viewEmailPage = ViewEmailPage();
 
   FocusNode focusNode = FocusNode();
 
