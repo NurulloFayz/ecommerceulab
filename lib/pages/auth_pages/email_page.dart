@@ -25,7 +25,6 @@ class _EmailPageState extends State<EmailPage> {
     double screenHeight = MediaQuery.of(context).size.height;
     ViewEmailPage view = ViewEmailPage();
     return Scaffold(
-        appBar: AppBar(),
         body: ChangeNotifierProvider(
           create: (context) => view,
           child: Consumer<ViewEmailPage>(
@@ -37,40 +36,38 @@ class _EmailPageState extends State<EmailPage> {
                   height: screenHeight,
                   child: Column(
                     children: [
-                      Row(
+                      SizedBox(height: screenHeight / 20,),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          SizedBox(
-                            width: screenWidth / 40,
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                Strings.authText7,
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: screenHeight / 27),
-                              ),
-                              SizedBox(
-                                height: screenHeight / 50,
-                              ),
-                              Container(
-                                margin:
-                                    EdgeInsets.only(right: screenWidth / 50),
-                                child: Text(
-                                  Strings.authText2,
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: screenHeight / 50,
-                                      color: Colors.grey),
-                                ),
-                              ),
-                            ],
-                          ),
+                          ListTile(
+                            title: Text(
+                              Strings.authText7,
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: screenHeight / 27),
+                            ),
+                          )
+                          // Container(
+                          //   margin:
+                          //       EdgeInsets.only(right: screenWidth / 50),
+                          //   child: Text(
+                          //     Strings.authText2,
+                          //     style: TextStyle(
+                          //         fontWeight: FontWeight.w500,
+                          //         fontSize: screenHeight / 50,
+                          //         color: Colors.grey),
+                          //   ),
+                          // ),
                         ],
                       ),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height / 30,
+                      // SizedBox(
+                      //   height: MediaQuery.of(context).size.height / 30,
+                      // ),
+                      ListTile(
+                        title: Text(Strings.authTextBDateHintText3, style: TextStyle(
+
+                            fontSize: screenHeight / 40),),
                       ),
                       Container(
                         margin: EdgeInsets.only(
@@ -85,11 +82,13 @@ class _EmailPageState extends State<EmailPage> {
                           },
                           //focusNode: view.textFieldFocusNode,
                           decoration: InputDecoration(
-                              hintText: 'E-mail',
+                              hintText: Strings.authTextBDateHintText1,
+                              hintStyle: TextStyle(color: Colors.grey,fontWeight: FontWeight.w400,fontSize: screenHeight / 42),
                               filled: true,
                               fillColor: Colors.grey.withOpacity(0.2),
+                              contentPadding: EdgeInsets.all(screenHeight / 60),
                               border: OutlineInputBorder(
-                                  borderSide: BorderSide.none,
+                                borderSide: BorderSide.none,
                                   borderRadius: BorderRadius.circular(8))),
                         ),
                       ),
@@ -97,8 +96,7 @@ class _EmailPageState extends State<EmailPage> {
                         title: Text(
                           Strings.authTextBDateHintText2,
                           style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: screenHeight / 38),
+                              fontSize: screenHeight / 40),
                         ),
                       ),
                       Container(
@@ -115,10 +113,12 @@ class _EmailPageState extends State<EmailPage> {
                           // focusNode: view.textFieldFocusNode,
                           decoration: InputDecoration(
                               hintText: Strings.authTextBDateHintText2,
+                              hintStyle: TextStyle(color: Colors.grey,fontWeight: FontWeight.w400,fontSize: screenHeight / 42),
                               filled: true,
                               fillColor: Colors.grey.withOpacity(0.2),
+                              contentPadding: EdgeInsets.all(screenHeight / 60),
                               border: OutlineInputBorder(
-                                  borderSide: BorderSide.none,
+                                borderSide: BorderSide.none,
                                   borderRadius: BorderRadius.circular(8))),
                         ),
                       ),
@@ -126,8 +126,8 @@ class _EmailPageState extends State<EmailPage> {
                         title: Text(
                           Strings.authTextBPhoneNumber,
                           style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: screenHeight / 38),
+
+                              fontSize: screenHeight / 40),
                         ),
                       ),
                       Container(
@@ -144,10 +144,12 @@ class _EmailPageState extends State<EmailPage> {
                           // focusNode: view.textFieldFocusNode,
                           decoration: InputDecoration(
                               hintText: Strings.authTextBPhoneNumber,
+                              hintStyle: TextStyle(color: Colors.grey,fontWeight: FontWeight.w400,fontSize: screenHeight / 42),
                               filled: true,
                               fillColor: Colors.grey.withOpacity(0.2),
+                              contentPadding: EdgeInsets.all(screenHeight / 60),
                               border: OutlineInputBorder(
-                                  borderSide: BorderSide.none,
+                                borderSide: BorderSide.none,
                                   borderRadius: BorderRadius.circular(8))),
                         ),
                       ),
