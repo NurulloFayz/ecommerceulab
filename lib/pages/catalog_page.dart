@@ -36,7 +36,8 @@ class _CatalogPageState extends State<CatalogPage> {
                     IconButton(
                       icon: Icon(
                         CupertinoIcons.left_chevron,
-                        color: grey,
+                        color: black,
+                        size: height / 40,
                       ),
                       onPressed: () {},
                     ),
@@ -82,7 +83,7 @@ class _CatalogPageState extends State<CatalogPage> {
                       Text(
                         Strings.catalogText1,
                         style: TextStyle(
-                          fontSize: height * .02,
+                          fontSize: height / 40,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -90,7 +91,7 @@ class _CatalogPageState extends State<CatalogPage> {
                         onPressed: () {},
                         child: Text(
                           Strings.catalogText2,
-                          style: TextStyle(color: grey, fontSize: height * .02),
+                          style: TextStyle(color: grey, fontSize: height / 38,),
                         ),
                       ),
                     ],
@@ -114,11 +115,11 @@ class _CatalogPageState extends State<CatalogPage> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text('Мужская футболка'),
+                            Text('Мужская футболка',style: TextStyle(fontSize: height / 42,color: Colors.grey,fontWeight: FontWeight.w500),),
                             IconButton(
                                 onPressed: () {},
                                 icon: Icon(
-                                  Icons.delete,
+                                  Icons.close,
                                   color: grey,
                                 ))
                           ],
@@ -138,7 +139,7 @@ class _CatalogPageState extends State<CatalogPage> {
                       Text(
                         Strings.catalogText3,
                         style: TextStyle(
-                          fontSize: height * .02,
+                          fontSize: height / 40,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -160,11 +161,11 @@ class _CatalogPageState extends State<CatalogPage> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text('Кондиционеры'),
+                            Text('Кондиционеры',style: TextStyle(fontSize: height / 42,color: Colors.grey,fontWeight: FontWeight.w500),),
                             IconButton(
                                 onPressed: () {},
                                 icon: Icon(
-                                  Icons.delete,
+                                  Icons.close,
                                   color: grey,
                                 ))
                           ],

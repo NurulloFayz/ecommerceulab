@@ -24,7 +24,6 @@ class _EmailPageState extends State<EmailPage> {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     ViewEmailPage view = ViewEmailPage();
-
     return Scaffold(
         appBar: AppBar(),
         body: ChangeNotifierProvider(

@@ -56,7 +56,7 @@ class Strings {
   static String profilePageText8 = 'Уведомления';
   static String profilePageText9 = 'Мой профиль';
   static String profilePageText10 = 'Настройки';
-  static String profilePageText11 = 'Мои промокоды';
+  static String profilePageText11 = 'Язык';
   static String profilePageText12 = 'Город';
   static String profilePageText13 = 'Пункт выдачи на карте';
   static String profilePageText14 = 'Справка';
