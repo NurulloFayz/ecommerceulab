@@ -1,8 +1,7 @@
 import 'package:ecommerce_ulab/constants/common_functions.dart';
-import 'package:ecommerce_ulab/views/back_button.dart';
+import 'package:ecommerce_ulab/views/view_catalog_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:cupertino_icons/cupertino_icons.dart';
 
 import '../utils/color.dart';
 import '../utils/strings.dart';
@@ -16,7 +15,7 @@ class CatalogPage extends StatefulWidget {
 
 class _CatalogPageState extends State<CatalogPage> {
   TextEditingController searchController = TextEditingController();
-
+  ViewCatalogPage view = ViewCatalogPage();
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
@@ -39,7 +38,9 @@ class _CatalogPageState extends State<CatalogPage> {
                         color: black,
                         size: height / 40,
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        view.navigateToMyPages(context);
+                      },
                     ),
                     SizedBox(
                       width: width * .82,
