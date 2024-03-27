@@ -115,7 +115,7 @@ class _CatalogPageState extends State<CatalogPage> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text('Мужская футболка',style: TextStyle(fontSize: height / 42,color: Colors.grey,fontWeight: FontWeight.w500),),
+                            Text('Мужская футболка',style: TextStyle(fontSize: height / 45,color: Colors.grey,fontWeight: FontWeight.w500),),
                             IconButton(
                                 onPressed: () {},
                                 icon: Icon(
@@ -161,7 +161,7 @@ class _CatalogPageState extends State<CatalogPage> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text('Кондиционеры',style: TextStyle(fontSize: height / 42,color: Colors.grey,fontWeight: FontWeight.w500),),
+                            Text('Кондиционеры',style: TextStyle(fontSize: height / 45,color: Colors.grey,fontWeight: FontWeight.w500),),
                             IconButton(
                                 onPressed: () {},
                                 icon: Icon(

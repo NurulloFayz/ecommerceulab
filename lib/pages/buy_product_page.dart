@@ -21,7 +21,7 @@ class _BuyProductPageState extends State<BuyProductPage> {
     'https://img.freepik.com/free-photo/elegant-woman-brown-coat-spring-city_1157-33434.jpg?w=1800&t=st=1673886830~exp=1673887430~hmac=cc8c28a9332e008db251bdf9c7b838b7aa5077ec7663773087a8cc56d11138ff',
     'https://img.freepik.com/free-photo/high-fashion-look-glamor-closeup-portrait-beautiful-sexy-stylish-blond-young-woman-model-with-bright-yellow-makeup-with-perfect-clean-skin-with-gold-jewelery-black-cloth_158538-2003.jpg?w=826&t=st=1673886857~exp=1673887457~hmac=3ba51578e6a1e9c58e95a6b72e492cbbc26abf8e2f116a0672113770d3f4edbe',
   ];
-
+  Color color = Color(0xFF223263);
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -31,7 +31,7 @@ class _BuyProductPageState extends State<BuyProductPage> {
         backgroundColor: white,
         appBar: AppBar(
           centerTitle: true,
-          title: Text(Strings.cartPageAppBarText,style: TextStyle(fontSize: screenHeight / 40,color: black,fontWeight: FontWeight.w500),),
+          title: Text(Strings.cartPageAppBarText,style: TextStyle(fontSize: screenHeight / 35,color: black,fontWeight: FontWeight.w500),),
         ),
         // appBar: AppBar(
         //   backgroundColor: white,
@@ -71,7 +71,8 @@ class _BuyProductPageState extends State<BuyProductPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset('assets/images/buy_products_page/korzinka.png',height: screenHeight / 3,),
+              Image.asset('assets/images/buy_products_page/korzinka.png',height: screenHeight / 5,),
+              Text(Strings.cartPageEmptyText4,style: TextStyle(fontSize: screenHeight / 30,color: color,fontWeight: FontWeight.w700,),),
               SizedBox(height: screenHeight / 50,),
               Text(Strings.cartPageEmptyText2,style: TextStyle(fontSize: screenHeight / 40,color: Colors.grey),),
               Text(Strings.cartPageEmptyText3,style: TextStyle(fontSize: screenHeight / 40,color: Colors.grey),),

@@ -19,7 +19,7 @@ class _ProfilePageState extends State<ProfilePage> {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: greyShade2,
+      backgroundColor: Colors.grey.shade200,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -44,7 +44,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       Text(
                         Strings.profilePageText1,
                         style: TextStyle(
-                            fontSize: screenHeight / 30, color: Colors.white),
+                            fontSize: screenHeight / 35, color: Colors.white),
                       )
                     ],
                   ),
@@ -69,13 +69,13 @@ class _ProfilePageState extends State<ProfilePage> {
                           Text(
                             'My name',
                             style: TextStyle(
-                                fontSize: screenHeight / 40,
+                                fontSize: screenHeight / 45,
                                 color: Colors.white),
                           ),
                           Text(
                             '+ 998 99 123 45 67',
                             style: TextStyle(
-                                fontSize: screenHeight / 40,
+                                fontSize: screenHeight / 45,
                                 color: Colors.white),
                           ),
                         ],
@@ -108,7 +108,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     title: Text(
                       Strings.profilePageText3,
                       style: TextStyle(
-                          fontSize: screenHeight / 40,
+                          fontSize: screenHeight / 45,
                           fontWeight: FontWeight.w500),
                     ),
                     trailing: Icon(
@@ -128,7 +128,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     title: Text(
                       Strings.profilePageText4,
                       style: TextStyle(
-                          fontSize: screenHeight / 40,
+                          fontSize: screenHeight / 45,
                           fontWeight: FontWeight.w500),
                     ),
                     trailing: Icon(
@@ -145,7 +145,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     title: Text(
                       Strings.profilePageText5,
                       style: TextStyle(
-                          fontSize: screenHeight / 40,
+                          fontSize: screenHeight / 45,
                           fontWeight: FontWeight.w500),
                     ),
                     trailing: Icon(
@@ -157,7 +157,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
             ),
             SizedBox(
-              height: screenHeight / 50,
+              height: screenHeight / 70,
             ),
             Container(
               margin: EdgeInsets.only(
@@ -179,7 +179,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     title: Text(
                       Strings.profilePageText6,
                       style: TextStyle(
-                          fontSize: screenHeight / 40,
+                          fontSize: screenHeight / 45,
                           fontWeight: FontWeight.w500),
                     ),
                     trailing: Icon(
@@ -199,7 +199,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     title: Text(
                       Strings.profilePageText7,
                       style: TextStyle(
-                          fontSize: screenHeight / 40,
+                          fontSize: screenHeight / 45,
                           fontWeight: FontWeight.w500),
                     ),
                     trailing: Icon(
@@ -219,7 +219,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     title: Text(
                       Strings.profilePageText8,
                       style: TextStyle(
-                          fontSize: screenHeight / 40,
+                          fontSize: screenHeight / 45,
                           fontWeight: FontWeight.w500),
                     ),
                     trailing: Icon(
@@ -239,7 +239,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     title: Text(
                       Strings.profilePageText9,
                       style: TextStyle(
-                          fontSize: screenHeight / 40,
+                          fontSize: screenHeight / 45,
                           fontWeight: FontWeight.w500),
                     ),
                     trailing: Icon(
@@ -259,7 +259,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     title: Text(
                       Strings.profilePageText10,
                       style: TextStyle(
-                          fontSize: screenHeight / 40,
+                          fontSize: screenHeight / 45,
                           fontWeight: FontWeight.w500),
                     ),
                     trailing: Icon(
@@ -271,7 +271,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
             ),
             SizedBox(
-              height: screenHeight / 50,
+              height: screenHeight / 70,
             ),
             Container(
                 margin: EdgeInsets.only(
@@ -299,14 +299,14 @@ class _ProfilePageState extends State<ProfilePage> {
                         Text(
                           Strings.profilePageText11,
                           style: TextStyle(
-                              fontSize: screenHeight / 40,
+                              fontSize: screenHeight / 45,
                               fontWeight: FontWeight.w500),
                         ),
                         Spacer(),
                         Text(
                           Strings.profilePageText16,
                           style: TextStyle(
-                              fontSize: screenHeight / 40,
+                              fontSize: screenHeight / 45,
                               color: grey,
                               fontWeight: FontWeight.w500),
                         ),
@@ -322,7 +322,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ],
                 )),
             SizedBox(
-              height: screenHeight / 50,
+              height: screenHeight / 70,
             ),
             Container(
               margin: EdgeInsets.only(
@@ -354,14 +354,14 @@ class _ProfilePageState extends State<ProfilePage> {
                       Text(
                         Strings.profilePageText12,
                         style: TextStyle(
-                            fontSize: screenHeight / 40,
+                            fontSize: screenHeight / 45,
                             fontWeight: FontWeight.w500),
                       ),
                       Spacer(),
                       Text(
                         Strings.profilePageText17,
                         style: TextStyle(
-                            fontSize: screenHeight / 40,
+                            fontSize: screenHeight / 45,
                             color: grey,
                             fontWeight: FontWeight.w500),
                       ),
@@ -389,7 +389,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     title: Text(
                       Strings.profilePageText13,
                       style: TextStyle(
-                          fontSize: screenHeight / 40,
+                          fontSize: screenHeight / 45,
                           fontWeight: FontWeight.w500),
                     ),
                     trailing: Icon(
@@ -401,7 +401,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
             ),
             SizedBox(
-              height: screenHeight / 50,
+              height: screenHeight / 70,
             ),
             Container(
               margin: EdgeInsets.only(
@@ -423,7 +423,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     title: Text(
                       Strings.profilePageText14,
                       style: TextStyle(
-                          fontSize: screenHeight / 40,
+                          fontSize: screenHeight / 45,
                           fontWeight: FontWeight.w500),
                     ),
                     trailing: Icon(
@@ -443,7 +443,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     title: Text(
                       Strings.profilePageText15,
                       style: TextStyle(
-                          fontSize: screenHeight / 40,
+                          fontSize: screenHeight / 45,
                           fontWeight: FontWeight.w500),
                     ),
                     trailing: Icon(
@@ -454,22 +454,22 @@ class _ProfilePageState extends State<ProfilePage> {
                 ],
               ),
             ),
-            SizedBox(
-              height: screenHeight / 30,
-            ),
-            TextButton(
-              child: Text('Выйти из аккунта ',style: TextStyle(
-                color: Colors.blue,
-                fontSize: 20,
-              ),),
-              onPressed: () async {
-                final SharedPreferences preferences =
-                    await SharedPreferences.getInstance();
-                preferences.remove('email');
-                Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => OnBoardingPage()));
-              },
-            ),
+            SizedBox(height: screenHeight / 50,),
+            Text('Версия приложения: 1.28.0 (8290)',style: TextStyle(fontSize: screenHeight / 45,color: Colors.grey),),
+            SizedBox(height: screenHeight / 40,),
+            // TextButton(
+            //   child: Text('Выйти из аккунта ',style: TextStyle(
+            //     color: Colors.blue,
+            //     fontSize: 20,
+            //   ),),
+            //   onPressed: () async {
+            //     final SharedPreferences preferences =
+            //         await SharedPreferences.getInstance();
+            //     preferences.remove('email');
+            //     Navigator.pushReplacement(context,
+            //         MaterialPageRoute(builder: (context) => OnBoardingPage()));
+            //   },
+            // ),
           ],
         ),
       ),

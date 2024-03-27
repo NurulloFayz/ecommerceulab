@@ -8,7 +8,7 @@ import '../../model/product_model.dart';
 class ProductService {
   static const String apiUrl =
       'https://ulab-market-backend.onrender.com/api/products';
- Future<String?>getToken()async{
+ Future<String?> getToken() async {
    final storage =  FlutterSecureStorage();
 
 // Read value

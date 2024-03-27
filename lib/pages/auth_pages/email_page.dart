@@ -94,7 +94,7 @@ class _EmailPageState extends State<EmailPage> {
                       ),
                       ListTile(
                         title: Text(
-                          Strings.authTextBDateHintText2,
+                          Strings.authTextBDateHintText4,
                           style: TextStyle(
                               fontSize: screenHeight / 40),
                         ),
@@ -143,13 +143,44 @@ class _EmailPageState extends State<EmailPage> {
                           },
                           // focusNode: view.textFieldFocusNode,
                           decoration: InputDecoration(
-                              hintText: Strings.authTextBPhoneNumber,
+                              hintText: Strings.authTextBPhoneNumber6,
                               hintStyle: TextStyle(color: Colors.grey,fontWeight: FontWeight.w400,fontSize: screenHeight / 42),
                               filled: true,
                               fillColor: Colors.grey.withOpacity(0.2),
                               contentPadding: EdgeInsets.all(screenHeight / 60),
                               border: OutlineInputBorder(
                                 borderSide: BorderSide.none,
+                                  borderRadius: BorderRadius.circular(8))),
+                        ),
+                      ),
+                      ListTile(
+                        title: Text(
+                          Strings.authTextBDateHintText5,
+                          style: TextStyle(
+
+                              fontSize: screenHeight / 40),
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(
+                          right: screenWidth / 30,
+                          left: screenWidth / 30,
+                        ),
+                        child: TextField(
+                          controller: view.phoneNumber,
+                          style: TextStyle(fontSize: screenHeight / 40),
+                          onChanged: (value) {
+                            view.changeValue(value);
+                          },
+                          // focusNode: view.textFieldFocusNode,
+                          decoration: InputDecoration(
+                              hintText: Strings.authTextBDateHintText6,
+                              hintStyle: TextStyle(color: Colors.grey,fontWeight: FontWeight.w400,fontSize: screenHeight / 42),
+                              filled: true,
+                              fillColor: Colors.grey.withOpacity(0.2),
+                              contentPadding: EdgeInsets.all(screenHeight / 60),
+                              border: OutlineInputBorder(
+                                  borderSide: BorderSide.none,
                                   borderRadius: BorderRadius.circular(8))),
                         ),
                       ),

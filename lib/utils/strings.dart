@@ -19,9 +19,13 @@ class Strings {
   static String authText10 = 'ФИО';
   static String authText11 = 'Дата рождения';
   static String authTextBPhoneNumber = 'Введите телефон номер ';
+  static String authTextBPhoneNumber6 = 'Телефон номер ';
   static String authTextBDateHintText2 = 'ФИО';
   static String authTextBDateHintText3 = 'Введите электронную почту';
   static String authTextBDateHintText1 = 'Электроннaя почта';
+  static String authTextBDateHintText4 = 'Введите ФИО';
+  static String authTextBDateHintText5 = 'Введите пароль';
+  static String authTextBDateHintText6 = 'Пароль';
   /// auth error texts
   static String errorText1 = 'Неверный код';
   static String errorText2 = 'Отправить еще раз';
@@ -119,6 +123,7 @@ class Strings {
   static String cartPageButtonText2 = 'Вернуться в главную';
   static String cartPageEmptyText2 = 'В вашей корзине нет товаров';
   static String cartPageEmptyText3 = 'подберите на товары главной странице';
+  static String cartPageEmptyText4 = 'Корзина пуста';
   /// bottomnavigation texts
   static String bottomText1 = 'Главная';
   static String bottomText2 = 'Каталог';
