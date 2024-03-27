@@ -55,7 +55,7 @@ class _CatalogPageState extends State<CatalogPage> {
                             contentPadding: EdgeInsets.all(
                                 MediaQuery.of(context).size.height / 60),
                             filled: true,
-                            fillColor: Colors.grey.withOpacity(0.2),
+                            fillColor:view.color,
                             hintText: Strings.homePageHintText,
                             hintStyle: TextStyle(
                                 fontSize:

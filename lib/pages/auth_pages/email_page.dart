@@ -25,11 +25,13 @@ class _EmailPageState extends State<EmailPage> {
     double screenHeight = MediaQuery.of(context).size.height;
     ViewEmailPage view = ViewEmailPage();
     return Scaffold(
+      backgroundColor: white,
         body: ChangeNotifierProvider(
           create: (context) => view,
           child: Consumer<ViewEmailPage>(
             builder: (context, view, index) {
               return SingleChildScrollView(
+                reverse: true,
                 physics: ClampingScrollPhysics(),
                 child: Container(
                   width: screenWidth,
@@ -85,7 +87,7 @@ class _EmailPageState extends State<EmailPage> {
                               hintText: Strings.authTextBDateHintText1,
                               hintStyle: TextStyle(color: Colors.grey,fontWeight: FontWeight.w400,fontSize: screenHeight / 42),
                               filled: true,
-                              fillColor: Colors.grey.withOpacity(0.2),
+                              fillColor: view.color,
                               contentPadding: EdgeInsets.all(screenHeight / 60),
                               border: OutlineInputBorder(
                                 borderSide: BorderSide.none,
@@ -115,7 +117,7 @@ class _EmailPageState extends State<EmailPage> {
                               hintText: Strings.authTextBDateHintText2,
                               hintStyle: TextStyle(color: Colors.grey,fontWeight: FontWeight.w400,fontSize: screenHeight / 42),
                               filled: true,
-                              fillColor: Colors.grey.withOpacity(0.2),
+                              fillColor: view.color,
                               contentPadding: EdgeInsets.all(screenHeight / 60),
                               border: OutlineInputBorder(
                                 borderSide: BorderSide.none,
@@ -146,7 +148,7 @@ class _EmailPageState extends State<EmailPage> {
                               hintText: Strings.authTextBPhoneNumber6,
                               hintStyle: TextStyle(color: Colors.grey,fontWeight: FontWeight.w400,fontSize: screenHeight / 42),
                               filled: true,
-                              fillColor: Colors.grey.withOpacity(0.2),
+                              fillColor:view.color,
                               contentPadding: EdgeInsets.all(screenHeight / 60),
                               border: OutlineInputBorder(
                                 borderSide: BorderSide.none,
@@ -177,7 +179,7 @@ class _EmailPageState extends State<EmailPage> {
                               hintText: Strings.authTextBDateHintText6,
                               hintStyle: TextStyle(color: Colors.grey,fontWeight: FontWeight.w400,fontSize: screenHeight / 42),
                               filled: true,
-                              fillColor: Colors.grey.withOpacity(0.2),
+                              fillColor: view.color,
                               contentPadding: EdgeInsets.all(screenHeight / 60),
                               border: OutlineInputBorder(
                                   borderSide: BorderSide.none,

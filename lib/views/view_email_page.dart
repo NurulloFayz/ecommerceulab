@@ -57,5 +57,6 @@ class ViewEmailPage extends ChangeNotifier{
       print('Login failed: ${response.body}');
     }
   }
+  Color color = const Color(0xFFF5F6F8);
 
 }

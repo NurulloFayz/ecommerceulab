@@ -10,4 +10,5 @@ class ViewCatalogPage {
   void navigateToMyPages(BuildContext context) {
     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MyPages()));
   }
+  Color color = const Color(0xFFF5F6F8);
 }
