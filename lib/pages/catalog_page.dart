@@ -14,7 +14,7 @@ class CatalogPage extends StatefulWidget {
 }
 
 class _CatalogPageState extends State<CatalogPage> {
-  TextEditingController searchController = TextEditingController();
+
   ViewCatalogPage view = ViewCatalogPage();
   @override
   Widget build(BuildContext context) {
@@ -46,7 +46,7 @@ class _CatalogPageState extends State<CatalogPage> {
                       width: width * .82,
                       child: TextField(
                         style: TextStyle(fontSize: height / 40),
-                        controller: searchController,
+                        controller: view.searchController,
                         decoration: InputDecoration(
                             prefixIcon: Icon(
                               Icons.search,
