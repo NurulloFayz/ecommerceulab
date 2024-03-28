@@ -37,7 +37,7 @@ class _LogInPageState extends State<LogInPage> {
             Row(
               children: [
                 SizedBox(width: screenWidth / 20,),
-                Text(Strings.authTextBDateHintText3, style: TextStyle(
+                Text(Strings.loginPageText1, style: TextStyle(
                     fontSize: screenHeight / 40,fontWeight: FontWeight.w400),),
               ],
             ),
@@ -55,7 +55,7 @@ class _LogInPageState extends State<LogInPage> {
                 },
                 //focusNode: view.textFieldFocusNode,
                 decoration: InputDecoration(
-                    hintText: Strings.authTextBDateHintText1,
+                    hintText: Strings.loginHintPageText1,
                     hintStyle: TextStyle(color: Colors.grey,fontWeight: FontWeight.w400,fontSize: screenHeight / 42),
                     filled: true,
                     fillColor: view.color,
@@ -70,7 +70,7 @@ class _LogInPageState extends State<LogInPage> {
               children: [
                 SizedBox(width: screenWidth / 20,),
                 Text(
-                  Strings.authTextBDateHintText4,
+                  Strings.authTextBDateHintText5,
                   style: TextStyle(
                       fontSize: screenHeight / 40,fontWeight: FontWeight.w400),
                 ),
@@ -90,7 +90,7 @@ class _LogInPageState extends State<LogInPage> {
                 },
                 // focusNode: view.textFieldFocusNode,
                 decoration: InputDecoration(
-                    hintText: Strings.authTextBDateHintText2,
+                    hintText: Strings.loginHintPageText2,
                     hintStyle: TextStyle(color: Colors.grey,fontWeight: FontWeight.w400,fontSize: screenHeight / 42),
                     filled: true,
                     fillColor: view.color,
