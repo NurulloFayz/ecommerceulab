@@ -29,7 +29,7 @@ class ViewEmailPage extends ChangeNotifier{
   }
 
   Future<void> loginUser() async {
-    final UserModel userModel = UserModel(email: email.text, name: name.text, phoneNumber: phoneNumber.text);
+    //final UserModel userModel = UserModel(email: email.text, name: name.text, phoneNumber: phoneNumber.text,password: password.text);
     var url = Uri.parse('https://ulab-market-backend.onrender.com/auth/register');
 
     var response = await http.post(
@@ -37,7 +37,14 @@ class ViewEmailPage extends ChangeNotifier{
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
-      body: jsonEncode(userModel.toJson()),
+      body:
+      //jsonEncode(userModel.toJson()),
+      jsonEncode(<String,String> {
+        "name": name.text,
+        "email": email.text,
+        "phone_number": phoneNumber.text,
+        "password": password.text,
+      })
     );
     final storage = FlutterSecureStorage();
     if (response.statusCode == 200) {

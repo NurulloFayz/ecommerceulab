@@ -37,7 +37,7 @@ class ViewEnterEmailCodePage extends ChangeNotifier{
     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MyPages()));
   }
   Future<void> enterPassword (String password,String email,BuildContext context) async {
-    var url = Uri.parse('https://ulab-market-backend.onrender.com/auth/verifyCode');
+    var url = Uri.parse('https://ulab-market-backend.onrender.com/auth/verify_code');
     checkEmail = email;
 
     var response = await http.post(

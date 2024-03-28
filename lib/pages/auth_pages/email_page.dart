@@ -185,7 +185,7 @@ class _EmailPageState extends State<EmailPage> {
                           top: screenHeight / 150,
                         ),
                         child: TextField(
-                          controller: view.phoneNumber,
+                          controller: view.password,
                           style: TextStyle(fontSize: screenHeight / 40),
                           onChanged: (value) {
                             view.changeValue(value);
