@@ -26,7 +26,7 @@ class _LogInPageState extends State<LogInPage> {
             SizedBox(height: screenHeight / 20,),
             ListTile(
               title: Text(
-                Strings.authText7,
+                Strings.authText12,
                 style: TextStyle(
                     fontWeight: FontWeight.w600,
                     fontSize: screenHeight / 27

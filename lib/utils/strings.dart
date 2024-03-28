@@ -29,6 +29,7 @@ class Strings {
   static String loginPageText1 = 'Введите электронную почту или номер';
   static String loginHintPageText1 = ' электронная почта или номер';
   static String loginHintPageText2 = 'Пароль';
+  static String authText12 = 'Логин';
   /// auth error texts
   static String errorText1 = 'Неверный код';
   static String errorText2 = 'Отправить еще раз';
