@@ -1,4 +1,3 @@
-import 'package:ecommerce_ulab/model/user_model.dart';
 import 'package:ecommerce_ulab/views/view_email_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -66,15 +65,19 @@ class _EmailPageState extends State<EmailPage> {
                       // SizedBox(
                       //   height: MediaQuery.of(context).size.height / 30,
                       // ),
-                      ListTile(
-                        title: Text(Strings.authTextBDateHintText3, style: TextStyle(
-
-                            fontSize: screenHeight / 40),),
+                      SizedBox(height: screenHeight / 50,),
+                      Row(
+                        children: [
+                          SizedBox(width: screenWidth / 20,),
+                          Text(Strings.authTextBDateHintText3, style: TextStyle(
+                              fontSize: screenHeight / 40,fontWeight: FontWeight.w400),),
+                        ],
                       ),
                       Container(
                         margin: EdgeInsets.only(
                           right: screenWidth / 30,
                           left: screenWidth / 30,
+                          top: screenHeight / 150,
                         ),
                         child: TextField(
                           controller: view.email,
@@ -94,17 +97,22 @@ class _EmailPageState extends State<EmailPage> {
                                   borderRadius: BorderRadius.circular(8))),
                         ),
                       ),
-                      ListTile(
-                        title: Text(
-                          Strings.authTextBDateHintText4,
-                          style: TextStyle(
-                              fontSize: screenHeight / 40),
-                        ),
+                      SizedBox(height: screenHeight / 25,),
+                      Row(
+                        children: [
+                          SizedBox(width: screenWidth / 20,),
+                          Text(
+                            Strings.authTextBDateHintText4,
+                            style: TextStyle(
+                                fontSize: screenHeight / 40,fontWeight: FontWeight.w400),
+                          ),
+                        ],
                       ),
                       Container(
                         margin: EdgeInsets.only(
                           right: screenWidth / 30,
                           left: screenWidth / 30,
+                          top: screenHeight / 150,
                         ),
                         child: TextField(
                           controller: view.name,
@@ -124,18 +132,22 @@ class _EmailPageState extends State<EmailPage> {
                                   borderRadius: BorderRadius.circular(8))),
                         ),
                       ),
-                      ListTile(
-                        title: Text(
-                          Strings.authTextBPhoneNumber,
-                          style: TextStyle(
-
-                              fontSize: screenHeight / 40),
-                        ),
+                      SizedBox(height: screenHeight / 25,),
+                      Row(
+                        children: [
+                          SizedBox(width: screenWidth / 20,),
+                          Text(
+                            Strings.authTextBPhoneNumber,
+                            style: TextStyle(
+                                fontSize: screenHeight / 40,fontWeight: FontWeight.w400),
+                          ),
+                        ],
                       ),
                       Container(
                         margin: EdgeInsets.only(
                           right: screenWidth / 30,
                           left: screenWidth / 30,
+                          top: screenHeight / 150,
                         ),
                         child: TextField(
                           controller: view.phoneNumber,
@@ -155,18 +167,22 @@ class _EmailPageState extends State<EmailPage> {
                                   borderRadius: BorderRadius.circular(8))),
                         ),
                       ),
-                      ListTile(
-                        title: Text(
-                          Strings.authTextBDateHintText5,
-                          style: TextStyle(
-
-                              fontSize: screenHeight / 40),
-                        ),
+                      SizedBox(height: screenHeight / 25,),
+                      Row(
+                        children: [
+                          SizedBox(width: screenWidth / 20,),
+                          Text(
+                            Strings.authTextBDateHintText5,
+                            style: TextStyle(
+                                fontSize: screenHeight / 40,fontWeight: FontWeight.w400),
+                          ),
+                        ],
                       ),
                       Container(
                         margin: EdgeInsets.only(
                           right: screenWidth / 30,
                           left: screenWidth / 30,
+                          top: screenHeight / 150,
                         ),
                         child: TextField(
                           controller: view.phoneNumber,
