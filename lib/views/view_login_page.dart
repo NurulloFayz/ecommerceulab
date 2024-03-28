@@ -46,4 +46,5 @@ class ViewLogInPage extends ChangeNotifier {
     }
   }
   Color color = const Color(0xFFF5F6F8);
+  bool obscurePassword = true;
 }
