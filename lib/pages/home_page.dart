@@ -24,12 +24,12 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   ViewHomePage view = ViewHomePage();
-  Future<List<Product>>? recipe ;
+  Future<List<Product>>? product ;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    recipe = ProductApi.getRecipe();
+    product = ProductApi.getRecipe();
 
   }
   @override
@@ -499,22 +499,22 @@ class _HomePageState extends State<HomePage> {
                       Expanded(
                         child: Container(
                           child: FutureBuilder<List<Product>>(
-                              future: recipe,
+                              future: product,
                               builder: (context,snapshot) {
                                 if(snapshot.connectionState == ConnectionState.waiting) {
                                   return Center(child: CircularProgressIndicator(),);
                                 } else if(snapshot.hasError) {
                                   return Center(child: Text('error${snapshot.error}'),);
                                 } else {
-                                  final recipes = snapshot.data;
-                                  if(recipes!.isEmpty) {
+                                  final products = snapshot.data;
+                                  if(products!.isEmpty) {
                                     return Text('no recipes found');
                                   }
                                   return ListView.builder(
                                     physics: NeverScrollableScrollPhysics(),
-                                      itemCount: recipes.length,
+                                      itemCount: products.length,
                                       itemBuilder: (context,index) {
-                                        final recipe = recipes[index];
+                                        final recipe = products[index];
                                         return Column(
                                           children: [
                                             Text('products - ${recipe.name}'),
