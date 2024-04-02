@@ -3,7 +3,7 @@ class Product {
   final String name;
   final String mainImage;
   final String description;
-  final double price;
+  final int price;
   final int quantity;
   final int categoryId;
   final List<String> mediaFiles;
@@ -25,7 +25,7 @@ class Product {
       name: json['name'] as String,
       mainImage: json['main_image'] as String,
       description: json['description'] as String,
-      price: json['price'] as double,
+      price: json['price'] as int,
       quantity: json['quantity'] as int,
       categoryId: json['category_id'] as int,
       mediaFiles: (json['media_files'] as List).cast<String>(),

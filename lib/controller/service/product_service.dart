@@ -10,8 +10,7 @@ class ProductService {
       'https://ulab-market-backend.onrender.com/api/products';
  Future<String?> getToken() async {
    final storage =  FlutterSecureStorage();
-
-// Read value
+   // Read value
    String? token = await storage.read(key: 'token');
    print('token is $token');
      return token;
