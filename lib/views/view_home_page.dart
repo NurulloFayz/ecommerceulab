@@ -10,10 +10,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
+import '../model/product_model.dart';
+
 
 class ViewHomePage extends ChangeNotifier {
   void navigateToFavouritePage(BuildContext context) {
     Navigator.pushNamed(context, FavouritePage.id);
     notifyListeners();
   }
+  Future<List<Product>>? product ;
 }

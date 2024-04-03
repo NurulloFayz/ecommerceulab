@@ -17,12 +17,11 @@ class CatalogPage extends StatefulWidget {
 
 class _CatalogPageState extends State<CatalogPage> {
   ViewCatalogPage view = ViewCatalogPage();
-  Future<List<CategoryModel>>? lists;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    lists = CategoryApi.getCategories();
+    view.lists = CategoryApi.getCategories();
   }
   @override
   Widget build(BuildContext context) {
@@ -81,7 +80,7 @@ class _CatalogPageState extends State<CatalogPage> {
           ),
           Expanded(
             child: FutureBuilder<List<CategoryModel>>(
-                future: lists,
+                future: view.lists,
                 builder: (context,snapshot) {
                   if(snapshot.connectionState == ConnectionState.waiting) {
                     return const Center(child: CircularProgressIndicator(),);

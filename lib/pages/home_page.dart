@@ -24,13 +24,11 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   ViewHomePage view = ViewHomePage();
-  Future<List<Product>>? product ;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    product = ProductApi.getRecipe();
-
+    view.product = ProductApi.getRecipe();
   }
   @override
   Widget build(BuildContext context) {
@@ -192,7 +190,7 @@ class _HomePageState extends State<HomePage> {
                       Expanded(
                         child: Container(
                           child: FutureBuilder<List<Product>>(
-                              future: product,
+                              future: view.product,
                               builder: (context,snapshot) {
                                 if(snapshot.connectionState == ConnectionState.waiting) {
                                   return Center(child: CircularProgressIndicator(),);
@@ -207,12 +205,12 @@ class _HomePageState extends State<HomePage> {
                                       physics: PageScrollPhysics(),
                                       itemCount: products.length,
                                       itemBuilder: (context,index) {
-                                        final recipe = products[index];
+                                        final productList = products[index];
                                         return Column(
                                           children: [
-                                            Text('products - ${recipe.name}'),
-                                            Text('Izoh - ${recipe.description}'),
-                                            Image.network(recipe.mainImage)
+                                            Text('products - ${productList.name}'),
+                                            Text('Izoh - ${productList.description}'),
+                                            Image.network(productList.mainImage)
                                           ],
                                         );
                                       }

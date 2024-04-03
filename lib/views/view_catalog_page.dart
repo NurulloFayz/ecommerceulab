@@ -4,6 +4,8 @@ import 'package:ecommerce_ulab/pages/pages.dart';
 import 'package:ecommerce_ulab/utils/color.dart';
 import 'package:flutter/material.dart';
 
+import '../model/category_model.dart';
+
 class ViewCatalogPage {
 
   TextEditingController searchController = TextEditingController();
@@ -48,4 +50,6 @@ class ViewCatalogPage {
       ],
     );
   }
+
+  Future<List<CategoryModel>>? lists;
 }
