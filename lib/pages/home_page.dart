@@ -34,7 +34,14 @@ class _HomePageState extends State<HomePage> {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     final productProvider = Provider.of<ProductProvider>(context);
+<<<<<<< HEAD
     ViewHomePage view = ViewHomePage();
+=======
+    Future<List<Product>> products() async{
+      var products = await productProvider.getProducts();
+      return products;
+    }
+>>>>>>> e4e5efbb92400543c3b040c17288312109dc0866
 
     return SafeArea(
       child: Scaffold(
@@ -64,6 +71,7 @@ class _HomePageState extends State<HomePage> {
                                 prefixIcon: Icon(
                                   Icons.search,
                                   color: Colors.grey,
+<<<<<<< HEAD
                                 ),
                                 contentPadding: EdgeInsets.all(
                                     MediaQuery.of(context).size.height / 60),
@@ -120,6 +128,64 @@ class _HomePageState extends State<HomePage> {
                                     fit: BoxFit.cover,
                                   ),
                                 ),
+=======
+                                ),
+                                contentPadding: EdgeInsets.all(
+                                    MediaQuery.of(context).size.height / 60),
+                                filled: true,
+                                fillColor: Colors.grey.withOpacity(0.2),
+                                hintText: Strings.homePageHintText,
+                                hintStyle: TextStyle(
+                                    fontSize:
+                                        MediaQuery.of(context).size.height / 45,
+                                    color: Colors.grey.withOpacity(0.8)),
+                                border: OutlineInputBorder(
+                                    borderSide: BorderSide.none,
+                                    borderRadius: BorderRadius.circular(8))),
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            view.navigateToFavouritePage(context);
+                          },
+                          icon: Icon(
+                            Icons.favorite_border,
+                            color: grey,
+                            size: width * .09,
+                          ),
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: height / 40,
+                    ),
+                    Text(
+                      Strings.category,
+                      style: TextStyle(
+                          fontSize: height * .03, fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      height: height * .15,
+                      child: ListView.builder(
+                        physics: PageScrollPhysics(),
+                        shrinkWrap: true,
+                        scrollDirection: Axis.horizontal,
+                        itemCount: 10,
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: EdgeInsets.all(width * .02),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  width: width * .2,
+                                  height: width * .2,
+                                  child: Image.asset(
+                                    'assets/images/home_page/sale.png',
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+>>>>>>> e4e5efbb92400543c3b040c17288312109dc0866
                                 Text(
                                   Strings.text1,
                                   style: TextStyle(
@@ -203,6 +269,7 @@ class _HomePageState extends State<HomePage> {
                     SizedBox(
                       height: height / 40,
                     ),
+<<<<<<< HEAD
                     productProvider.getProducts.isNotEmpty
                         ? GridView.builder(
                             gridDelegate:
@@ -315,6 +382,120 @@ class _HomePageState extends State<HomePage> {
                             },
                           )
                         : CircularProgressIndicator(),
+=======
+                    GridView.builder(
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        childAspectRatio: .5,
+                        crossAxisSpacing: width * .05,
+                        mainAxisSpacing: width * .05,
+                      ),
+                      physics: PageScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount:4,
+                      itemBuilder: (context, index) {
+                        return GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => BuyProductPage(),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            width: width,
+                            height: height * .6,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  width: width * .42,
+                                  height: width * .47,
+                                  clipBehavior: Clip.antiAlias,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(15),
+                                  ),
+                                  child: Image.asset(
+                                    'assets/images/home_page/recommend.png',
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                CommonFunctions.blankSpace(height * .01, 0),
+                                SizedBox(
+                                  width: width * .4,
+                                  child: Text(
+                                    overflow: TextOverflow.fade,
+                                    maxLines: 2,
+                                    "SmartPhone Techno Pop 5 LTE'' HD+, 2/32 GB",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: height * .022,
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  width: width * .4,
+                                  child: Row(
+                                    children: [
+                                      Icon(Icons.star, color: amber),
+                                      Text(
+                                        '5.0 (80 заказов)',
+                                        style: TextStyle(
+                                          color: grey,
+                                          fontSize: height * .018,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  height: height * .04,
+                                  alignment: Alignment.center,
+                                  decoration: BoxDecoration(
+                                      color: Colors.yellow,
+                                      borderRadius: BorderRadius.circular(5)),
+                                  width: width * .34,
+                                  child: Text(
+                                    '109 378 sum/month',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: height * .016,
+                                    ),
+                                  ),
+                                ),
+                                Text(
+                                  '1 400 000 sum',
+                                  style: TextStyle(
+                                    decoration: TextDecoration.lineThrough,
+                                    color: grey,
+                                    fontSize: height * .015,
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: width * .4,
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        '899 000 sum',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: height * .02,
+                                        ),
+                                      ),
+                                      Icon(Icons.shopping_bag_outlined)
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+>>>>>>> e4e5efbb92400543c3b040c17288312109dc0866
                   ],
                 ),
               ),

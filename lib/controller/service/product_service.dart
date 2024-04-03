@@ -8,12 +8,34 @@ import '../../model/product_model.dart';
 class ProductService {
   static const String apiUrl =
       'https://ulab-market-backend.onrender.com/api/products';
+<<<<<<< HEAD
 
+=======
+  String? loginToken;
+ // Future<String?>getToken()async{
+ //   var preferences = await SharedPreferences.getInstance();
+ //   // String? token = preferences.getString('token');
+ //
+ //   print('token is $token');
+ //   print(preferences.getString('email'));
+ //
+ //   loginToken = token;
+ //   print(loginToken);
+ //
+ //     return token;
+ // }
+>>>>>>> e4e5efbb92400543c3b040c17288312109dc0866
 
 
   Future<List<Product>> getProducts() async {
     final response = await http.get(
       Uri.parse(apiUrl),
+<<<<<<< HEAD
+=======
+      // headers: {
+      //   'Authorization': 'Bearer $loginToken',
+      // },
+>>>>>>> e4e5efbb92400543c3b040c17288312109dc0866
     );
 
 
