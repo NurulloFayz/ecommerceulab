@@ -1,10 +1,12 @@
 import 'package:ecommerce_ulab/constants/common_functions.dart';
 import 'package:ecommerce_ulab/model/product_model.dart';
 import 'package:ecommerce_ulab/pages/buy_product_page.dart';
+import 'package:ecommerce_ulab/pages/order_product_page.dart';
 import 'package:ecommerce_ulab/utils/color.dart';
 import 'package:ecommerce_ulab/views/view_home_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pinput/pinput.dart';
 import 'package:provider/provider.dart';
 
 import '../controller/provider/product_provider.dart';
@@ -20,17 +22,19 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  ViewHomePage view = ViewHomePage();
+  @override
+  void initState() {
+    Future.microtask(() =>
+        Provider.of<ProductProvider>(context, listen: false).fetchProducts());
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     final productProvider = Provider.of<ProductProvider>(context);
-    Future<List<Product>> products() async{
-      var products = await productProvider.getProducts();
-      return products;
-    }
+    ViewHomePage view = ViewHomePage();
 
     return SafeArea(
       child: Scaffold(
@@ -199,118 +203,118 @@ class _HomePageState extends State<HomePage> {
                     SizedBox(
                       height: height / 40,
                     ),
-                    GridView.builder(
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        childAspectRatio: .5,
-                        crossAxisSpacing: width * .05,
-                        mainAxisSpacing: width * .05,
-                      ),
-                      physics: PageScrollPhysics(),
-                      shrinkWrap: true,
-                      itemCount:4,
-                      itemBuilder: (context, index) {
-                        return GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => BuyProductPage(),
-                              ),
-                            );
-                          },
-                          child: Container(
-                            width: width,
-                            height: height * .6,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  width: width * .42,
-                                  height: width * .47,
-                                  clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(15),
-                                  ),
-                                  child: Image.asset(
-                                    'assets/images/home_page/recommend.png',
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                CommonFunctions.blankSpace(height * .01, 0),
-                                SizedBox(
-                                  width: width * .4,
-                                  child: Text(
-                                    overflow: TextOverflow.fade,
-                                    maxLines: 2,
-                                    "SmartPhone Techno Pop 5 LTE'' HD+, 2/32 GB",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: height * .022,
+                    productProvider.getProducts.isNotEmpty
+                        ? GridView.builder(
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
+                              childAspectRatio: .5,
+                              crossAxisSpacing: width * .05,
+                              mainAxisSpacing: width * .05,
+                            ),
+                            physics: PageScrollPhysics(),
+                            shrinkWrap: true,
+                            itemCount: productProvider.getProducts.length,
+                            itemBuilder: (context, index) {
+                              final product = productProvider.getProducts[index];
+                              return GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => OrderProduct(product: product),
                                     ),
-                                  ),
-                                ),
-                                Container(
-                                  width: width * .4,
-                                  child: Row(
+                                  );
+                                },
+                                child: Container(
+                                  width: width,
+                                  height: height * .6,
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
-                                      Icon(Icons.star, color: amber),
-                                      Text(
-                                        '5.0 (80 заказов)',
-                                        style: TextStyle(
-                                          color: grey,
-                                          fontSize: height * .018,
+                                      Container(
+                                        width: width * .42,
+                                        height: width * .47,
+                                        clipBehavior: Clip.antiAlias,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(15),
                                         ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                Container(
-                                  height: height * .04,
-                                  alignment: Alignment.center,
-                                  decoration: BoxDecoration(
-                                      color: Colors.yellow,
-                                      borderRadius: BorderRadius.circular(5)),
-                                  width: width * .34,
-                                  child: Text(
-                                    '109 378 sum/month',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: height * .016,
-                                    ),
-                                  ),
-                                ),
-                                Text(
-                                  '1 400 000 sum',
-                                  style: TextStyle(
-                                    decoration: TextDecoration.lineThrough,
-                                    color: grey,
-                                    fontSize: height * .015,
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: width * .4,
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        '899 000 sum',
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: height * .02,
+                                        child: Image.network(product.mainImage,height: height*.1,)
+                                      ),
+                                      CommonFunctions.blankSpace(
+                                          height * .01, 0),
+                                      SizedBox(
+                                        width: width * .4,
+                                        child: Text(
+                                          overflow: TextOverflow.fade,
+                                          maxLines: 2,
+                                          product.name,
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: height * .022,
+                                          ),
                                         ),
                                       ),
-                                      Icon(Icons.shopping_bag_outlined)
+                                      Container(
+                                        width: width * .4,
+                                        child: Row(
+                                          children: [
+                                            Icon(Icons.star, color: amber),
+                                            Text(
+                                              '5.0 (80 заказов)',
+                                              style: TextStyle(
+                                                color: grey,
+                                                fontSize: height * .018,
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                      Container(
+                                        height: height * .04,
+                                        alignment: Alignment.center,
+                                        decoration: BoxDecoration(
+                                            color: Colors.yellow,
+                                            borderRadius:
+                                                BorderRadius.circular(5)),
+                                        width: width * .34,
+                                        child: Text(
+                                          '109 378 sum/month',
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: height * .016,
+                                          ),
+                                        ),
+                                      ),
+                                      Text(
+                                        '1 400 000 sum',
+                                        style: TextStyle(
+                                          decoration:
+                                              TextDecoration.lineThrough,
+                                          color: grey,
+                                          fontSize: height * .015,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: width * .4,
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text('Price: \$' + product.price.toStringAsFixed(2)),
+                                            Icon(Icons.shopping_bag_outlined)
+                                          ],
+                                        ),
+                                      ),
                                     ],
                                   ),
                                 ),
-                              ],
-                            ),
-                          ),
-                        );
-                      },
-                    ),
+                              );
+                            },
+                          )
+                        : CircularProgressIndicator(),
                   ],
                 ),
               ),

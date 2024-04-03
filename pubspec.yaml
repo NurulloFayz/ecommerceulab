@@ -40,13 +40,15 @@ dependencies:
   introduction_screen: ^3.1.12
   country_code_picker:
   internet_connection_checker:
-  connectivity_plus:
+  connectivity_plus: ^6.0.1
   http:
   shared_preferences:
   flutter_secure_storage: ^9.0.0
   pinput: ^4.0.0
   google_fonts: ^6.2.1
   fan_carousel_image_slider: ^0.1.2
+  lottie: ^3.1.0
+  flutter_typeahead: ^5.2.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -71,6 +73,7 @@ flutter:
 
 
   assets:
+      - assets/lottie/
       - assets/images/auth_icon/
       - assets/images/intro_page/
       - assets/images/u_home_icon/
