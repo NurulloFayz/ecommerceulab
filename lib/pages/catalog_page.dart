@@ -1,11 +1,10 @@
-import 'package:ecommerce_ulab/constants/common_functions.dart';
+import 'package:ecommerce_ulab/controller/service/category_api.dart';
 import 'package:ecommerce_ulab/views/view_catalog_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:provider/provider.dart';
 
-import '../utils/color.dart';
+import '../model/category_model.dart';
 import '../utils/strings.dart';
 
 class CatalogPage extends StatefulWidget {
@@ -16,8 +15,14 @@ class CatalogPage extends StatefulWidget {
 }
 
 class _CatalogPageState extends State<CatalogPage> {
-
   ViewCatalogPage view = ViewCatalogPage();
+  Future<List<CategoryModel>>? lists;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    lists = CategoryApi.getCategories();
+  }
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -186,6 +191,7 @@ class _CatalogPageState extends State<CatalogPage> {
           children: [
             SizedBox(height: screenHeight / 20,),
             Container(
+              height: screenHeight,
               margin: EdgeInsets.only(right: screenWidth / 40,left: screenWidth / 40),
               child: TextField(style: TextStyle(
                   fontSize: screenHeight / 40),
@@ -215,16 +221,36 @@ class _CatalogPageState extends State<CatalogPage> {
               color: Colors.grey.withOpacity(0.1),
             ),
             SizedBox(height: screenHeight / 40,),
-            Container(
-              height: screenHeight,
-              child: SizedBox(
-                child: ListView(
-                  children: [
-                    view.itemLists(context,imageUrl:'assets/images/category_page/bitovayatexnika.png',title: 'Бытовая техника'),
-                    view.itemLists(context,imageUrl:'assets/images/category_page/hamburger (1).png',title: 'Еда'),
-                    view.itemLists(context,imageUrl:'assets/images/category_page/headphone.png',title: 'Электроника'),
-                    view.itemLists(context,imageUrl:'assets/images/category_page/running-shoe (1).png',title: 'Обувь'),
-                  ],
+            Expanded(
+              child: Container(
+                height: screenHeight / 1,
+                child: FutureBuilder<List<CategoryModel>>(
+                    future: lists,
+                    builder: (context,snapshot) {
+                      if(snapshot.connectionState == ConnectionState.waiting) {
+                        return const Center(child: CircularProgressIndicator(),);
+                      } else if(snapshot.hasError) {
+                        return Center(child: Text('error${snapshot.error}'),);
+                      } else {
+                        final categoryList = snapshot.data;
+                        if(categoryList!.isEmpty) {
+                          return Text('no recipes found');
+                        }
+                        return ListView.builder(
+                          shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemCount: categoryList.length,
+                            itemBuilder: (context,index) {
+                              final itemList = categoryList[index];
+                              return ListTile(
+                                leading: Icon(Icons.image) ,
+                                title: Text(itemList.name,style: TextStyle(fontSize: screenHeight / 50),),
+                                trailing: const Icon(Icons.navigate_next),
+                              );
+                            }
+                        );
+                      }
+                    }
                 ),
               ),
             )

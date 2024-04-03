@@ -1,6 +1,6 @@
 import 'package:ecommerce_ulab/constants/common_functions.dart';
 import 'package:ecommerce_ulab/controller/service/product_service.dart';
-import 'package:ecommerce_ulab/model/product_api.dart';
+import 'package:ecommerce_ulab/controller/service/product_api.dart';
 import 'package:ecommerce_ulab/model/product_model.dart';
 import 'package:ecommerce_ulab/pages/buy_product_page.dart';
 import 'package:ecommerce_ulab/utils/color.dart';
@@ -486,7 +486,7 @@ class _HomePageState extends State<HomePage> {
                                     left: width * .01,
                                     child: Text(
                                       maxLines: 5,
-                                      "Сезон покупок: что купить весной нового ",
+                                      "Сезон покупок: что купить весной нового",
                                       style: TextStyle(color: white),
                                     ),
                                   ),
