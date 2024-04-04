@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    view.product = ProductApi.getRecipe();
+    view.product = ProductApi.getProduct();
   }
   @override
   Widget build(BuildContext context) {

@@ -4,8 +4,7 @@ import 'package:ecommerce_ulab/model/product_model.dart';
 import 'package:http/http.dart' as http;
 
 class ProductApi {
-
-  static Future<List<Product>> getRecipe() async {
+  static Future<List<Product>> getProduct() async {
     final url = Uri.parse('https://ulab-market-backend.onrender.com/api/products');
     final response = await http.get(url);
     if(response.statusCode == 200) {
