@@ -102,14 +102,13 @@ class _CatalogPageState extends State<CatalogPage> {
                               SizedBox(height: screenHeight / 100,),
                               ListTile(
                                 leading: Container(
+                                  clipBehavior: Clip.antiAlias,
                                   width: screenWidth / 6,
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(8),
                                       color: Colors.grey.withOpacity(0.4),
-                                    image: DecorationImage(
-                                      image: Image.network(itemList.image,fit: BoxFit.cover,height: screenHeight / 10,).image
-                                    )
                                   ),
+                                  child: Image(image: NetworkImage(itemList.image),),
                                 ),
                                 title: Text(itemList.name,style: TextStyle(fontSize: screenHeight / 45),),
                                 trailing: const Icon(Icons.navigate_next,color: Colors.grey,),
