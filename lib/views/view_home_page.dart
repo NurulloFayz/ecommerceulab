@@ -19,4 +19,5 @@ class ViewHomePage extends ChangeNotifier {
     notifyListeners();
   }
   Future<List<Product>>? product ;
+  Future<List<Product>>? category ;
 }

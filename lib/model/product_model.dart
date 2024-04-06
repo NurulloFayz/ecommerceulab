@@ -6,7 +6,7 @@ class Product {
   final int price;
   final int quantity;
   final int categoryId;
-  final List<String> mediaFiles;
+  //final List<String> mediaFiles;
 
   Product({
     required this.id,
@@ -16,7 +16,7 @@ class Product {
     required this.price,
     required this.quantity,
     required this.categoryId,
-    required this.mediaFiles,
+    //required this.mediaFiles,
   });
 
   factory Product.fromJson(Map<String, dynamic> json) {
@@ -28,7 +28,7 @@ class Product {
       price: json['price'] as int,
       quantity: json['quantity'] as int,
       categoryId: json['category_id'] as int,
-      mediaFiles: (json['media_files'] as List).cast<String>(),
+      //mediaFiles: (json['media_files'] as List).cast<String>(),
     );
   }
 
