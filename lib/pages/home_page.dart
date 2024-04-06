@@ -80,6 +80,7 @@ class _HomePageState extends State<HomePage> {
       child: Consumer<ViewHomePage>(
         builder: (context, view, index) {
           return SingleChildScrollView(
+            primary: true,
             child: SizedBox(
               height: height,
               child: Column(
@@ -191,32 +192,7 @@ class _HomePageState extends State<HomePage> {
                           );
                         }
                       }),
-                  SizedBox(
-                    height: height * .15,
-                    child: ListView.builder(
-                      physics: PageScrollPhysics(),
-                      shrinkWrap: true,
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 10,
-                      itemBuilder: (context, index) {
-                        return Padding(
-                          padding: EdgeInsets.all(width * .02),
-                          child: Container(
-                            clipBehavior: Clip.antiAlias,
-                            width: width * .5,
-                            height: height * .2,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(5),
-                            ),
-                            child: Image.asset(
-                              'assets/images/home_page/banner1.png',
-                              // fit: BoxFit.cover,
-                            ),
-                          ),
-                        );
-                      },
-                    ),
-                  ),
+
 
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: width * .04),
@@ -249,8 +225,9 @@ class _HomePageState extends State<HomePage> {
                               return Text('no recipes found');
                             }
                             return GridView.builder(
-                              physics: NeverScrollableScrollPhysics(),
+                              // physics: NeverScrollableScrollPhysics(),
                               shrinkWrap: true,
+                              primary: false,
                               itemCount: products.length,
                               gridDelegate:
                                   SliverGridDelegateWithFixedCrossAxisCount(
@@ -324,6 +301,7 @@ class _HomePageState extends State<HomePage> {
                           }
                         }),
                   ),
+
                 ],
               ),
             ),
