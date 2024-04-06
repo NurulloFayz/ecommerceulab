@@ -157,7 +157,6 @@ class _HomePageState extends State<HomePage> {
                             height: height * .12,
                             child: ListView.builder(
                                 shrinkWrap: true,
-                                physics: const NeverScrollableScrollPhysics(),
                                 itemCount: categoryList.length,
                                 scrollDirection: Axis.horizontal,
                                 itemBuilder: (context, index) {
@@ -168,7 +167,7 @@ class _HomePageState extends State<HomePage> {
                                     children: [
                                       Container(
                                         margin: EdgeInsets.symmetric(
-                                            horizontal: width * .09),
+                                            horizontal: width * .03),
                                         width: width * .2,
                                         height: width * .19,
                                         clipBehavior: Clip.antiAlias,
