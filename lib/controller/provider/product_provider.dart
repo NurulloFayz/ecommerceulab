@@ -9,7 +9,7 @@ import '../service/product_service.dart';
 
 class ProductProvider extends ChangeNotifier{
    static Future<List<Product>?> getProductList() async {
-    final url = Uri.parse('https://ulab-market-backend.onrender.com/api/products/');
+    final url = Uri.parse('https://ulab-market-backend.onrender.com/api/product/');
     final response = await http.get(url);
 
     if(response.statusCode == 200) {

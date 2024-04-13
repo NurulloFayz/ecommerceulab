@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:ecommerce_ulab/controller/service/product_api.dart';
 import 'package:ecommerce_ulab/model/product_model.dart';
+import 'package:ecommerce_ulab/pages/basket_page.dart';
 import 'package:ecommerce_ulab/utils/color.dart';
 import 'package:ecommerce_ulab/views/view_home_page.dart';
 import 'package:flutter/material.dart';
@@ -216,62 +217,67 @@ class _HomePageState extends State<HomePage> {
                             ),
                             itemBuilder: (context, index) {
                               final item = products[index];
-                              return Column(
-                                children: [
-                                  Stack(
-                                    children: [
-                                      AnimatedContainer(
-                                        duration: const Duration(milliseconds: 300),
-                                        height: width * .4,
-                                        width: height * .19,
-                                        clipBehavior: Clip.antiAlias,
-                                        decoration: BoxDecoration(
-                                          border: Border.all(color: blue),
-                                          boxShadow: [
-                                            BoxShadow(
-                                                color: _boxColor,
-                                                blurRadius: 2,
-                                                spreadRadius: 2),
-                                          ],
-                                          borderRadius:
-                                          BorderRadius.circular(width * .03),
-                                        ),
-                                        child: Image.network(
-                                          item.mainImage,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                      Positioned(
-                                        top: height * .012,
-                                        right: height * .01,
-                                        child: IconButton(
-                                          onPressed: () {},
-                                          icon: Icon(
-                                            Icons.favorite,
-                                            size: height * .04,
-                                            color: Colors.transparent,
+                              return GestureDetector(
+                                onTap: (){
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=>BasketPage(product:item)));
+                                },
+                                child: Column(
+                                  children: [
+                                    Stack(
+                                      children: [
+                                        AnimatedContainer(
+                                          duration: const Duration(milliseconds: 300),
+                                          height: width * .4,
+                                          width: height * .19,
+                                          clipBehavior: Clip.antiAlias,
+                                          decoration: BoxDecoration(
+                                            border: Border.all(color: blue),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                  color: _boxColor,
+                                                  blurRadius: 2,
+                                                  spreadRadius: 2),
+                                            ],
+                                            borderRadius:
+                                            BorderRadius.circular(width * .03),
+                                          ),
+                                          child: Image.network(
+                                            item.mainImage,
+                                            fit: BoxFit.cover,
                                           ),
                                         ),
+                                        Positioned(
+                                          top: height * .012,
+                                          right: height * .01,
+                                          child: IconButton(
+                                            onPressed: () {},
+                                            icon: Icon(
+                                              Icons.favorite,
+                                              size: height * .04,
+                                              color: Colors.transparent,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Text(
+                                      item.nameUz,
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: height * .02,
+                                        fontWeight: FontWeight.w400,
                                       ),
-                                    ],
-                                  ),
-                                  Text(
-                                    item.name,
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: height * .02,
-                                      fontWeight: FontWeight.w400,
                                     ),
-                                  ),
-                                  Text(
-                                    '${item.price} сум',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: height * .02,
-                                      fontWeight: FontWeight.w400,
+                                    Text(
+                                      '${item.price} сум',
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: height * .02,
+                                        fontWeight: FontWeight.w400,
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               );
                             },
                           );

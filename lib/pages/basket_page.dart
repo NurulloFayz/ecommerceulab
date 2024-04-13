@@ -1,10 +1,12 @@
 import 'package:ecommerce_ulab/constants/common_functions.dart';
+import 'package:ecommerce_ulab/model/product_model.dart';
 import 'package:ecommerce_ulab/utils/color.dart';
 import 'package:fan_carousel_image_slider/fan_carousel_image_slider.dart';
 import 'package:flutter/material.dart';
 
 class BasketPage extends StatefulWidget {
-  const BasketPage({super.key});
+  const BasketPage({super.key, required  this.product});
+  final Product product;
 
   @override
   State<BasketPage> createState() => _BasketPageState();
@@ -48,7 +50,7 @@ class _BasketPageState extends State<BasketPage> {
               thickness: screenHeight * .01,
             ),
             Text(
-              'Смартфон Tecno Pop 5 LTE 6.5’’',
+              widget.product.nameUz,
               style: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
@@ -72,7 +74,7 @@ class _BasketPageState extends State<BasketPage> {
               ),
             ),
             Text(
-              'Краткое описание не заполнено',
+              widget.product.descriptionRu,
               style: TextStyle(
                 color: Colors.grey,
                 fontWeight: FontWeight.bold,
@@ -89,7 +91,7 @@ class _BasketPageState extends State<BasketPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      '700 000 сум',
+                      '${widget.product.price + 300000} сум ',
                       style: TextStyle(
                         decoration: TextDecoration.lineThrough,
                         color: Colors.grey,
@@ -98,7 +100,7 @@ class _BasketPageState extends State<BasketPage> {
                       ),
                     ),
                     Text(
-                      '400 000 сум',
+                      '${widget.product.price} сум ',
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
