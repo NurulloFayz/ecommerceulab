@@ -5,7 +5,8 @@ import 'package:fan_carousel_image_slider/fan_carousel_image_slider.dart';
 import 'package:flutter/material.dart';
 
 class BasketPage extends StatefulWidget {
-  const BasketPage({super.key, required  this.product});
+  const BasketPage({super.key, required this.product});
+
   final Product product;
 
   @override
@@ -28,102 +29,123 @@ class _BasketPageState extends State<BasketPage> {
         elevation: 0,
         backgroundColor: white,
       ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: screenWidth * .03),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            FanCarouselImageSlider(
-              sliderHeight: screenHeight * .3,
-              // sliderWidth: screenHeight*.2,
-              imagesLink: sampleImages,
-              isAssets: false,
-              autoPlay: true,
-            ),
-            SizedBox(
-              height: screenHeight * .03,
-            ),
-            Divider(
-              color: greyShade3,
-              height: screenHeight * .01,
-              thickness: screenHeight * .01,
-            ),
-            Text(
-              widget.product.nameUz,
-              style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-                fontSize: screenHeight * .03,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: screenWidth * .03),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              FanCarouselImageSlider(
+                sliderHeight: screenHeight * .3,
+                // sliderWidth: screenHeight*.2,
+                imagesLink: sampleImages,
+                isAssets: false,
+                autoPlay: true,
               ),
-            ),
-            SizedBox(
-              height: screenHeight * .03,
-            ),
-            Divider(
-              color: greyShade3,
-              height: screenHeight * .01,
-              thickness: screenHeight * .01,
-            ),
-            Text(
-              'Характеристики',
-              style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-                fontSize: screenHeight * .03,
+              SizedBox(
+                height: screenHeight * .03,
               ),
-            ),
-            Text(
-              widget.product.descriptionRu,
-              style: TextStyle(
-                color: Colors.grey,
-                fontWeight: FontWeight.bold,
-                fontSize: screenHeight * .02,
+              Divider(
+                color: greyShade3,
+                height: screenHeight * .01,
+                thickness: screenHeight * .01,
               ),
-            ),
-            SizedBox(
-              height: screenHeight * .03,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      '${widget.product.price + 300000} сум ',
-                      style: TextStyle(
-                        decoration: TextDecoration.lineThrough,
-                        color: Colors.grey,
-                        fontWeight: FontWeight.bold,
-                        fontSize: screenHeight * .03,
-                      ),
-                    ),
-                    Text(
-                      '${widget.product.price} сум ',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: screenHeight * .03,
-                      ),
-                    ),
-                  ],
+              Text(
+                widget.product.nameUz,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: screenHeight * .03,
                 ),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(backgroundColor: blue),
-                  onPressed: () {},
-                  child: Text(
-                    'В корзинку',
+              ),
+              SizedBox(
+                height: screenHeight * .03,
+              ),
+              Divider(
+                color: greyShade3,
+                height: screenHeight * .01,
+                thickness: screenHeight * .01,
+              ),
+              Text(
+                'Характеристики',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: screenHeight * .03,
+                ),
+              ),
+              Text(
+                widget.product.descriptionRu,
+                style: TextStyle(
+                  color: Colors.grey,
+                  fontWeight: FontWeight.bold,
+                  fontSize: screenHeight * .02,
+                ),
+              ),
+              Row(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.green,
+                    ),
+                    child: Icon(Icons.done),
+                  ),
+                  SizedBox(width: screenWidth*.01,),
+                  Text(
+                    'В наличии ${widget.product.quantity} шт',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.blue,
                       fontWeight: FontWeight.bold,
                       fontSize: screenHeight * .03,
                     ),
                   ),
-                ),
-              ],
-            ),
-          ],
+                ],
+              ),
+              SizedBox(
+                height: screenHeight * .03,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        '${widget.product.price + 300000} сум ',
+                        style: TextStyle(
+                          decoration: TextDecoration.lineThrough,
+                          color: Colors.grey,
+                          fontWeight: FontWeight.bold,
+                          fontSize: screenHeight * .03,
+                        ),
+                      ),
+                      Text(
+                        '${widget.product.price} сум ',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: screenHeight * .03,
+                        ),
+                      ),
+                    ],
+                  ),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(backgroundColor: blue),
+                    onPressed: () {},
+                    child: Text(
+                      'В корзинку',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: screenHeight * .03,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
