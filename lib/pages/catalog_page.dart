@@ -21,7 +21,7 @@ class _CatalogPageState extends State<CatalogPage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    view.lists = CategoryApi.getCategories();
+    view.lists = CategoryService.fetchCategories();
   }
   @override
   Widget build(BuildContext context) {
@@ -108,7 +108,7 @@ class _CatalogPageState extends State<CatalogPage> {
                                       borderRadius: BorderRadius.circular(8),
                                       color: Colors.grey.withOpacity(0.4),
                                   ),
-                                  child: Image(image: NetworkImage(itemList.image),),
+                                  child: Image(image: NetworkImage(itemList.image??''),),
                                 ),
                                 title: Text(itemList.name,style: TextStyle(fontSize: screenHeight / 45),),
                                 trailing: const Icon(Icons.navigate_next,color: Colors.grey,),

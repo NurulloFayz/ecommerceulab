@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const EmailPage(),
+        home: const HomePage(),
         routes: {
           EmailPage.id:(context) => const EmailPage(),
           EnterEmailCodePage.id:(context) => const EnterEmailCodePage(''),
