@@ -1,10 +1,8 @@
 
 
-import 'package:ecommerce_ulab/model/user_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
-import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 import '../pages/auth_pages/enter_email_code_page.dart';
 
@@ -17,8 +15,8 @@ class ViewEmailPage extends ChangeNotifier{
   var name = TextEditingController();
   var phoneNumber = TextEditingController();
   //var birthDate = TextEditingController();
+  bool need_code = true;
   final FocusNode textFieldFocusNode = FocusNode();
-
   String typedText = '';
   changeValue(value) {
     typedText = value;
@@ -30,20 +28,17 @@ class ViewEmailPage extends ChangeNotifier{
 
   Future<void> loginUser() async {
     //final UserModel userModel = UserModel(email: email.text, name: name.text, phoneNumber: phoneNumber.text,password: password.text);
-    var url = Uri.parse('https://ulab-market-backend.onrender.com/auth/register');
+    var url = Uri.parse('https://ulab-market-backend.onrender.com/api/auth/login');
 
     var response = await http.post(
       url,
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
-      body:
-      //jsonEncode(userModel.toJson()),
-      jsonEncode(<String,String> {
-        "name": name.text,
-        "email": email.text,
-        "phone_number": phoneNumber.text,
-        "password": password.text,
+      body: jsonEncode(<String,String> {
+
+        "source": email.text,
+        'type' : 'email'
       })
     );
     final storage = FlutterSecureStorage();

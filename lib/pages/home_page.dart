@@ -10,7 +10,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../controller/service/category_api.dart';
-import '../model/category_model.dart';
 import '../utils/strings.dart';
 import '../views/view_catalog_page.dart';
 
@@ -127,57 +126,57 @@ class _HomePageState extends State<HomePage> {
                           fontSize: height * .03, fontWeight: FontWeight.bold),
                     ),
                   ),
-                  FutureBuilder<List<CategoryModel>>(
-                      future: viewCatalogPage.lists,
-                      builder: (context, snapshot) {
-                        if (snapshot.connectionState == ConnectionState.waiting) {
-                          return const Center(
-                            child: CircularProgressIndicator(),
-                          );
-                        } else if (snapshot.hasError) {
-                          return Center(
-                            child: Text('error${snapshot.error}'),
-                          );
-                        } else {
-                          final categoryList = snapshot.data;
-                          if (categoryList!.isEmpty) {
-                            return const Text('no recipes found');
-                          }
-                          return SizedBox(
-                            height: height * .12,
-                            child: ListView.builder(
-                                itemCount: categoryList.length,
-                                scrollDirection: Axis.horizontal,
-                                itemBuilder: (context, index) {
-                                  final itemList = categoryList[index];
-                                  return Column(
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                        margin: EdgeInsets.symmetric(
-                                            horizontal: width * .03),
-                                        width: width * .2,
-                                        height: width * .19,
-                                        clipBehavior: Clip.antiAlias,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                            BorderRadius.circular(width * .04)),
-                                        child: Image.network(
-                                          itemList.image,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                      Text(
-                                        itemList.name,
-                                        style: TextStyle(
-                                            color: black, fontSize: height * .02),
-                                      )
-                                    ],
-                                  );
-                                }),
-                          );
-                        }
-                      }),
+                  // FutureBuilder<List<CategoryModel>>(
+                  //     future: viewCatalogPage.lists,
+                  //     builder: (context, snapshot) {
+                  //       if (snapshot.connectionState == ConnectionState.waiting) {
+                  //         return const Center(
+                  //           child: CircularProgressIndicator(),
+                  //         );
+                  //       } else if (snapshot.hasError) {
+                  //         return Center(
+                  //           child: Text('error${snapshot.error}'),
+                  //         );
+                  //       } else {
+                  //         final categoryList = snapshot.data;
+                  //         if (categoryList!.isEmpty) {
+                  //           return const Text('no recipes found');
+                  //         }
+                  //         return SizedBox(
+                  //           height: height * .12,
+                  //           child: ListView.builder(
+                  //               itemCount: categoryList.length,
+                  //               scrollDirection: Axis.horizontal,
+                  //               itemBuilder: (context, index) {
+                  //                 final itemList = categoryList[index];
+                  //                 return Column(
+                  //                   crossAxisAlignment: CrossAxisAlignment.center,
+                  //                   children: [
+                  //                     Container(
+                  //                       margin: EdgeInsets.symmetric(
+                  //                           horizontal: width * .03),
+                  //                       width: width * .2,
+                  //                       height: width * .19,
+                  //                       clipBehavior: Clip.antiAlias,
+                  //                       decoration: BoxDecoration(
+                  //                           borderRadius:
+                  //                           BorderRadius.circular(width * .04)),
+                  //                       child: Image.network(
+                  //                         itemList.image,
+                  //                         fit: BoxFit.cover,
+                  //                       ),
+                  //                     ),
+                  //                     Text(
+                  //                       itemList.name,
+                  //                       style: TextStyle(
+                  //                           color: black, fontSize: height * .02),
+                  //                     )
+                  //                   ],
+                  //                 );
+                  //               }),
+                  //         );
+                  //       }
+                  //     }),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: width * .04),
                     child: Align(

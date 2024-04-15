@@ -1,4 +1,3 @@
-import 'package:ecommerce_ulab/constants/common_functions.dart';
 import 'package:ecommerce_ulab/model/product_model.dart';
 import 'package:ecommerce_ulab/utils/color.dart';
 import 'package:fan_carousel_image_slider/fan_carousel_image_slider.dart';

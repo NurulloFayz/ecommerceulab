@@ -1,7 +1,6 @@
 import 'package:ecommerce_ulab/utils/color.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fan_carousel_image_slider/fan_carousel_image_slider.dart';
 
 import '../utils/strings.dart';
 

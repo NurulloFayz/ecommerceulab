@@ -1,5 +1,4 @@
 import 'package:ecommerce_ulab/pages/auth_pages/email_page.dart';
-import 'package:ecommerce_ulab/pages/auth_pages/enter_number_page.dart';
 import 'package:ecommerce_ulab/utils/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';

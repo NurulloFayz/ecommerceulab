@@ -73,6 +73,7 @@ class _EmailPageState extends State<EmailPage> {
                               fontSize: screenHeight / 40,fontWeight: FontWeight.w400),),
                         ],
                       ),
+                      //email
                       Container(
                         margin: EdgeInsets.only(
                           right: screenWidth / 30,
@@ -97,111 +98,111 @@ class _EmailPageState extends State<EmailPage> {
                                   borderRadius: BorderRadius.circular(8))),
                         ),
                       ),
-                      SizedBox(height: screenHeight / 25,),
-                      Row(
-                        children: [
-                          SizedBox(width: screenWidth / 20,),
-                          Text(
-                            Strings.authTextBDateHintText4,
-                            style: TextStyle(
-                                fontSize: screenHeight / 40,fontWeight: FontWeight.w400),
-                          ),
-                        ],
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(
-                          right: screenWidth / 30,
-                          left: screenWidth / 30,
-                          top: screenHeight / 150,
-                        ),
-                        child: TextField(
-                          controller: view.name,
-                          style: TextStyle(fontSize: screenHeight / 40),
-                          onChanged: (value) {
-                            view.changeValue(value);
-                          },
-                          // focusNode: view.textFieldFocusNode,
-                          decoration: InputDecoration(
-                              hintText: Strings.authTextBDateHintText2,
-                              hintStyle: TextStyle(color: Colors.grey,fontWeight: FontWeight.w400,fontSize: screenHeight / 42),
-                              filled: true,
-                              fillColor: view.color,
-                              contentPadding: EdgeInsets.all(screenHeight / 60),
-                              border: OutlineInputBorder(
-                                borderSide: BorderSide.none,
-                                  borderRadius: BorderRadius.circular(8))),
-                        ),
-                      ),
-                      SizedBox(height: screenHeight / 25,),
-                      Row(
-                        children: [
-                          SizedBox(width: screenWidth / 20,),
-                          Text(
-                            Strings.authTextBPhoneNumber,
-                            style: TextStyle(
-                                fontSize: screenHeight / 40,fontWeight: FontWeight.w400),
-                          ),
-                        ],
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(
-                          right: screenWidth / 30,
-                          left: screenWidth / 30,
-                          top: screenHeight / 150,
-                        ),
-                        child: TextField(
-                          controller: view.phoneNumber,
-                          style: TextStyle(fontSize: screenHeight / 40),
-                          onChanged: (value) {
-                            view.changeValue(value);
-                          },
-                          // focusNode: view.textFieldFocusNode,
-                          decoration: InputDecoration(
-                              hintText: Strings.authTextBPhoneNumber6,
-                              hintStyle: TextStyle(color: Colors.grey,fontWeight: FontWeight.w400,fontSize: screenHeight / 42),
-                              filled: true,
-                              fillColor:view.color,
-                              contentPadding: EdgeInsets.all(screenHeight / 60),
-                              border: OutlineInputBorder(
-                                borderSide: BorderSide.none,
-                                  borderRadius: BorderRadius.circular(8))),
-                        ),
-                      ),
-                      SizedBox(height: screenHeight / 25,),
-                      Row(
-                        children: [
-                          SizedBox(width: screenWidth / 20,),
-                          Text(
-                            Strings.authTextBDateHintText5,
-                            style: TextStyle(
-                                fontSize: screenHeight / 40,fontWeight: FontWeight.w400),
-                          ),
-                        ],
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(
-                          right: screenWidth / 30,
-                          left: screenWidth / 30,
-                          top: screenHeight / 150,
-                        ),
-                        child: TextField(
-                          controller: view.password,
-                          style: TextStyle(fontSize: screenHeight / 40),
-                          onChanged: (value) {
-                            view.changeValue(value);
-                          },
-                          // focusNode: view.textFieldFocusNode,
-                          decoration: InputDecoration(
-                              hintText: Strings.authTextBDateHintText6,
-                              hintStyle: TextStyle(color: Colors.grey,fontWeight: FontWeight.w400,fontSize: screenHeight / 42),
-                              filled: true,
-                              fillColor: view.color,
-                              contentPadding: EdgeInsets.all(screenHeight / 60),
-                              border: OutlineInputBorder(
-                                  borderSide: BorderSide.none,
-                                  borderRadius: BorderRadius.circular(8))),
-                        ),
-                      ),
+                      // SizedBox(height: screenHeight / 25,),
+                      // Row(
+                      //   children: [
+                      //     SizedBox(width: screenWidth / 20,),
+                      //     Text(
+                      //       Strings.authTextBDateHintText4,
+                      //       style: TextStyle(
+                      //           fontSize: screenHeight / 40,fontWeight: FontWeight.w400),
+                      //     ),
+                      //   ],
+                      // ),
+                      // Container(
+                      //   margin: EdgeInsets.only(
+                      //     right: screenWidth / 30,
+                      //     left: screenWidth / 30,
+                      //     top: screenHeight / 150,
+                      //   ),
+                      //   child: TextField(
+                      //     controller: view.name,
+                      //     style: TextStyle(fontSize: screenHeight / 40),
+                      //     onChanged: (value) {
+                      //       view.changeValue(value);
+                      //     },
+                      //     // focusNode: view.textFieldFocusNode,
+                      //     decoration: InputDecoration(
+                      //         hintText: Strings.authTextBDateHintText2,
+                      //         hintStyle: TextStyle(color: Colors.grey,fontWeight: FontWeight.w400,fontSize: screenHeight / 42),
+                      //         filled: true,
+                      //         fillColor: view.color,
+                      //         contentPadding: EdgeInsets.all(screenHeight / 60),
+                      //         border: OutlineInputBorder(
+                      //           borderSide: BorderSide.none,
+                      //             borderRadius: BorderRadius.circular(8))),
+                      //   ),
+                      // ),
+                      // SizedBox(height: screenHeight / 25,),
+                      // Row(
+                      //   children: [
+                      //     SizedBox(width: screenWidth / 20,),
+                      //     Text(
+                      //       Strings.authTextBPhoneNumber,
+                      //       style: TextStyle(
+                      //           fontSize: screenHeight / 40,fontWeight: FontWeight.w400),
+                      //     ),
+                      //   ],
+                      // ),
+                      // Container(
+                      //   margin: EdgeInsets.only(
+                      //     right: screenWidth / 30,
+                      //     left: screenWidth / 30,
+                      //     top: screenHeight / 150,
+                      //   ),
+                      //   child: TextField(
+                      //     controller: view.email,
+                      //     style: TextStyle(fontSize: screenHeight / 40),
+                      //     onChanged: (value) {
+                      //       view.changeValue(value);
+                      //     },
+                      //     // focusNode: view.textFieldFocusNode,
+                      //     decoration: InputDecoration(
+                      //         hintText: Strings.authTextBPhoneNumber6,
+                      //         hintStyle: TextStyle(color: Colors.grey,fontWeight: FontWeight.w400,fontSize: screenHeight / 42),
+                      //         filled: true,
+                      //         fillColor:view.color,
+                      //         contentPadding: EdgeInsets.all(screenHeight / 60),
+                      //         border: OutlineInputBorder(
+                      //           borderSide: BorderSide.none,
+                      //             borderRadius: BorderRadius.circular(8))),
+                      //   ),
+                      // ),
+                      // SizedBox(height: screenHeight / 25,),
+                      // Row(
+                      //   children: [
+                      //     SizedBox(width: screenWidth / 20,),
+                      //     Text(
+                      //       Strings.authTextBDateHintText5,
+                      //       style: TextStyle(
+                      //           fontSize: screenHeight / 40,fontWeight: FontWeight.w400),
+                      //     ),
+                      //   ],
+                      // ),
+                      // Container(
+                      //   margin: EdgeInsets.only(
+                      //     right: screenWidth / 30,
+                      //     left: screenWidth / 30,
+                      //     top: screenHeight / 150,
+                      //   ),
+                      //   child: TextField(
+                      //     controller: view.password,
+                      //     style: TextStyle(fontSize: screenHeight / 40),
+                      //     onChanged: (value) {
+                      //       view.changeValue(value);
+                      //     },
+                      //     // focusNode: view.textFieldFocusNode,
+                      //     decoration: InputDecoration(
+                      //         hintText: Strings.authTextBDateHintText6,
+                      //         hintStyle: TextStyle(color: Colors.grey,fontWeight: FontWeight.w400,fontSize: screenHeight / 42),
+                      //         filled: true,
+                      //         fillColor: view.color,
+                      //         contentPadding: EdgeInsets.all(screenHeight / 60),
+                      //         border: OutlineInputBorder(
+                      //             borderSide: BorderSide.none,
+                      //             borderRadius: BorderRadius.circular(8))),
+                      //   ),
+                      // ),
                       Spacer(),
                       GestureDetector(
                         onTap: () {

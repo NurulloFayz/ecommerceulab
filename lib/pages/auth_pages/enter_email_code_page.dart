@@ -1,9 +1,7 @@
-import 'package:ecommerce_ulab/views/view_email_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pinput/pinput.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../utils/color.dart';
 import '../../utils/strings.dart';
