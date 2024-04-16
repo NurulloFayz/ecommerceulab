@@ -1,3 +1,4 @@
+import 'package:ecommerce_ulab/model/product_model.dart';
 import 'package:ecommerce_ulab/pages/catalog_page.dart';
 import 'package:ecommerce_ulab/pages/home_page.dart';
 import 'package:ecommerce_ulab/pages/profile_page.dart';
@@ -30,7 +31,7 @@ class _MyPagesState extends State<MyPages> {
     return Scaffold(
       body: PageView(
         controller: controller,
-        children: const [
+        children:  [
           HomePage(),
           CatalogPage(),
           BuyProductPage(),

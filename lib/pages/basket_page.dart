@@ -1,4 +1,5 @@
 import 'package:ecommerce_ulab/model/product_model.dart';
+import 'package:ecommerce_ulab/pages/buy_product_page.dart';
 import 'package:ecommerce_ulab/utils/color.dart';
 import 'package:fan_carousel_image_slider/fan_carousel_image_slider.dart';
 import 'package:flutter/material.dart';
@@ -131,7 +132,9 @@ class _BasketPageState extends State<BasketPage> {
                   ),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(backgroundColor: blue),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>BuyProductPage(/*product:widget.product*/)));
+                    },
                     child: Text(
                       'В корзинку',
                       style: TextStyle(
