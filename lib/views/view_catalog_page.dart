@@ -11,7 +11,7 @@ class ViewCatalogPage {
   TextEditingController searchController = TextEditingController();
 
   void navigateToMyPages(BuildContext context) {
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MyPages()));
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const MyPages()));
   }
   Color color = const Color(0xFFF5F6F8);
   Widget itemLists(BuildContext context,{required imageUrl, required title}) {
