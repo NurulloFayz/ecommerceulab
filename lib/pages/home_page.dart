@@ -127,55 +127,66 @@ class _HomePageState extends State<HomePage> {
                       fontSize: height * .03, fontWeight: FontWeight.bold),
                 ),
               ),
+              SizedBox(
+                height: height * .02,
+              ),
               FutureBuilder<List<CategoryModel>>(
                 future: viewCatalogPage.lists,
                 builder: (context, snapshot) {
-                  if(snapshot.connectionState == ConnectionState.waiting){
+                  if (snapshot.connectionState == ConnectionState.waiting) {
                     return const CircularProgressIndicator();
-                  }else if(snapshot.hasError){
-                    return Text('error while fetching category\n error: ${snapshot.error}');
-                  }else{
+                  } else if (snapshot.hasError) {
+                    return Text(
+                        'error while fetching category\n error: ${snapshot.error}');
+                  } else {
                     final List<CategoryModel> categoryList = snapshot.data!;
-                    if(categoryList.isEmpty){
+                    if (categoryList.isEmpty) {
                       return Text('There is no data inside category');
                     }
-                    return  SizedBox(
-                      height: height * .12,
+                    return SizedBox(
+                      height: height * .2,
                       child: ListView.builder(
                           itemCount: categoryList.length,
                           scrollDirection: Axis.horizontal,
                           itemBuilder: (context, index) {
                             final itemList = categoryList[index];
-                            return Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Container(
-                                  margin: EdgeInsets.symmetric(
-                                      horizontal: width * .03),
-                                  width: width * .2,
-                                  height: width * .19,
-                                  clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
-                                      borderRadius:
-                                      BorderRadius.circular(width * .04)),
-                                  child: Image.network(
-                                    itemList.image??'',
-                                    fit: BoxFit.cover,
+                            return Container(
+                              width: width * .3,
+                              margin: EdgeInsets.symmetric(
+                                  horizontal: width * .001),
+                              // color: blue,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    width: width * .2,
+                                    height: width * .18,
+                                    clipBehavior: Clip.antiAlias,
+                                    decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadius.circular(width * .04)),
+                                    child: Image.network(
+                                      itemList.image ?? '',
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
-                                ),
-                                Text(
-                                  itemList.name,
-                                  style: TextStyle(
-                                      color: black, fontSize: height * .02),
-                                )
-                              ],
+                                  SizedBox(height: height * .014),
+                                  Text(
+                                    maxLines: 1,
+                                    textAlign: TextAlign.center,
+                                    overflow: TextOverflow.fade,
+                                    itemList.name,
+                                    style: TextStyle(
+                                        color: black, fontSize: height * .014),
+                                  )
+                                ],
+                              ),
                             );
                           }),
                     );
                   }
                 },
               ),
-
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: width * .04),
                 child: Align(
@@ -186,6 +197,9 @@ class _HomePageState extends State<HomePage> {
                         fontSize: height * .03, fontWeight: FontWeight.bold),
                   ),
                 ),
+              ),
+              SizedBox(
+                height: height * .03,
               ),
               FutureBuilder<List<Product>>(
                   future: view.product,
@@ -223,63 +237,70 @@ class _HomePageState extends State<HomePage> {
                                       builder: (context) =>
                                           BasketPage(product: item)));
                             },
-                            child: Column(
-                              children: [
-                                Stack(
-                                  children: [
-                                    AnimatedContainer(
-                                      duration:
-                                          const Duration(milliseconds: 300),
-                                      height: width * .4,
-                                      width: height * .19,
-                                      clipBehavior: Clip.antiAlias,
-                                      decoration: BoxDecoration(
-                                        border: Border.all(color: blue),
-                                        boxShadow: [
-                                          BoxShadow(
-                                              color: _boxColor,
-                                              blurRadius: 2,
-                                              spreadRadius: 2),
-                                        ],
-                                        borderRadius:
-                                            BorderRadius.circular(width * .03),
-                                      ),
-                                      child: Image.network(
-                                        item.mainImage,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                    Positioned(
-                                      top: height * .012,
-                                      right: height * .01,
-                                      child: IconButton(
-                                        onPressed: () {},
-                                        icon: Icon(
-                                          Icons.favorite,
-                                          size: height * .04,
-                                          color: Colors.transparent,
+                            child: Container(
+                              margin: EdgeInsets.symmetric(
+                                  horizontal: width * .003,
+                                  vertical: height * .001),
+                              child: Column(
+                                children: [
+                                  Stack(
+                                    children: [
+                                      Container(
+                                        height: width * .4,
+                                        width: height * .19,
+                                        clipBehavior: Clip.antiAlias,
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(
+                                              width * .03),
+                                        ),
+                                        child: Image.network(
+                                          item.mainImage,
+                                          fit: BoxFit.cover,
                                         ),
                                       ),
+                                      Positioned(
+                                        top: height * .012,
+                                        right: height * .01,
+                                        child: IconButton(
+                                          onPressed: () {},
+                                          icon: Icon(
+                                            Icons.favorite,
+                                            size: height * .04,
+                                            color: Colors.transparent,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: height * .01,
+                                  ),
+                                  Container(
+                                    width: width * .3,
+                                    child: Text(
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                      item.nameUz,
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: height * .02,
+                                        fontWeight: FontWeight.w400,
+                                      ),
                                     ),
-                                  ],
-                                ),
-                                Text(
-                                  item.nameUz,
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: height * .02,
-                                    fontWeight: FontWeight.w400,
                                   ),
-                                ),
-                                Text(
-                                  '${item.price} сум',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: height * .02,
-                                    fontWeight: FontWeight.w400,
+                                  Container(
+                                    width: width * .3,
+                                    child: Text(
+                                      '${item.price} сум',
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: height * .02,
+                                        fontWeight: FontWeight.w400,
+                                      ),
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           );
                         },

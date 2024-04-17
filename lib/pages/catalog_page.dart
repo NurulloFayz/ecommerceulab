@@ -94,7 +94,7 @@ class _CatalogPageState extends State<CatalogPage> {
                     return ListView.builder(
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
-                        itemCount: categoryList.length,
+                        itemCount: 3,
                         itemBuilder: (context,index) {
                           final itemList = categoryList[index];
                           return Column(

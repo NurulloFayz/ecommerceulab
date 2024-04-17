@@ -20,9 +20,14 @@ class _MyPagesState extends State<MyPages> {
   var selected = 0;
   @override
   void initState() {
-    // TODO: implement initState
+
     super.initState();
     controller = PageController();
+    controller.addListener(() {
+      setState(() {
+        selected = controller.page!.round();
+      });
+    });
   }
   @override
   Widget build(BuildContext context) {
@@ -31,6 +36,11 @@ class _MyPagesState extends State<MyPages> {
     return Scaffold(
       body: PageView(
         controller: controller,
+        onPageChanged: (index){
+          setState(() {
+            selected = index;
+          });
+        },
         children:  [
           HomePage(),
           CatalogPage(),
@@ -48,6 +58,7 @@ class _MyPagesState extends State<MyPages> {
         unselectedLabelStyle: TextStyle(fontSize: screenHeight / 50),
         unselectedItemColor: Colors.grey,
         onTap: (index) {
+
           setState(() {
             selected = index;
             controller.animateToPage(index, duration: const Duration(milliseconds: 200), curve: Curves.easeIn);
