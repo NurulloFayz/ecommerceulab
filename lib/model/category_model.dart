@@ -21,10 +21,10 @@ class CategoryModel {
     // Parse the JSON and handle nullable values appropriately
     return CategoryModel(
       id: json["id"] as String,
-      name: json["name"] as String,
-      image: json["image"] as String?, // Handle nullable image
-      subcategories: List<Subcategory>.from(json["subcategories"]?.map((x) => Subcategory.fromJson(x)) ?? []),
-      translations: List<Translation>.from(json["translations"]?.map((x) => Translation.fromJson(x)) ?? []),
+      name: json["name_uz"] as String,
+      image: json["image"] as String, // Handle nullable image
+      subcategories: List<Subcategory>.from(json["subcategories"].map((x) => Subcategory.fromJson(x)) ?? []),
+      translations: List<Translation>.from(json["translations"].map((x) => Translation.fromJson(x)) ?? []),
     );
   }
 
@@ -32,7 +32,7 @@ class CategoryModel {
   Map<String, dynamic> toJson() {
     return {
       "id": id,
-      "name": name,
+      "name_uz": name,
       "image": image, // Handle nullable image
       "subcategories": List<dynamic>.from(subcategories.map((x) => x.toJson())),
       "translations": List<dynamic>.from(translations.map((x) => x.toJson())),
@@ -40,7 +40,6 @@ class CategoryModel {
   }
 }
 
-/// Represents a subcategory, with a name, image, parentId, and translations.
 class Subcategory {
   final String id;
   final String name;
@@ -61,7 +60,7 @@ class Subcategory {
     // Parse the JSON and handle nullable values appropriately
     return Subcategory(
       id: json["id"] as String,
-      name: json["name"] as String,
+      name: json["name_uz"] as String,
       image: json["image"] as String?, // Handle nullable image
       parentId: json["parent_id"] as String,
       translations: List<Translation>.from(json["translations"]?.map((x) => Translation.fromJson(x)) ?? []),
@@ -72,7 +71,7 @@ class Subcategory {
   Map<String, dynamic> toJson() {
     return {
       "id": id,
-      "name": name,
+      "name_uz": name,
       "image": image, // Handle nullable image
       "parent_id": parentId,
       "translations": List<dynamic>.from(translations.map((x) => x.toJson())),
@@ -80,7 +79,6 @@ class Subcategory {
   }
 }
 
-/// Represents a translation, with a name and language code.
 class Translation {
   final String? categoryId; // Marked as nullable
   final String? name; // Marked as nullable
@@ -97,7 +95,7 @@ class Translation {
     // Parse the JSON and handle nullable values appropriately
     return Translation(
       categoryId: json["category_id"] as String?,
-      name: json["name"] as String?,
+      name: json["name_uz"] as String?,
       languageCode: json["language_code"] as String?,
     );
   }
@@ -107,7 +105,7 @@ class Translation {
     // Return only non-null values
     final Map<String, dynamic> data = {
       "category_id": categoryId,
-      "name": name,
+      "name_uz": name,
       "language_code": languageCode,
     };
 

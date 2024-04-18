@@ -42,10 +42,10 @@ class _MyPagesState extends State<MyPages> {
           });
         },
         children:  [
-          HomePage(),
-          CatalogPage(),
+          const HomePage(),
+          const CatalogPage(),
           BuyProductPage(),
-          ProfilePage(),
+          const ProfilePage(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(

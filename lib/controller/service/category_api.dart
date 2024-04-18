@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import '../../model/category_model.dart';
 
 class CategoryService {
-  static final Uri apiUrl = Uri.parse('https://ulab-market-backend.onrender.com/api/category');
+  static final Uri apiUrl = Uri.parse("https://ulab-market-backend.onrender.com/api/category");
 
   static Future<List<CategoryModel>> fetchCategories() async {
     try {

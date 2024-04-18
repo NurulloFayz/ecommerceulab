@@ -1,3 +1,4 @@
+import 'package:ecommerce_ulab/controller/service/post_product.dart';
 import 'package:ecommerce_ulab/model/product_model.dart';
 import 'package:ecommerce_ulab/pages/buy_product_page.dart';
 import 'package:ecommerce_ulab/utils/color.dart';
@@ -133,7 +134,8 @@ class _BasketPageState extends State<BasketPage> {
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(backgroundColor: blue),
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>BuyProductPage(/*product:widget.product*/)));
+                      //postData();
+                      // Navigator.push(context, MaterialPageRoute(builder: (context)=>BuyProductPage(/*product:widget.product*/)));
                     },
                     child: Text(
                       'В корзинку',
