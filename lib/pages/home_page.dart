@@ -2,15 +2,14 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:ecommerce_ulab/controller/service/product_api.dart';
-import 'package:ecommerce_ulab/model/category_model.dart';
 import 'package:ecommerce_ulab/model/product_model.dart';
 import 'package:ecommerce_ulab/pages/basket_page.dart';
 import 'package:ecommerce_ulab/utils/color.dart';
 import 'package:ecommerce_ulab/views/view_home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../controller/service/category_api.dart';
+import '../model/category_model.dart';
 import '../utils/strings.dart';
 import '../views/view_catalog_page.dart';
 
@@ -154,7 +153,6 @@ class _HomePageState extends State<HomePage> {
                               width: width * .3,
                               margin: EdgeInsets.symmetric(
                                   horizontal: width * .001),
-                              // color: blue,
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
@@ -162,11 +160,13 @@ class _HomePageState extends State<HomePage> {
                                     width: width * .2,
                                     height: width * .18,
                                     clipBehavior: Clip.antiAlias,
+
                                     decoration: BoxDecoration(
+                                      color: Colors.grey.withOpacity(0.2),
                                         borderRadius:
-                                            BorderRadius.circular(width * .04)),
+                                            BorderRadius.circular(10)),
                                     child: Image.network(
-                                      itemList.image ?? '',
+                                      itemList.image ,
                                       fit: BoxFit.cover,
                                     ),
                                   ),
@@ -175,9 +175,9 @@ class _HomePageState extends State<HomePage> {
                                     maxLines: 1,
                                     textAlign: TextAlign.center,
                                     overflow: TextOverflow.fade,
-                                    itemList.name,
+                                    itemList.nameUz,
                                     style: TextStyle(
-                                        color: black, fontSize: height * .014),
+                                        color: black, fontSize: height / 55,fontWeight: FontWeight.w600),
                                   )
                                 ],
                               ),
@@ -187,6 +187,88 @@ class _HomePageState extends State<HomePage> {
                   }
                 },
               ),
+              /// ui static
+              // Row(
+              //   children: [
+              //     Expanded(
+              //       child: Column(
+              //         children: [
+              //           Container(
+              //             height: height / 10,
+              //             width: width / 5,
+              //             decoration: BoxDecoration(
+              //               borderRadius: BorderRadius.circular(10),
+              //               color: Colors.grey
+              //             ),
+              //             child: Center(
+              //               child: Icon(Icons.category),
+              //             ),
+              //           ),
+              //           SizedBox(height: height / 50,),
+              //           Text("O'yinchoqlar")
+              //         ],
+              //       ),
+              //     ),
+              //     Expanded(
+              //       child: Column(
+              //         children: [
+              //           Container(
+              //             height: height / 10,
+              //             width: width / 5,
+              //             decoration: BoxDecoration(
+              //                 borderRadius: BorderRadius.circular(10),
+              //                 color: Colors.grey
+              //             ),
+              //             child: Center(
+              //               child: Icon(Icons.category),
+              //             ),
+              //           ),
+              //           SizedBox(height: height / 50,),
+              //           Text("Kiyimlar")
+              //         ],
+              //       ),
+              //     ),
+              //     Expanded(
+              //       child: Column(
+              //         children: [
+              //           Container(
+              //             height: height / 10,
+              //             width: width / 5,
+              //             decoration: BoxDecoration(
+              //                 borderRadius: BorderRadius.circular(10),
+              //                 color: Colors.grey
+              //             ),
+              //             child: Center(
+              //               child: Icon(Icons.category),
+              //             ),
+              //           ),
+              //           SizedBox(height: height / 50,),
+              //           Text("Parfumeriya")
+              //         ],
+              //       ),
+              //     ),
+              //     Expanded(
+              //       child: Column(
+              //         children: [
+              //           Container(
+              //             height: height / 10,
+              //             width: width / 5,
+              //             decoration: BoxDecoration(
+              //                 borderRadius: BorderRadius.circular(10),
+              //                 color: Colors.grey
+              //             ),
+              //             child: Center(
+              //               child: Icon(Icons.category),
+              //             ),
+              //           ),
+              //           SizedBox(height: height / 50,),
+              //           Text("Poyabzal")
+              //         ],
+              //       ),
+              //     ),
+              //
+              //   ],
+              // ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: width * .04),
                 child: Align(

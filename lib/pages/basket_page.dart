@@ -135,7 +135,7 @@ class _BasketPageState extends State<BasketPage> {
                     style: ElevatedButton.styleFrom(backgroundColor: blue),
                     onPressed: () {
                       //postData();
-                      // Navigator.push(context, MaterialPageRoute(builder: (context)=>BuyProductPage(/*product:widget.product*/)));
+                     // Navigator.push(context, MaterialPageRoute(builder: (context)=>BuyProductPage(/*product:widget.product*/)));
                     },
                     child: Text(
                       'В корзинку',
