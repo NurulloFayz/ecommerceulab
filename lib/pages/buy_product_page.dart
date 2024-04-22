@@ -43,6 +43,8 @@ class _BuyProductPageState extends State<BuyProductPage> {
     'https://img.freepik.com/free-photo/high-fashion-look-glamor-closeup-portrait-beautiful-sexy-stylish-blond-young-woman-model-with-bright-yellow-makeup-with-perfect-clean-skin-with-gold-jewelery-black-cloth_158538-2003.jpg?w=826&t=st=1673886857~exp=1673887457~hmac=3ba51578e6a1e9c58e95a6b72e492cbbc26abf8e2f116a0672113770d3f4edbe',
   ];
   Color color = Color(0xFF223263);
+  int quantity = 0;
+  int quantity1 = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -50,160 +52,294 @@ class _BuyProductPageState extends State<BuyProductPage> {
     final screenHeight = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
-          backgroundColor: white,
-          appBar: AppBar(
-            centerTitle: true,
-            title:  Text('Корзинка',style: TextStyle(fontSize: screenHeight / 35,fontWeight: FontWeight.w800),), // Centered text
-            actions: [
-              Padding(
-                padding: const EdgeInsets.only(right: 16.0),
+        backgroundColor: white,
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text(
+            'Корзинка',
+            style: TextStyle(
+                fontSize: screenHeight / 35, fontWeight: FontWeight.w800),
+          ),
+          // Centered text
+          actions: [
+            Padding(
+              padding: const EdgeInsets.only(right: 16.0),
+              child: Center(
+                  child: Text(
+                'Выбрать',
+                style: TextStyle(
+                    fontSize: screenHeight / 50,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.blue),
+              )),
+            ),
+          ],
+        ),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(
+                height: screenHeight / 20,
+              ),
+              Row(
+                children: [
+                  SizedBox(
+                    width: screenWidth / 30,
+                  ),
+                  Image.asset(
+                    'assets/images/category_page/headphone.png',
+                    height: screenHeight / 10,
+                  ),
+                  SizedBox(
+                    width: screenWidth / 40,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Super Headphone 5 Ultra',
+                        style: TextStyle(
+                            fontSize: screenHeight / 45,
+                            fontWeight: FontWeight.w600),
+                      ),
+                      SizedBox(
+                        height: screenHeight / 30,
+                      ),
+                      Text(
+                        '100 000',
+                        style: TextStyle(
+                          decoration: TextDecoration.lineThrough,
+                          color: Colors.grey,
+                          fontSize: screenHeight / 50,
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            '100 000 сум',
+                            style: TextStyle(
+                                fontWeight: FontWeight.w800,
+                                fontSize: screenHeight / 40),
+                          ),
+                          SizedBox(
+                            width: screenWidth / 10,
+                          ),
+                          Container(
+                            width: screenWidth / 4,
+                            height: screenHeight / 25,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(5),
+                                border: Border.all()),
+                            child: Center(
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                      child: GestureDetector(
+                                          onTap: () {
+                                            setState(() {
+                                              quantity--;
+                                            });
+                                          },
+                                          child: Icon(
+                                            Icons.remove,
+                                            color: Colors.grey,
+                                          ))),
+                                  Expanded(
+                                      child: Center(
+                                          child: Text(
+                                    '$quantity',
+                                    style:
+                                        TextStyle(fontSize: screenHeight / 40),
+                                  ))),
+                                  Expanded(
+                                      child: GestureDetector(
+                                        onTap:(){
+                                          setState(() {
+                                            quantity++;
+                                          });
+                                        },
+                                          child: Icon(Icons.add,
+                                              color: Colors.grey))),
+                                ],
+                              ),
+                            ),
+                          )
+                        ],
+                      )
+                    ],
+                  )
+                ],
+              ),
+              SizedBox(
+                height: screenHeight / 40,
+              ),
+              Divider(
+                thickness: 0.5,
+                color: Colors.grey.withOpacity(0.4),
+                indent: screenWidth / 10,
+              ),
+              SizedBox(
+                height: screenHeight / 40,
+              ),
+              Row(
+                children: [
+                  SizedBox(
+                    width: screenWidth / 30,
+                  ),
+                  Image.asset(
+                    'assets/images/category_page/running-shoe (1).png',
+                    height: screenHeight / 10,
+                  ),
+                  SizedBox(
+                    width: screenWidth / 40,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Adidas Tyshawn',
+                        style: TextStyle(
+                            fontSize: screenHeight / 45,
+                            fontWeight: FontWeight.w600),
+                      ),
+                      SizedBox(
+                        height: screenHeight / 30,
+                      ),
+                      Text(
+                        '100 000',
+                        style: TextStyle(
+                          decoration: TextDecoration.lineThrough,
+                          color: Colors.grey,
+                          fontSize: screenHeight / 50,
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            '100 000 сум',
+                            style: TextStyle(
+                                fontWeight: FontWeight.w800,
+                                fontSize: screenHeight / 40),
+                          ),
+                          SizedBox(
+                            width: screenWidth / 10,
+                          ),
+                          Container(
+                            width: screenWidth / 4,
+                            height: screenHeight / 25,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(5),
+                                border: Border.all()),
+                            child: Center(
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                      child: GestureDetector(
+                                          onTap: () {
+                                            setState(() {
+                                              quantity1--;
+                                            });
+                                          },
+                                          child: Icon(
+                                            Icons.remove,
+                                            color: Colors.grey,
+                                          ))),
+                                  Expanded(
+                                      child: Center(
+                                          child: Text(
+                                            '$quantity1',
+                                            style:
+                                            TextStyle(fontSize: screenHeight / 40),
+                                          ))),
+                                  Expanded(
+                                      child: GestureDetector(
+                                          onTap:(){
+                                            setState(() {
+                                              quantity1++;
+                                            });
+                                          },
+                                          child: Icon(Icons.add,
+                                              color: Colors.grey))),
+                                ],
+                              ),
+                            ),
+                          )
+                        ],
+                      )
+                    ],
+                  )
+                ],
+              ),
+              SizedBox(
+                height: screenHeight / 40,
+              ),
+              Divider(
+                thickness: 0.5,
+                color: Colors.grey.withOpacity(0.4),
+                indent: screenWidth / 10,
+              ),
+              SizedBox(
+                height: screenHeight / 40,
+              ),
+              ListTile(
+                title: Text(
+                  'Ваш заказ:',
+                  style: TextStyle(
+                      fontSize: screenHeight / 45, fontWeight: FontWeight.w600),
+                ),
+                subtitle: Text(
+                  '2 товарa:',
+                  style: TextStyle(
+                      fontSize: screenHeight / 45, fontWeight: FontWeight.w600),
+                ),
+                trailing: Text(
+                  '500 000 сум',
+                  style: TextStyle(
+                      fontSize: screenHeight / 45, fontWeight: FontWeight.w600),
+                ),
+              ),
+              Container(
+                height: screenHeight / 10,
+                width: screenWidth / 1.1,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+                    color: Colors.grey.withOpacity(0.1)),
                 child: Center(
-                  child:  Text('Выбрать',style: TextStyle(fontSize: screenHeight / 50,fontWeight: FontWeight.w500,
-                  color: Colors.blue
-                  ),)
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: screenHeight / 50,
+                      ),
+                      Text(
+                        'Ближайшая доставка:',
+                        style: TextStyle(
+                            fontSize: screenHeight / 50, color: Colors.grey),
+                      ),
+                      Text(
+                        'Завтра,понедельник',
+                        style: TextStyle(
+                            fontSize: screenHeight / 43,
+                            fontWeight: FontWeight.w600),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],
           ),
-          body:SingleChildScrollView(
-            child: Column(
-              children: [
-                SizedBox(height: screenHeight / 20,),
-                Row(
-                  children: [
-                    SizedBox(width: screenWidth / 30,),
-                    Image.asset('assets/images/category_page/headphone.png',height: screenHeight / 10,),
-                    SizedBox(width: screenWidth / 40,),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Super Headphone 5 Ultra',style: TextStyle(fontSize: screenHeight / 45,fontWeight: FontWeight.w600),),
-                        SizedBox(height: screenHeight / 30,),
-                        Text('100 000',style: TextStyle(decoration: TextDecoration.lineThrough,color: Colors.grey,
-                          fontSize: screenHeight / 50,
-                        ),),
-                        Row(
-                          children: [
-                            Text('100 000 сум',style: TextStyle(fontWeight: FontWeight.w800,fontSize: screenHeight / 40),),
-                            SizedBox(width: screenWidth  /10,),
-                            Container(
-                              width: screenWidth / 4,
-                              height: screenHeight / 25,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(5),
-                                border: Border.all()
-                              ),
-                              child: Center(
-                                child: Row(
-                                  children: [
-                                    Expanded(
-                                      child: Icon(Icons.remove,color: Colors.grey,)
-                                    ),
-                                    Expanded(
-                                      child: Center(child: Text('1',style: TextStyle(fontSize: screenHeight / 40),))
-                                    ),
-                                    Expanded(
-                                        child: Icon(Icons.add,color: Colors.grey)
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            )
-                          ],
-                        )
-                      ],
-                    )
-                  ],
-                ),
-                SizedBox(height: screenHeight / 40,),
-                Divider(thickness: 0.5,color: Colors.grey.withOpacity(0.4),indent: screenWidth / 10,),
-                SizedBox(height: screenHeight / 40,),
-                Row(
-                  children: [
-                    SizedBox(width: screenWidth / 30,),
-                    Image.asset('assets/images/category_page/running-shoe (1).png',height: screenHeight / 10,),
-                    SizedBox(width: screenWidth / 40,),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Adidas Tyshawn',style: TextStyle(fontSize: screenHeight / 45,fontWeight: FontWeight.w600),),
-                        SizedBox(height: screenHeight / 30,),
-                        Text('100 000',style: TextStyle(decoration: TextDecoration.lineThrough,color: Colors.grey,
-                          fontSize: screenHeight / 50,
-                        ),),
-                        Row(
-                          children: [
-                            Text('100 000 сум',style: TextStyle(fontWeight: FontWeight.w800,fontSize: screenHeight / 40),),
-                            SizedBox(width: screenWidth  /10,),
-                            Container(
-                              width: screenWidth / 4,
-                              height: screenHeight / 25,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(5),
-                                border: Border.all()
-                              ),
-                              child: Center(
-                                child: Row(
-                                  children: [
-                                    Expanded(
-                                      child: Icon(Icons.remove,color: Colors.grey,)
-                                    ),
-                                    Expanded(
-                                      child: Center(child: Text('1',style: TextStyle(fontSize: screenHeight / 40),))
-                                    ),
-                                    Expanded(
-                                        child: Icon(Icons.add,color: Colors.grey)
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            )
-                          ],
-                        )
-                      ],
-                    )
-                  ],
-                ),
-                SizedBox(height: screenHeight / 40,),
-                Divider(thickness: 0.5,color: Colors.grey.withOpacity(0.4),indent: screenWidth / 10,),
-                SizedBox(height: screenHeight / 40,),
-                ListTile(
-                  title: Text('Ваш заказ:',style: TextStyle(fontSize: screenHeight / 45,fontWeight: FontWeight.w600),),
-                  subtitle: Text('2 товарa:',style: TextStyle(fontSize: screenHeight / 45,fontWeight: FontWeight.w600),),
-                  trailing:Text('500 000 сум',style: TextStyle(fontSize: screenHeight / 45,fontWeight: FontWeight.w600),) ,
-                ),
-                Container(
-                  height: screenHeight / 10,
-                  width: screenWidth / 1.1,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    color: Colors.grey.withOpacity(0.3)
-                  ),
-                  child: Center(
-                    child: Column(
-
-                      children: [
-                        SizedBox(height: screenHeight / 50,),
-                        Text('Ближайшая доставка:',style: TextStyle(fontSize: screenHeight / 50,color: Colors.grey),),
-                        Text('Завтра,понедельник',style: TextStyle(fontSize: screenHeight / 43,fontWeight: FontWeight.w600),),
-
-                      ],
-                    ),
-                  ),
-                ),
-
-              ],
-            ),
-          ),
+        ),
         floatingActionButton: FloatingActionButton.extended(
           elevation: 0,
-          backgroundColor:blue,
-          onPressed: () {
-
-          },
+          backgroundColor: blue,
+          onPressed: () {},
           label: Container(
-            width: screenWidth * .8,
-              child: Center(child: Text('К оформлению',style: TextStyle(fontSize: screenHeight/ 40,color: Colors.white),))),
+              width: screenWidth * .8,
+              child: Center(
+                  child: Text(
+                'К оформлению',
+                style:
+                    TextStyle(fontSize: screenHeight / 40, color: Colors.white),
+              ))),
         ),
       ),
     );

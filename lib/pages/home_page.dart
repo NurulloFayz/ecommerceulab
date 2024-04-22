@@ -6,6 +6,7 @@ import 'package:ecommerce_ulab/model/product_model.dart';
 import 'package:ecommerce_ulab/pages/basket_page.dart';
 import 'package:ecommerce_ulab/utils/color.dart';
 import 'package:ecommerce_ulab/views/view_home_page.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../controller/service/category_api.dart';
@@ -94,7 +95,7 @@ class _HomePageState extends State<HomePage> {
                           contentPadding: EdgeInsets.all(
                               MediaQuery.of(context).size.height / 60),
                           filled: true,
-                          fillColor: Colors.grey.withOpacity(0.2),
+                          fillColor: Colors.grey.withOpacity(0.1),
                           hintText: Strings.homePageHintText,
                           hintStyle: TextStyle(
                               fontSize: MediaQuery.of(context).size.height / 45,
@@ -115,6 +116,38 @@ class _HomePageState extends State<HomePage> {
                     ),
                   )
                 ],
+              ),
+              SizedBox(
+                height: height / 20,
+              ),
+              Container(
+
+                width: double.infinity,
+                height: 200,
+
+                child: ListView(
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    Container(
+                      clipBehavior: Clip.antiAlias,
+                      margin: EdgeInsets.symmetric(horizontal: 20),
+                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
+                      width: 400,
+                      height: 200,
+                      child: Image.asset('assets/images/home_page/banner1.png',fit: BoxFit.cover,),
+                    ),
+                    Container(
+                      clipBehavior: Clip.antiAlias,
+                      margin: EdgeInsets.symmetric(horizontal: 20),
+                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
+                      width: 400,
+                      height: 200,
+                      child: Image.asset('assets/images/home_page/banner1.png',fit: BoxFit.cover,),
+                    ),
+
+                  ],
+                ),
               ),
               SizedBox(
                 height: height / 40,
