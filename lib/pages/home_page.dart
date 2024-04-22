@@ -79,43 +79,46 @@ class _HomePageState extends State<HomePage> {
               SizedBox(
                 height: height / 20,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  SizedBox(
-                    width: width * .8,
-                    child: TextField(
-                      onChanged: (value) {},
-                      style: TextStyle(fontSize: height / 40),
-                      decoration: InputDecoration(
-                          prefixIcon: const Icon(
-                            Icons.search,
-                            color: Colors.grey,
-                          ),
-                          contentPadding: EdgeInsets.all(
-                              MediaQuery.of(context).size.height / 60),
-                          filled: true,
-                          fillColor: Colors.grey.withOpacity(0.1),
-                          hintText: Strings.homePageHintText,
-                          hintStyle: TextStyle(
-                              fontSize: MediaQuery.of(context).size.height / 45,
-                              color: Colors.grey.withOpacity(0.8)),
-                          border: OutlineInputBorder(
-                              borderSide: BorderSide.none,
-                              borderRadius: BorderRadius.circular(8))),
+              Padding(
+                padding:  EdgeInsets.only(left: width*.04),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    SizedBox(
+                      width: width * .8,
+                      child: TextField(
+                        onChanged: (value) {},
+                        style: TextStyle(fontSize: height / 40),
+                        decoration: InputDecoration(
+                            prefixIcon: const Icon(
+                              Icons.search,
+                              color: Colors.grey,
+                            ),
+                            contentPadding: EdgeInsets.all(
+                                MediaQuery.of(context).size.height / 60),
+                            filled: true,
+                            fillColor: Colors.grey.withOpacity(0.1),
+                            hintText: Strings.homePageHintText,
+                            hintStyle: TextStyle(
+                                fontSize: MediaQuery.of(context).size.height / 45,
+                                color: Colors.grey.withOpacity(0.8)),
+                            border: OutlineInputBorder(
+                                borderSide: BorderSide.none,
+                                borderRadius: BorderRadius.circular(8))),
+                      ),
                     ),
-                  ),
-                  IconButton(
-                    onPressed: () {
-                      view.navigateToFavouritePage(context);
-                    },
-                    icon: Icon(
-                      Icons.favorite_border,
-                      color: grey,
-                      size: width * .09,
-                    ),
-                  )
-                ],
+                    IconButton(
+                      onPressed: () {
+                        view.navigateToFavouritePage(context);
+                      },
+                      icon: Icon(
+                        Icons.favorite_border,
+                        color: grey,
+                        size: width * .09,
+                      ),
+                    )
+                  ],
+                ),
               ),
               SizedBox(
                 height: height / 20,
