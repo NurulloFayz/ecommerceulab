@@ -359,65 +359,77 @@ class _HomePageState extends State<HomePage> {
                               margin: EdgeInsets.symmetric(
                                   horizontal: width * .003,
                                   vertical: height * .001),
-                              child: Column(
-                                children: [
-                                  Stack(
-                                    children: [
-                                      Container(
-                                        height: width * .4,
-                                        width: height * .19,
-                                        clipBehavior: Clip.antiAlias,
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(
-                                              width * .03),
+                              child: Container(
+                                margin: EdgeInsets.only(right: width / 40,left: width / 40),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Stack(
+                                      children: [
+                                        Container(
+                                          height: width * .4,
+                                          width: height * .19,
+                                          clipBehavior: Clip.antiAlias,
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(
+                                                width * .03),
+                                          ),
+                                          child: Image.network(
+                                            item.mainImage,
+                                            fit: BoxFit.cover,
+                                          ),
                                         ),
-                                        child: Image.network(
-                                          item.mainImage,
-                                          fit: BoxFit.cover,
+                                        Positioned(
+                                          top: height * .012,
+                                          right: height * .01,
+                                          child: IconButton(
+                                            onPressed: () {},
+                                            icon: Icon(
+                                              Icons.favorite,
+                                              size: height * .04,
+                                              color: Colors.transparent,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: height * .01,
+                                    ),
+                                    Container(
+                                      width: width * .3,
+                                      child: Text(
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        item.nameUz,
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: height * .02,
+                                          fontWeight: FontWeight.w400,
                                         ),
                                       ),
-                                      Positioned(
-                                        top: height * .012,
-                                        right: height * .01,
-                                        child: IconButton(
-                                          onPressed: () {},
-                                          icon: Icon(
-                                            Icons.favorite,
-                                            size: height * .04,
-                                            color: Colors.transparent,
+                                    ),
+                                    SizedBox(height: height / 60,),
+                                    Container(
+                                      width: width * .3,
+                                      height: height / 25,
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(7),
+                                          color: Colors.yellow
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          '${item.price} сум',
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: height / 55,
+                                            fontWeight: FontWeight.w600,
                                           ),
                                         ),
                                       ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    height: height * .01,
-                                  ),
-                                  Container(
-                                    width: width * .3,
-                                    child: Text(
-                                      maxLines: 1,
-                                      overflow: TextOverflow.ellipsis,
-                                      item.nameUz,
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: height * .02,
-                                        fontWeight: FontWeight.w400,
-                                      ),
                                     ),
-                                  ),
-                                  Container(
-                                    width: width * .3,
-                                    child: Text(
-                                      '${item.price} сум',
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: height * .02,
-                                        fontWeight: FontWeight.w400,
-                                      ),
-                                    ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                           );
