@@ -108,15 +108,20 @@ class _BasketPageState extends State<BasketPage> {
               ),),
             ),
             SizedBox(height: screenHeight / 20,),
-            Container(
-              height: screenHeight / 15,
-              width: screenWidth / 1.1,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                color: blue
-              ),
-              child: Center(
-                child: Text('В корзинку',style: TextStyle(fontSize: screenHeight / 40,color: Colors.white),),
+            GestureDetector(
+              onTap: () {
+                postData(widget.product.productId, 1);
+              },
+              child: Container(
+                height: screenHeight / 15,
+                width: screenWidth / 1.1,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: blue
+                ),
+                child: Center(
+                  child: Text('В корзинку',style: TextStyle(fontSize: screenHeight / 40,color: Colors.white),),
+                ),
               ),
             ),
             SizedBox(height: screenHeight / 20,),

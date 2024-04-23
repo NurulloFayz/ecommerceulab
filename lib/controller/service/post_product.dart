@@ -1,24 +1,25 @@
-
-
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-class PostProductModel{
+
+class PostProductModel {
   final int quantity;
   final String productId;
 
-  PostProductModel({required this.quantity,required this.productId});
+  PostProductModel({required this.quantity, required this.productId});
 
-  factory PostProductModel.fromJson(Map<String, dynamic> json) => PostProductModel(
-    quantity: json[1],
-    productId: json["product_id"]
-  );
+  factory PostProductModel.fromJson(Map<String, dynamic> json) =>
+      PostProductModel(
+        quantity: json["quantity"],
+        productId: json["product_id"],
+      );
 
   Map<String, dynamic> toJson() => {
     "quantity": quantity,
-    "productId": productId,
+    "product_id": productId, // Changed key to "product_id"
   };
 }
-Future<void> postData(String productId, int quantity ) async {
+
+Future<void> postData(String productId, int quantity) async {
   final url = Uri.parse('https://ulab-market-backend.onrender.com/api/basket');
   final headers = {'Content-Type': 'application/json'};
   final body = jsonEncode({

@@ -10,24 +10,25 @@ import '../utils/strings.dart';
 class BuyProductPage extends StatefulWidget {
   BuyProductPage({super.key});
 
-  Product product = Product(
-    id: '1',
-    nameUz: 'Iphone 13',
-    nameRu: '',
-    descriptionUz: 'The best telephone ever',
-    descriptionRu: '',
-    price: 14000000,
-    quantity: 2,
-    categoryId: '1',
-    brandId: '2',
-    mainImage:
-        'https://img.freepik.com/free-photo/creative-reels-composition_23-2149711507.jpg?t=st=1712941570~exp=1712945170~hmac=4ea323f8f396b9b632f244be9aafc08f53d7d44f98b7c0a328125e446db2de4e&w=996',
-    rating: 3,
-    imageFiles: [],
-    videoFiles: [],
-    createdAt: DateTime.now(),
-    updatedAt: DateTime.now(),
-  );
+  // Product product = Product(
+  //   id: '1',
+  //   nameUz: 'Iphone 13',
+  //   nameRu: '',
+  //   descriptionUz: 'The best telephone ever',
+  //   descriptionRu: '',
+  //   price: 14000000,
+  //   quantity: 2,
+  //   categoryId: '1',
+  //   brandId: '2',
+  //   mainImage:
+  //       'https://img.freepik.com/free-photo/creative-reels-composition_23-2149711507.jpg?t=st=1712941570~exp=1712945170~hmac=4ea323f8f396b9b632f244be9aafc08f53d7d44f98b7c0a328125e446db2de4e&w=996',
+  //   rating: 3,
+  //   imageFiles: [],
+  //   videoFiles: [],
+  //   createdAt: DateTime.now(),
+  //   updatedAt: DateTime.now(),
+  //
+  // );
 
   @override
   State<BuyProductPage> createState() => _BuyProductPageState();
