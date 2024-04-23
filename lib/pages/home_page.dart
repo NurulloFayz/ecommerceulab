@@ -126,7 +126,7 @@ class _HomePageState extends State<HomePage> {
               Container(
 
                 width: double.infinity,
-                height: 200,
+                height: height / 4.5,
 
                 child: ListView(
                   shrinkWrap: true,
