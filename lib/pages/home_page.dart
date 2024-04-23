@@ -341,7 +341,7 @@ class _HomePageState extends State<HomePage> {
                         itemCount: products.length,
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2,
-                          childAspectRatio: .8,
+                          childAspectRatio: .7,
                           crossAxisSpacing: width * .02,
                           // mainAxisSpacing: width*.02,
                         ),
@@ -356,7 +356,8 @@ class _HomePageState extends State<HomePage> {
                                           BasketPage(product: item)));
                             },
                             child:Container(
-                              margin: EdgeInsets.only(right: width / 40,left: width / 40),
+                              margin: EdgeInsets.only(right: width / 40,left: width / 40
+                              ),
                               child: Center(
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -398,7 +399,7 @@ class _HomePageState extends State<HomePage> {
                                   ],
                                 ),
                               ),
-                            )
+                            ),
                           );
                         },
                       );
