@@ -223,88 +223,6 @@ class _HomePageState extends State<HomePage> {
                   }
                 },
               ),
-              /// ui static
-              // Row(
-              //   children: [
-              //     Expanded(
-              //       child: Column(
-              //         children: [
-              //           Container(
-              //             height: height / 10,
-              //             width: width / 5,
-              //             decoration: BoxDecoration(
-              //               borderRadius: BorderRadius.circular(10),
-              //               color: Colors.grey
-              //             ),
-              //             child: Center(
-              //               child: Icon(Icons.category),
-              //             ),
-              //           ),
-              //           SizedBox(height: height / 50,),
-              //           Text("O'yinchoqlar")
-              //         ],
-              //       ),
-              //     ),
-              //     Expanded(
-              //       child: Column(
-              //         children: [
-              //           Container(
-              //             height: height / 10,
-              //             width: width / 5,
-              //             decoration: BoxDecoration(
-              //                 borderRadius: BorderRadius.circular(10),
-              //                 color: Colors.grey
-              //             ),
-              //             child: Center(
-              //               child: Icon(Icons.category),
-              //             ),
-              //           ),
-              //           SizedBox(height: height / 50,),
-              //           Text("Kiyimlar")
-              //         ],
-              //       ),
-              //     ),
-              //     Expanded(
-              //       child: Column(
-              //         children: [
-              //           Container(
-              //             height: height / 10,
-              //             width: width / 5,
-              //             decoration: BoxDecoration(
-              //                 borderRadius: BorderRadius.circular(10),
-              //                 color: Colors.grey
-              //             ),
-              //             child: Center(
-              //               child: Icon(Icons.category),
-              //             ),
-              //           ),
-              //           SizedBox(height: height / 50,),
-              //           Text("Parfumeriya")
-              //         ],
-              //       ),
-              //     ),
-              //     Expanded(
-              //       child: Column(
-              //         children: [
-              //           Container(
-              //             height: height / 10,
-              //             width: width / 5,
-              //             decoration: BoxDecoration(
-              //                 borderRadius: BorderRadius.circular(10),
-              //                 color: Colors.grey
-              //             ),
-              //             child: Center(
-              //               child: Icon(Icons.category),
-              //             ),
-              //           ),
-              //           SizedBox(height: height / 50,),
-              //           Text("Poyabzal")
-              //         ],
-              //       ),
-              //     ),
-              //
-              //   ],
-              // ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: width * .04),
                 child: Align(
@@ -378,7 +296,7 @@ class _HomePageState extends State<HomePage> {
                                              children: [
                                                Icon(Icons.star,color: Colors.yellow,size: height / 40,),
                                                SizedBox(width: width / 40,),
-                                               Text(item.toString(),style: TextStyle(fontSize: height / 50,color: Colors.grey),),
+                                               Text(item.rating.toString(),style: TextStyle(fontSize: height / 50,color: Colors.grey),),
                                              ],
                                            ),
                                             Container(
