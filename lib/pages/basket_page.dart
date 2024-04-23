@@ -29,127 +29,98 @@ class _BasketPageState extends State<BasketPage> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: white,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.navigate_before,color: blue,),
+        ),
+        actions: [
+          IconButton(
+            onPressed: () {
+
+            },
+            icon: Icon(Icons.favorite_border,color: blue,),
+          )
+        ],
       ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: screenWidth * .03),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              FanCarouselImageSlider(
-                sliderHeight: screenHeight * .3,
-                // sliderWidth: screenHeight*.2,
-                imagesLink: sampleImages,
-                isAssets: false,
-                autoPlay: true,
+        child: Column(
+          children: [
+            Container(
+              height: screenHeight / 4,
+              width: screenWidth,
+              child: Center(
+                child: Image.network(widget.product.mainImage,height: screenHeight / 3,),
               ),
-              SizedBox(
-                height: screenHeight * .03,
-              ),
-              Divider(
-                color: greyShade3,
-                height: screenHeight * .01,
-                thickness: screenHeight * .01,
-              ),
-              Text(
-                widget.product.nameUz,
-                style: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                  fontSize: screenHeight * .03,
-                ),
-              ),
-              SizedBox(
-                height: screenHeight * .03,
-              ),
-              Divider(
-                color: greyShade3,
-                height: screenHeight * .01,
-                thickness: screenHeight * .01,
-              ),
-              Text(
-                'Характеристики',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                  fontSize: screenHeight * .03,
-                ),
-              ),
-              Text(
-                widget.product.descriptionRu,
-                style: TextStyle(
-                  color: Colors.grey,
-                  fontWeight: FontWeight.bold,
-                  fontSize: screenHeight * .02,
-                ),
-              ),
-              Row(
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.green,
-                    ),
-                    child: Icon(Icons.done),
+            ),
+            Divider(
+              thickness: 10,
+              color: Colors.grey.withOpacity(0.2),
+            ),
+            ListTile(
+              title: Text(widget.product.nameUz,style: TextStyle(fontSize: screenHeight / 40,fontWeight: FontWeight.w600),),
+            ),
+            Row(
+              children: [
+                SizedBox(width: screenWidth / 40,),
+                Container(
+                  height: screenHeight / 20,
+                  width: screenWidth / 2.5,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(6),
+                    border: Border.all(
+                      color: Colors.grey
+                    )
                   ),
-                  SizedBox(width: screenWidth*.01,),
-                  Text(
-                    'В наличии ${widget.product.quantity} шт',
-                    style: TextStyle(
-                      color: Colors.blue,
-                      fontWeight: FontWeight.bold,
-                      fontSize: screenHeight * .03,
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: screenHeight * .03,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        '${widget.product.price + 300000} сум ',
-                        style: TextStyle(
-                          decoration: TextDecoration.lineThrough,
-                          color: Colors.grey,
-                          fontWeight: FontWeight.bold,
-                          fontSize: screenHeight * .03,
-                        ),
-                      ),
-                      Text(
-                        '${widget.product.price} сум ',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          fontSize: screenHeight * .03,
-                        ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(widget.product.rating.toString(),style: TextStyle(fontSize: screenHeight / 48,
+                          fontWeight: FontWeight.w700
+                          ),),
+                          SizedBox(width: screenWidth / 70,),
+                          Icon(Icons.star,color: Colors.yellow,),
+                          Icon(Icons.star,color: Colors.yellow,),
+                          Icon(Icons.star,color: Colors.yellow,),
+                          Icon(Icons.star,color: Colors.yellow,),
+                          Icon(Icons.star,color: Colors.yellow,),
+                        ],
                       ),
                     ],
                   ),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(backgroundColor: blue),
-                    onPressed: () {
-                      //postData();
-                     // Navigator.push(context, MaterialPageRoute(builder: (context)=>BuyProductPage(/*product:widget.product*/)));
-                    },
-                    child: Text(
-                      'В корзинку',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: screenHeight * .03,
-                      ),
-                    ),
-                  ),
-                ],
+                ),
+              ],
+            ),
+            ListTile(
+              title: Text(widget.product.price.toString() + ' сум ',style: TextStyle(fontSize: screenHeight / 40,fontWeight: FontWeight.w500),),
+            ),
+            ListTile(
+              title: Text('описание',style: TextStyle(fontSize: screenHeight / 35,fontWeight: FontWeight.w500),),
+            ),
+            Container(
+              margin: EdgeInsets.only(right: screenWidth / 40,left: screenWidth / 40),
+              child: Text(widget.product.descriptionUz,style: TextStyle(fontSize: screenHeight / 45,fontWeight: FontWeight.w500,
+              color: Colors.grey
+              ),),
+            ),
+            SizedBox(height: screenHeight / 20,),
+            Container(
+              height: screenHeight / 15,
+              width: screenWidth / 1.1,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                color: blue
               ),
-            ],
-          ),
+              child: Center(
+                child: Text('В корзинку',style: TextStyle(fontSize: screenHeight / 40,color: Colors.white),),
+              ),
+            ),
+            SizedBox(height: screenHeight / 20,),
+          ],
         ),
       ),
     );

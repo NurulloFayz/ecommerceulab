@@ -355,92 +355,61 @@ class _HomePageState extends State<HomePage> {
                                       builder: (context) =>
                                           BasketPage(product: item)));
                             },
-                            child: Container(
-                              margin: EdgeInsets.symmetric(
-                                  horizontal: width * .003,
-                                  vertical: height * .001),
-                              child: Container(
-                                margin: EdgeInsets.only(right: width / 40,left: width / 40),
+                            child:Container(
+                              margin: EdgeInsets.only(right: width / 40,left: width / 40),
+                              child: Center(
                                 child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Stack(
+                                    Image.network(item.mainImage,height: height / 7,),
+                                    SizedBox(height: height / 40,),
+                                    Text(item.nameUz,maxLines:2,style: TextStyle(fontSize: height / 50,
+                                      overflow: TextOverflow.ellipsis,fontWeight: FontWeight.w700
+                                    ),),
+                                    SizedBox(height: height / 100,),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        Container(
-                                          height: width * .4,
-                                          width: height * .19,
-                                          clipBehavior: Clip.antiAlias,
-                                          decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(
-                                                width * .03),
-                                          ),
-                                          child: Image.network(
-                                            item.mainImage,
-                                            fit: BoxFit.cover,
-                                          ),
-                                        ),
-                                        Positioned(
-                                          top: height * .012,
-                                          right: height * .01,
-                                          child: IconButton(
-                                            onPressed: () {},
-                                            icon: Icon(
-                                              Icons.favorite,
-                                              size: height * .04,
-                                              color: Colors.transparent,
+                                        Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                           Row(
+                                             children: [
+                                               Icon(Icons.star,color: Colors.yellow,size: height / 40,),
+                                               SizedBox(width: width / 40,),
+                                               Text(item.toString(),style: TextStyle(fontSize: height / 50,color: Colors.grey),),
+                                             ],
+                                           ),
+                                            Container(
+                                              height: height / 20,
+                                              width: width / 2.8,
+                                              decoration: BoxDecoration(
+                                                  borderRadius: BorderRadius.circular(5),
+                                                  color: Colors.yellow
+                                              ),
+                                              child: Center(
+                                                child: Text('${item.price} сум/мес',style: TextStyle(fontSize: height / 52,fontWeight: FontWeight.w600),),
+                                              ),
                                             ),
-                                          ),
+                                          ],
                                         ),
                                       ],
-                                    ),
-                                    SizedBox(
-                                      height: height * .01,
-                                    ),
-                                    Container(
-                                      width: width * .3,
-                                      child: Text(
-                                        maxLines: 1,
-                                        overflow: TextOverflow.ellipsis,
-                                        item.nameUz,
-                                        style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: height * .02,
-                                          fontWeight: FontWeight.w400,
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(height: height / 60,),
-                                    Container(
-                                      width: width * .3,
-                                      height: height / 25,
-                                      decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(7),
-                                          color: Colors.yellow
-                                      ),
-                                      child: Center(
-                                        child: Text(
-                                          '${item.price} сум',
-                                          style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: height / 55,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                        ),
-                                      ),
                                     ),
                                   ],
                                 ),
                               ),
-                            ),
+                            )
                           );
                         },
                       );
                     }
                   }),
+              SizedBox(height: height / 20,),
             ],
           );
         },
       ),
     ));
   }
+
 }
