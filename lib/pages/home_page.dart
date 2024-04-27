@@ -169,7 +169,7 @@ class _HomePageState extends State<HomePage> {
                 future: viewCatalogPage.lists,
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return const CircularProgressIndicator();
+                    return Center(child: const CircularProgressIndicator());
                   } else if (snapshot.hasError) {
                     return Text(
                         'error while fetching category\n error: ${snapshot.error}');
@@ -202,7 +202,7 @@ class _HomePageState extends State<HomePage> {
                                         borderRadius:
                                             BorderRadius.circular(10)),
                                     child: Image.network(
-                                      itemList.image ,
+                                      itemList.image ??'' ,
                                       fit: BoxFit.cover,
                                     ),
                                   ),
@@ -296,7 +296,7 @@ class _HomePageState extends State<HomePage> {
                                              children: [
                                                Icon(Icons.star,color: Colors.yellow,size: height / 40,),
                                                SizedBox(width: width / 40,),
-                                               Text(item.rating.toString(),style: TextStyle(fontSize: height / 50,color: Colors.grey),),
+                                               //Text(item.,style: TextStyle(fontSize: height / 50,color: Colors.grey),),
                                              ],
                                            ),
                                             Container(

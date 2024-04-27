@@ -106,7 +106,7 @@ class _CatalogPageState extends State<CatalogPage> {
                                   width: screenWidth / 6,
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(8),
-                                      color: Colors.grey.withOpacity(0.4),
+                                      color: Colors.grey.withOpacity(0.2),
                                   ),
                                   child: Image(image: NetworkImage(itemList.image??''),),
                                 ),

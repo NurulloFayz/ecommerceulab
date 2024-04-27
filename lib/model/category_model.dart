@@ -1,107 +1,57 @@
+// To parse this JSON data, do
+//
+//     final welcome = welcomeFromJson(jsonString);
+
 import 'dart:convert';
 
+List<CategoryModel> welcomeFromJson(String str) => List<CategoryModel>.from(json.decode(str).map((x) => CategoryModel.fromJson(x)));
+
+String welcomeToJson(List<CategoryModel> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class CategoryModel {
-  final String id;
-  final String nameUz;
-  final String nameRu;
-  final String image;
+  String id;
+  String nameUz;
+  String nameRu;
+  DateTime createdAt;
+  DateTime updatedAt;
+  String? image;
+  List<CategoryModel>? subcategories;
+  String? icon;
+  String? parentId;
 
   CategoryModel({
     required this.id,
     required this.nameUz,
     required this.nameRu,
-    required this.image,
+    required this.createdAt,
+    required this.updatedAt,
+    this.image,
+    this.subcategories,
+    this.icon,
+    this.parentId,
   });
 
   factory CategoryModel.fromJson(Map<String, dynamic> json) => CategoryModel(
-    id: json["id"] ?? '',
-    nameUz: json["name_uz"] as String,
-    nameRu: json["name_ru"] as String,
-    image: json["image"]as String,
-
+    id: json["id"],
+    nameUz: json["name_uz"],
+    nameRu: json["name_ru"],
+    createdAt: DateTime.parse(json["created_at"]),
+    updatedAt: DateTime.parse(json["updated_at"]),
+    image: json["image"],
+    subcategories: json["subcategories"] == null ? [] : List<CategoryModel>.from(json["subcategories"]!.map((x) => CategoryModel.fromJson(x))),
+    icon: json["icon"],
+    parentId: json["parent_id"],
   );
 
   Map<String, dynamic> toJson() => {
     "id": id,
     "name_uz": nameUz,
     "name_ru": nameRu,
+    "created_at": createdAt.toIso8601String(),
+    "updated_at": updatedAt.toIso8601String(),
     "image": image,
+    "subcategories": subcategories == null ? [] : List<dynamic>.from(subcategories!.map((x) => x.toJson())),
+    "icon": icon,
+    "parent_id": parentId,
   };
 }
-
-
-// class Subcategory {
-//   final String id;
-//   final String name;
-//   final String? image; // Marked as nullable
-//   final String parentId;
-//   final List<Translation> translations;
-//
-//   Subcategory({
-//     required this.id,
-//     required this.name,
-//     this.image, // Updated to nullable
-//     required this.parentId,
-//     required this.translations,
-//   });
-//
-//   /// Creates a [Subcategory] from JSON data.
-//   factory Subcategory.fromJson(Map<String, dynamic> json) {
-//     // Parse the JSON and handle nullable values appropriately
-//     return Subcategory(
-//       id: json["id"] as String,
-//       name: json["name_uz"] as String,
-//       image: json["image"] as String?, // Handle nullable image
-//       parentId: json["parent_id"] as String,
-//       translations: List<Translation>.from(json["translations"]?.map((x) => Translation.fromJson(x)) ?? []),
-//     );
-//   }
-//
-//   /// Converts the [Subcategory] to JSON format.
-//   Map<String, dynamic> toJson() {
-//     return {
-//       "id": id,
-//       "name_uz": name,
-//       "image": image, // Handle nullable image
-//       "parent_id": parentId,
-//       "translations": List<dynamic>.from(translations.map((x) => x.toJson())),
-//     };
-//   }
-// }
-//
-// class Translation {
-//   final String? categoryId; // Marked as nullable
-//   final String? name; // Marked as nullable
-//   final String? languageCode; // Marked as nullable
-//
-//   Translation({
-//     this.categoryId,
-//     this.name,
-//     this.languageCode,
-//   });
-//
-//   /// Creates a [Translation] from JSON data.
-//   factory Translation.fromJson(Map<String, dynamic> json) {
-//     // Parse the JSON and handle nullable values appropriately
-//     return Translation(
-//       categoryId: json["category_id"] as String?,
-//       name: json["name_uz"] as String?,
-//       languageCode: json["language_code"] as String?,
-//     );
-//   }
-//
-//   /// Converts the [Translation] to JSON format.
-//   Map<String, dynamic> toJson() {
-//     // Return only non-null values
-//     final Map<String, dynamic> data = {
-//       "category_id": categoryId,
-//       "name_uz": name,
-//       "language_code": languageCode,
-//     };
-//
-//     // Filter out null values from the map
-//     data.removeWhere((key, value) => value == null);
-//     return data;
-//   }
-// }

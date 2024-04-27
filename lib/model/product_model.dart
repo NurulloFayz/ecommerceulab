@@ -1,21 +1,26 @@
+// To parse this JSON data, do
+//
+//     final product = productFromJson(jsonString);
+
+import 'dart:convert';
+
+List<Product> productFromJson(String str) => List<Product>.from(json.decode(str).map((x) => Product.fromJson(x)));
+
+String productToJson(List<Product> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class Product {
-  final String id;
-  final String nameUz;
-  final String nameRu;
-  final String descriptionUz;
-  final String descriptionRu;
-  final String productId;
-  final int price;
-  final int quantity;
-  final String categoryId;
-  final String brandId;
-  final String mainImage;
-  final int rating;
-  final dynamic imageFiles;
-  final dynamic videoFiles;
-  final DateTime createdAt;
-  final DateTime updatedAt;
+  String id;
+  String nameUz;
+  String nameRu;
+  String descriptionUz;
+  String descriptionRu;
+  int price;
+  int? quantity;
+  String categoryId;
+  String brandId;
+  String mainImage;
+  DateTime createdAt;
+  DateTime updatedAt;
 
   Product({
     required this.id,
@@ -24,16 +29,12 @@ class Product {
     required this.descriptionUz,
     required this.descriptionRu,
     required this.price,
-    required this.quantity,
+    this.quantity,
     required this.categoryId,
     required this.brandId,
     required this.mainImage,
-    required this.rating,
-    required this.imageFiles,
-    required this.videoFiles,
     required this.createdAt,
     required this.updatedAt,
-    required this.productId
   });
 
   factory Product.fromJson(Map<String, dynamic> json) => Product(
@@ -47,12 +48,8 @@ class Product {
     categoryId: json["category_id"],
     brandId: json["brand_id"],
     mainImage: json["main_image"],
-    rating: json["rating"],
-    imageFiles: json["image_files"],
-    videoFiles: json["video_files"],
     createdAt: DateTime.parse(json["created_at"]),
     updatedAt: DateTime.parse(json["updated_at"]),
-    productId: json['product_id']
   );
 
   Map<String, dynamic> toJson() => {
@@ -66,18 +63,7 @@ class Product {
     "category_id": categoryId,
     "brand_id": brandId,
     "main_image": mainImage,
-    "rating": rating,
-    "image_files": imageFiles,
-    "video_files": videoFiles,
     "created_at": createdAt.toIso8601String(),
     "updated_at": updatedAt.toIso8601String(),
-    "product_id": productId
   };
 }
-
-
-
-
-// static List<Product> fromJsonList(List<dynamic> jsonList) {
-// return jsonList.map((item) => Product.fromJson(item)).toList();
-// }

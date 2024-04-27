@@ -79,9 +79,9 @@ class _BasketPageState extends State<BasketPage> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(widget.product.rating.toString(),style: TextStyle(fontSize: screenHeight / 48,
-                          fontWeight: FontWeight.w700
-                          ),),
+                          // Text(widget.product.rating.toString(),style: TextStyle(fontSize: screenHeight / 48,
+                          // fontWeight: FontWeight.w700
+                          // ),),
                           SizedBox(width: screenWidth / 70,),
                           Icon(Icons.star,color: Colors.yellow,),
                           Icon(Icons.star,color: Colors.yellow,),
@@ -110,7 +110,7 @@ class _BasketPageState extends State<BasketPage> {
             SizedBox(height: screenHeight / 20,),
             GestureDetector(
               onTap: () {
-                postData(widget.product.productId, 1);
+                postData(widget.product.id, 0);
               },
               child: Container(
                 height: screenHeight / 15,
