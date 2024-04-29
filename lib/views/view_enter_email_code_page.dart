@@ -53,12 +53,16 @@ class ViewEnterEmailCodePage extends ChangeNotifier{
       }),
     );
     if (response.statusCode == 200) {
+      Map<String, dynamic> responseData = jsonDecode(response.body);
       SharedPreferences preferences = await SharedPreferences.getInstance();
-      preferences.setString('email', checkEmail);
+
+      final token = responseData['token'];
+      preferences.setString('token',token );
+
+      print('token is saved to preferences: $token');
       //view.navigateToMyPages(context);
 
-      // Successful login, handle response data
-      var responseData = jsonDecode(response.body);
+
       print(responseData['token']);
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MyPages()));
       print('Login successful: $responseData');

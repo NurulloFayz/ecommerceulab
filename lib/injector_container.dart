@@ -13,7 +13,7 @@ import 'core/internet_connection_checker.dart';
 import 'core/local_source.dart';
 import 'core/network_info.dart';
 
-final sl = GetIt.instance;
+final GetIt sl = GetIt.instance;
 
 final networkInfo = sl<NetworkInfo>();
 
