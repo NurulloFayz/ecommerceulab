@@ -1,3 +1,4 @@
+/*
 import 'dart:async';
 
 import 'package:ecommerce_ulab/pages/onBoarding_page.dart';
@@ -5,7 +6,7 @@ import 'package:ecommerce_ulab/pages/pages.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-String? finalEmail;
+bool? isEmailExists;
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -53,3 +54,4 @@ class _SplashPageState extends State<SplashPage> {
     );
   }
 }
+*/
