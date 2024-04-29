@@ -4,8 +4,11 @@ import 'package:ecommerce_ulab/pages/buy_product_page.dart';
 import 'package:ecommerce_ulab/utils/color.dart';
 import 'package:flutter/material.dart';
 
+import '../injector_container.dart';
+import '../repository/repository.dart';
+
 class BasketPage extends StatefulWidget {
-  const BasketPage({super.key, required this.product});
+  const BasketPage({super.key, required this.product,});
 
   final Product product;
 
@@ -19,6 +22,41 @@ class _BasketPageState extends State<BasketPage> {
     'https://img.freepik.com/free-photo/elegant-smartphone-composition_23-2149437106.jpg?t=st=1712941622~exp=1712945222~hmac=56e1a32468bbfcd9c0de78cda2a5acbf9ac5cc4005ebbb17b1ff5f6ae9366d02&w=360',
     'https://img.freepik.com/premium-photo/female-holding-smartphone-with-icons-social-media-screen-home_126277-412.jpg?w=996'
   ];
+
+  var isLoading = false;
+
+  void setLoading() {
+    setState(() {
+      isLoading = true;
+    });
+  }
+
+  void dismissLoading() {
+    setState(() {
+      isLoading = false;
+    });
+  }
+
+
+  Future<void> postProduct() async {
+    setLoading();
+    final result = await sl<ApiRepository>().addProductToBasket(productId: widget.product.id,quantity: 1);
+    result.fold(
+          (left) {
+
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text('Error: ${left.message}')));
+      },
+          (right) {
+        dismissLoading();
+        print('successs');
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text("Yangi mahsulot qo'shildi")));
+      },
+    );
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -109,7 +147,7 @@ class _BasketPageState extends State<BasketPage> {
             SizedBox(height: screenHeight / 20,),
             GestureDetector(
               onTap: () {
-                postData(widget.product.id, 0);
+                postProduct();
               },
               child: Container(
                 height: screenHeight / 15,

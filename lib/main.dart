@@ -1,4 +1,5 @@
 import 'package:ecommerce_ulab/controller/provider/product_provider.dart';
+import 'package:ecommerce_ulab/injector_container.dart';
 import 'package:ecommerce_ulab/pages/auth_pages/email_page.dart';
 import 'package:ecommerce_ulab/pages/auth_pages/enter_email_code_page.dart';
 import 'package:ecommerce_ulab/pages/favourite_page.dart';
@@ -12,36 +13,25 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
-  runApp( MyApp());
+  WidgetsFlutterBinding.ensureInitialized(); // Ensure initialization
+  await init();
+  final prefs = await SharedPreferences.getInstance(); // Get SharedPreferences instance
+  final bool isTokenExists = prefs.containsKey('token'); // Check for key existence
+
+  runApp(MyApp(isTokenExists: isTokenExists));
 }
 
 class MyApp extends StatefulWidget {
-   MyApp({super.key});
+   const MyApp({super.key, required this.isTokenExists} );
+   final bool isTokenExists;
 
   @override
   State<MyApp> createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
-  bool isTokenExists = false;
 
-  getToken()async{
 
-    SharedPreferences preferences = await SharedPreferences.getInstance();
-
-    isTokenExists =  preferences.getString('token') != null;
-    if(preferences.getString('token') != null){
-      isTokenExists = true;
-    }else{
-      isTokenExists = false;
-    }
-
-  }
-  @override
-  void initState() {
-    getToken();
-    super.initState();
-  }
 
   // This widget is the root of your application.
   @override
@@ -58,7 +48,7 @@ class _MyAppState extends State<MyApp> {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home:  isTokenExists?MyPages(): OnBoardingPage(),
+        home:  widget.isTokenExists?MyPages(): OnBoardingPage(),
         routes: {
           EmailPage.id:(context) => const EmailPage(),
           EnterEmailCodePage.id:(context) => const EnterEmailCodePage(''),

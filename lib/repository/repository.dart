@@ -48,7 +48,7 @@ class ApiRepository {
   //add product to basket
 
   Future<Either<Failure, void>> addProductToBasket(
-      {required String productId, required String quantity}) async {
+      {required String productId, required int quantity}) async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     String? token = preferences.getString('token');
     if(token==null){
