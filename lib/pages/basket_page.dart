@@ -2,7 +2,6 @@ import 'package:ecommerce_ulab/controller/service/post_product.dart';
 import 'package:ecommerce_ulab/model/product_model.dart';
 import 'package:ecommerce_ulab/pages/buy_product_page.dart';
 import 'package:ecommerce_ulab/utils/color.dart';
-import 'package:fan_carousel_image_slider/fan_carousel_image_slider.dart';
 import 'package:flutter/material.dart';
 
 class BasketPage extends StatefulWidget {
