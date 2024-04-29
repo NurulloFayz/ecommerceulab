@@ -24,13 +24,14 @@ class _EmailPageState extends State<EmailPage> {
     double screenHeight = MediaQuery.of(context).size.height;
     ViewEmailPage view = ViewEmailPage();
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       backgroundColor: white,
         body: ChangeNotifierProvider(
           create: (context) => view,
           child: Consumer<ViewEmailPage>(
             builder: (context, view, index) {
               return SingleChildScrollView(
-                reverse: true,
+                // reverse: true,
                 physics: ClampingScrollPhysics(),
                 child: Container(
                   width: screenWidth,

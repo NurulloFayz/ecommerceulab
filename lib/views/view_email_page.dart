@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 import '../pages/auth_pages/enter_email_code_page.dart';
 
@@ -41,17 +42,17 @@ class ViewEmailPage extends ChangeNotifier{
         'type' : 'email'
       })
     );
-    final storage = FlutterSecureStorage();
+    SharedPreferences preferences = await SharedPreferences.getInstance();
     if (response.statusCode == 200) {
       // Successful login, handle response data
       Map<String,dynamic> responseData =  jsonDecode(response.body);
-      // try{
-      //   final token = responseData['token']; // Extract the token
-      //   await storage.write(key: 'token', value: token);
-      // }catch(e){
-      //   print('error occured register, cant take token');
-      // }
-      // print(responseData['token']);
+      try{
+        final token = responseData['token']; // Extract the token
+        await preferences.setString('token ', token);
+      }catch(e){
+        print('error occured register, cant take token');
+      }
+      print(responseData['token']);
 
       print('Login successful: $responseData');
     } else {
