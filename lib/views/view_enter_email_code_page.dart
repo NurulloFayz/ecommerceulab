@@ -31,13 +31,14 @@ class ViewEnterEmailCodePage extends ChangeNotifier{
     Navigator.pushReplacementNamed(context, EmailPage.id);
   }
   void navigateToEnterNameBDatePage(BuildContext context) {
-    Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => EnterNameBDatePage()));
+    Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => const EnterNameBDatePage()));
   }
   void navigateToMyPages(BuildContext context) {
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MyPages()));
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const MyPages()));
   }
-  Future<void> enterPassword (String password,String email,BuildContext context) async {
-    var url = Uri.parse('https://ulab-market-backend.onrender.com/api/auth/verify_code');
+
+  Future<void> enterPassword(String password, String email, BuildContext context) async {
+    var url = Uri.parse("https://ulab-market-backend.onrender.com/api/auth/verify_code");
     checkEmail = email;
 
     var response = await http.post(
@@ -48,27 +49,26 @@ class ViewEnterEmailCodePage extends ChangeNotifier{
       body: jsonEncode(<String, String>{
         'code': emailCode.text,
         'type': 'email',
-        'source':email,
-
+        'source': email, // Corrected the field name to 'email'
       }),
     );
+
     if (response.statusCode == 200) {
       Map<String, dynamic> responseData = jsonDecode(response.body);
       SharedPreferences preferences = await SharedPreferences.getInstance();
 
       final token = responseData['token'];
-      preferences.setString('token',token );
+      preferences.setString('token', token);
 
-      print('token is saved to preferences: $token');
-      //view.navigateToMyPages(context);
-
-
-      print(responseData['token']);
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MyPages()));
+      print('Token is saved to preferences: $token');
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const MyPages()));
       print('Login successful: $responseData');
     } else {
       // Handle login failure
-      print('Login failed: ${response.body}');
+      print('Login failed with status code ${response.statusCode}: ${response.body}');
+      // You might want to show a message to the user indicating login failure
+      // Example: ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Login failed')));
     }
   }
+
 }

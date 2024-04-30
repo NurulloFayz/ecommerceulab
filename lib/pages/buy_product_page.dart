@@ -1,60 +1,51 @@
-import 'package:ecommerce_ulab/utils/color.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../controller/service/basket_api.dart';
+import '../model/basket_model.dart';
 
 
 class BuyProductPage extends StatefulWidget {
-  BuyProductPage({super.key});
-
-
   @override
-  State<BuyProductPage> createState() => _BuyProductPageState();
+  _BuyProductPageState createState() => _BuyProductPageState();
 }
 
 class _BuyProductPageState extends State<BuyProductPage> {
-  Color color = Color(0xFF223263);
-  int quantity = 0;
-  int quantity1 = 0;
+  late Future<ProductList> productListFuture;
+
+  @override
+  void initState() {
+    super.initState();
+    productListFuture = BasketApi.fetchBusket();
+  }
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: white,
-        appBar: AppBar(
-          centerTitle: true,
-          title: Text(
-            'Корзинка',
-            style: TextStyle(
-                fontSize: screenHeight / 35, fontWeight: FontWeight.w800),
-          ),
-          // Centered text
-          actions: [
-            Padding(
-              padding: const EdgeInsets.only(right: 16.0),
-              child: Center(
-                  child: Text(
-                'Выбрать',
-                style: TextStyle(
-                    fontSize: screenHeight / 50,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.blue),
-              )),
-            ),
-          ],
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(Icons.remove_shopping_cart,color: Colors.blue,size: screenHeight / 10,),
-              Text('Empty',style: TextStyle(fontSize: screenHeight / 35,fontWeight: FontWeight.w400),),
-            ],
-          )
-        )
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Product List'),
+      ),
+      body: FutureBuilder<ProductList>(
+        future: productListFuture,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Center(child: CircularProgressIndicator());
+          } else if (snapshot.hasError) {
+            return Center(child: Text('Error: ${snapshot.error}'));
+          } else {
+            // If the data is successfully fetched, display the product list
+            return ListView.builder(
+              itemCount: snapshot.data!.products.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  leading: Image.network(snapshot.data!.products[index].mainImage),
+                  title: Text(snapshot.data!.products[index].nameRu),
+                  subtitle: Text('Price: \$${snapshot.data!.products[index].price.toString()}'),
+                );
+              },
+            );
+          }
+        },
       ),
     );
   }

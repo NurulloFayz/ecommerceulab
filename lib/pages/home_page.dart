@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:math';
 
 import 'package:ecommerce_ulab/controller/service/product_api.dart';
 import 'package:ecommerce_ulab/model/product_model.dart';
@@ -29,31 +28,10 @@ class _HomePageState extends State<HomePage> {
   ViewHomePage view = ViewHomePage();
   ViewCatalogPage viewCatalogPage = ViewCatalogPage();
 
-  Color _generateRandomColor() {
-    // Generate a random color
-    final random = Random();
-    return Color.fromARGB(
-      255,
-      random.nextInt(256),
-      random.nextInt(256),
-      random.nextInt(256),
-    );
-  }
+
 
   @override
   void initState() {
-    _timer = Timer.periodic(
-      const Duration(
-        milliseconds: 300,
-      ),
-      (timer) {
-        setState(
-          () {
-            _boxColor = _generateRandomColor();
-          },
-        );
-      },
-    );
     super.initState();
     view.product = ProductApi.getProduct();
     viewCatalogPage.lists = CategoryService.fetchCategories();

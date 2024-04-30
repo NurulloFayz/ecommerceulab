@@ -29,27 +29,35 @@ class ViewEmailPage extends ChangeNotifier {
   }
 
   Future<void> loginUser() async {
-    //final UserModel userModel = UserModel(email: email.text, name: name.text, phoneNumber: phoneNumber.text,password: password.text);
-    var url =
-        Uri.parse('https://ulab-market-backend.onrender.com/api/auth/login');
+    var url = Uri.parse('https://ulab-market-backend.onrender.com/api/auth/login');
 
-    var response = await http.post(url,
-        headers: <String, String>{
-          'Content-Type': 'application/json; charset=UTF-8',
-        },
-        body: jsonEncode(
-            <String, String>{"source": email.text, 'type': 'email'}));
+    var response = await http.post(
+      url,
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(<String, String>{
+        'source': email.text, // Corrected the field name to 'email'
+        'type': 'email'
+      }),
+    );
+
     SharedPreferences preferences = await SharedPreferences.getInstance();
+
     if (response.statusCode == 200) {
       // Successful login, handle response data
       Map<String, dynamic> responseData = jsonDecode(response.body);
       print('email is ${responseData['email']}');
-     
+      // You might want to save the token or user data to SharedPreferences
+      // Example: preferences.setString('token', responseData['token']);
     } else {
       // Handle login failure
-      print('Login failed: ${response.body}');
+      print('Login failed with status code ${response.statusCode}: ${response.body}');
+      // You might want to show a message to the user indicating login failure
+      // Example: ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Login failed')));
     }
   }
+
 
   Color color = const Color(0xFFF5F6F8);
 }

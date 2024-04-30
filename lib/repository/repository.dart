@@ -1,11 +1,5 @@
-import 'dart:convert';
-import 'dart:io';
-
 import 'package:dio/dio.dart';
-import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import '../core/constants.dart';
 import '../core/either.dart';
 import '../core/failure.dart';
 import '../core/local_source.dart';
