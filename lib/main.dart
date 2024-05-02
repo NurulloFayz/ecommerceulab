@@ -6,17 +6,15 @@ import 'package:ecommerce_ulab/pages/favourite_page.dart';
 import 'package:ecommerce_ulab/pages/home_page.dart';
 import 'package:ecommerce_ulab/pages/onBoarding_page.dart';
 import 'package:ecommerce_ulab/pages/pages.dart';
-import 'package:ecommerce_ulab/pages/splash_page.dart';
-import 'package:ecommerce_ulab/test.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized(); // Ensure initialization
+  WidgetsFlutterBinding.ensureInitialized();
   await init();
-  final prefs = await SharedPreferences.getInstance(); // Get SharedPreferences instance
-  final bool isTokenExists = prefs.containsKey('token'); // Check for key existence
+  final prefs = await SharedPreferences.getInstance();
+  final bool isTokenExists = prefs.containsKey('token');
 
   runApp(MyApp(isTokenExists: isTokenExists));
 }
@@ -48,7 +46,7 @@ class _MyAppState extends State<MyApp> {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home:  widget.isTokenExists ? const MyPages() : const OnBoardingPage(),
+        home: widget.isTokenExists ? const MyPages() : const OnBoardingPage(),
         routes: {
           EmailPage.id:(context) => const EmailPage(),
           EnterEmailCodePage.id:(context) => const EnterEmailCodePage(''),
