@@ -46,7 +46,8 @@ class _MyAppState extends State<MyApp> {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: widget.isTokenExists ? const MyPages() : const OnBoardingPage(),
+        home: const MyPages(),
+        //widget.isTokenExists ? const MyPages() : const OnBoardingPage(),
         routes: {
           EmailPage.id:(context) => const EmailPage(),
           EnterEmailCodePage.id:(context) => const EnterEmailCodePage(''),

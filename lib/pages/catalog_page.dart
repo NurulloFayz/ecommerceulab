@@ -17,12 +17,35 @@ class CatalogPage extends StatefulWidget {
 
 class _CatalogPageState extends State<CatalogPage> {
   ViewCatalogPage view = ViewCatalogPage();
+  late Future<List<CategoryModel>> categoriesFuture;
+  List<CategoryModel> filteredCategories = [];
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     view.lists = CategoryService.fetchCategories();
+    categoriesFuture = CategoryService.fetchCategories();
   }
+  void searchCategories(String query) {
+    if (query.length > 0) {
+      view.lists?.then((categories) {
+        setState(() {
+          filteredCategories.clear();
+
+          for (var category in categories) {
+            if (category.nameUz.toLowerCase().startsWith(query.toLowerCase())) {
+              filteredCategories.add(category);
+            }
+          }
+        });
+      });
+    } else {
+      setState(() {
+        filteredCategories.clear();
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -34,21 +57,12 @@ class _CatalogPageState extends State<CatalogPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              // IconButton(
-              //   icon: Icon(
-              //     CupertinoIcons.left_chevron,
-              //     color: black,
-              //     size: screenHeight / 40,
-              //   ),
-              //   onPressed: () {
-              //     view.navigateToMyPages(context);
-              //   },
-              // ),
               Container(
                 width: screenWidth / 1.1,
                 child: TextField(
                   style: TextStyle(fontSize: screenHeight / 40),
                   controller: view.searchController,
+                  onChanged: searchCategories,
                   decoration: InputDecoration(
                       prefixIcon: Icon(
                         Icons.search,
@@ -80,7 +94,7 @@ class _CatalogPageState extends State<CatalogPage> {
           ),
           Expanded(
             child: FutureBuilder<List<CategoryModel>>(
-                future: view.lists,
+                future: categoriesFuture,
                 builder: (context,snapshot) {
                   if(snapshot.connectionState == ConnectionState.waiting) {
                     return const Center(child: CircularProgressIndicator(),);
@@ -88,13 +102,15 @@ class _CatalogPageState extends State<CatalogPage> {
                     return Center(child: Text('error${snapshot.error}'),);
                   } else {
                     final categoryList = snapshot.data;
-                    if(categoryList!.isEmpty) {
-                      return Text('no recipes found');
+                    if (categoryList!.isEmpty) {
+                      return const Text('No categories found');
                     }
                     return ListView.builder(
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
-                        itemCount: categoryList.length,
+                        itemCount: filteredCategories.isNotEmpty
+                            ? filteredCategories.length
+                            : categoryList.length,
                         itemBuilder: (context,index) {
                           final itemList = categoryList[index];
                           return Column(
